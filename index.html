@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitpause - KI Ernährungsplaner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">Fitpause</div>
+            <div class="lang-switcher">
+                <button onclick="switchLanguage('de')">DE</button>
+                <button onclick="switchLanguage('en')">EN</button>
+                <button onclick="switchLanguage('es')">ES</button>
+                <button onclick="switchLanguage('fr')">FR</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 id="hero-title">Personalisierte Ernährung war noch nie so einfach</h1>
+            <p id="hero-subtitle">KI-gestützte Wochenpläne & Rezepte für jeden Geschmack</p>
+            <button id="get-started" onclick="showQuestionnaire()">Jetzt starten</button>
+        </section>
+
+        <section id="questionnaire" style="display: none;">
+            <h2>Erzähle uns von dir</h2>
+            <form id="user-form">
+                <input type="text" placeholder="Deine Ziele" required>
+                <input type="email" placeholder="E-Mail" required>
+                <button type="submit">Plan erstellen</button>
+            </form>
+        </section>
+
+        <section id="meal-plan" style="display: none;">
+            <h2>Dein personalisierter Wochenplan</h2>
+            <div class="plan-grid">
+                <div class="day">Montag: Mediterrane Gemüsepfanne</div>
+                <div class="day">Dienstag: Quinoa-Salat</div>
+                <div class="day">Mittwoch: Lachs mit Süßkartoffeln</div>
+            </div>
+        </section>
+    </main>
+
+    <div id="chat-assistant" class="chat-bubble" onclick="toggleChat()">💬</div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
