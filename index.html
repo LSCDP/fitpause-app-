@@ -1,52 +1,69 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitpause - KI Ernährungsplaner</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <nav class="nav">
-            <div class="logo">Fitpause</div>
-            <div class="lang-switcher">
-                <button onclick="switchLanguage('de')">DE</button>
-                <button onclick="switchLanguage('en')">EN</button>
-                <button onclick="switchLanguage('es')">ES</button>
-                <button onclick="switchLanguage('fr')">FR</button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1 id="hero-title">Personalisierte Ernährung war noch nie so einfach</h1>
-            <p id="hero-subtitle">KI-gestützte Wochenpläne & Rezepte für jeden Geschmack</p>
-            <button id="get-started" onclick="showQuestionnaire()">Jetzt starten</button>
-        </section>
-
-        <section id="questionnaire" style="display: none;">
-            <h2>Erzähle uns von dir</h2>
-            <form id="user-form">
-                <input type="text" placeholder="Deine Ziele" required>
-                <input type="email" placeholder="E-Mail" required>
-                <button type="submit">Plan erstellen</button>
-            </form>
-        </section>
-
-        <section id="meal-plan" style="display: none;">
-            <h2>Dein personalisierter Wochenplan</h2>
-            <div class="plan-grid">
-                <div class="day">Montag: Mediterrane Gemüsepfanne</div>
-                <div class="day">Dienstag: Quinoa-Salat</div>
-                <div class="day">Mittwoch: Lachs mit Süßkartoffeln</div>
-            </div>
-        </section>
-    </main>
-
-    <div id="chat-assistant" class="chat-bubble" onclick="toggleChat()">💬</div>
+<!-- VERBESSERTER ALLERGIE-BEREICH -->
+<div class="form-group allergy-section">
+    <label data-i18n="allergies">Allergien & Unverträglichkeiten:</label>
     
-    <script src="app.js"></script>
-</body>
-</html>
+    <!-- Häufige Allergien als anklickbare Buttons -->
+    <div class="allergy-buttons">
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('gluten')">
+            🌾 Gluten
+        </button>
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('lactose')">
+            🥛 Laktose
+        </button>
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('nuts')">
+            🥜 Nüsse
+        </button>
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('shellfish')">
+            🦐 Meeresfrüchte
+        </button>
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('eggs')">
+            🥚 Eier
+        </button>
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('soy')">
+            🫘 Soja
+        </button>
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('fish')">
+            🐟 Fisch
+        </button>
+        <button type="button" class="allergy-btn" onclick="toggleAllergy('sesame')">
+            🌰 Sesam
+        </button>
+    </div>
+    
+    <!-- Weitere häufige Unverträglichkeiten -->
+    <div class="intolerance-section">
+        <h4>Häufige Unverträglichkeiten:</h4>
+        <div class="allergy-buttons secondary">
+            <button type="button" class="allergy-btn small" onclick="toggleAllergy('histamine')">
+                Histamin
+            </button>
+            <button type="button" class="allergy-btn small" onclick="toggleAllergy('fructose')">
+                Fruktose
+            </button>
+            <button type="button" class="allergy-btn small" onclick="toggleAllergy('sorbit')">
+                Sorbit
+            </button>
+            <button type="button" class="allergy-btn small" onclick="toggleAllergy('salicylate')">
+                Salicylate
+            </button>
+        </div>
+    </div>
+    
+    <!-- Eigene Eingabe -->
+    <div class="custom-allergy-input">
+        <label>✏️ Weitere Allergien hinzufügen:</label>
+        <div class="input-group">
+            <input type="text" id="custom-allergy" placeholder="z.B. Tomaten, Zwiebeln, spezielle Medikamente...">
+            <button type="button" onclick="addCustomAllergy()" class="add-btn">+ Hinzufügen</button>
+        </div>
+    </div>
+    
+    <!-- Ausgewählte Allergien anzeigen -->
+    <div class="selected-allergies" id="selected-allergies">
+        <strong>Ihre Auswahl:</strong>
+        <div id="allergy-tags"></div>
+    </div>
+    
+    <!-- Verstecktes Input für Formular-Submission -->
+    <input type="hidden" name="allergies" id="allergies-hidden">
+</div>
