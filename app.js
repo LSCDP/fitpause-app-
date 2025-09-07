@@ -84,3 +84,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// ALLERGIE-MANAGEMENT SYSTEM
+let selectedAllergies = [];
+
+function toggleAllergy(allergy) {
+    const button = event.target;
+    
+    if (selectedAllergies.includes(allergy)) {
+        // Allergie entfernen
+        selectedAllergies = selectedAllergies.filter(a => a !== allergy);
+        button.classList.remove('selected');
+    } else {
+        // Allergie hinzufügen
+        selectedAllergies.push(allergy);
+        button.classList.add('selected');
+    }
+    
+    updateAllergyDisplay();
+}
+
+function addCustomAllergy() {
+    const input = document.getElementById('custom-allergy');
+    const customAllergy = input.value.trim();
+    
+    if (customAllergy && !selectedAllergies.includes(customAllergy)) {
+        selectedAllergies.push(customAllergy);
+        input.value = '';
+        updateAllergyDisplay();
+    }
+}
+
+function updateAllergyDisplay() {
+    const tagsContainer = document.getElementById('allergy-tags');
+    const hiddenInput = document.getElementById('allergies-hidden');
+    
+    // Tags anzeigen
+    tagsContainer.innerHTML = selectedAllergies.map(allergy => 
+        `<span class="allergy-tag">
+            ${allergy} 
+            <button type="button" onclick="removeAllergy('${allergy}')" class="remove-tag">×</button>
+        </span>`
+    ).join('');
+    
+    // Verstecktes Input aktualisieren
+    hiddenInput.value = selectedAllergies.join(', ');
+}
+
+function removeAllergy(allergy) {
+    selectedAllergies = selectedAllergies.filter(a => a !== allergy);
+    
+    // Button-Status aktualisieren
+    const button = document.querySelector(`[onclick="toggleAllergy('${allergy}')"]`);
+    if (button) {
+        button.classList.remove('selected');
+    }
+    
+    updateAllergyDisplay();
+}
