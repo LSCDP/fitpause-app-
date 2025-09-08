@@ -1,69 +1,183 @@
-<!-- VERBESSERTER ALLERGIE-BEREICH -->
-<div class="form-group allergy-section">
-    <label data-i18n="allergies">Allergien & Unverträglichkeiten:</label>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitpause - Personalisierte KI-Ernährung</title>
+    <meta name="description" content="KI-gestützte Wochenpläne & Rezepte für jeden Geschmack. Personalisierte Ernährung war noch nie so einfach.">
     
-    <!-- Häufige Allergien als anklickbare Buttons -->
-    <div class="allergy-buttons">
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('gluten')">
-            🌾 Gluten
-        </button>
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('lactose')">
-            🥛 Laktose
-        </button>
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('nuts')">
-            🥜 Nüsse
-        </button>
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('shellfish')">
-            🦐 Meeresfrüchte
-        </button>
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('eggs')">
-            🥚 Eier
-        </button>
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('soy')">
-            🫘 Soja
-        </button>
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('fish')">
-            🐟 Fisch
-        </button>
-        <button type="button" class="allergy-btn" onclick="toggleAllergy('sesame')">
-            🌰 Sesam
-        </button>
-    </div>
+    <!-- Optimierte Meta Tags -->
+    <meta property="og:title" content="Fitpause - Personalisierte KI-Ernährung">
+    <meta property="og:description" content="KI-gestützte Wochenpläne & Rezepte für jeden Geschmack">
+    <meta property="og:type" content="website">
     
-    <!-- Weitere häufige Unverträglichkeiten -->
-    <div class="intolerance-section">
-        <h4>Häufige Unverträglichkeiten:</h4>
-        <div class="allergy-buttons secondary">
-            <button type="button" class="allergy-btn small" onclick="toggleAllergy('histamine')">
-                Histamin
-            </button>
-            <button type="button" class="allergy-btn small" onclick="toggleAllergy('fructose')">
-                Fruktose
-            </button>
-            <button type="button" class="allergy-btn small" onclick="toggleAllergy('sorbit')">
-                Sorbit
-            </button>
-            <button type="button" class="allergy-btn small" onclick="toggleAllergy('salicylate')">
-                Salicylate
-            </button>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23667eea'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E">
+</head>
+<body>
+    <!-- Cookie Notice -->
+    <div id="cookie-notice" class="cookie-notice">
+        <div class="container">
+            <span data-i18n="cookie_text">Wir verwenden Cookies, um deine Erfahrung zu verbessern. Durch die Nutzung unserer Website stimmst du unserer Cookie-Richtlinie zu.</span>
+            <button onclick="acceptCookies()" class="btn btn--small" data-i18n="accept_cookies">Akzeptieren</button>
         </div>
     </div>
-    
-    <!-- Eigene Eingabe -->
-    <div class="custom-allergy-input">
-        <label>✏️ Weitere Allergien hinzufügen:</label>
-        <div class="input-group">
-            <input type="text" id="custom-allergy" placeholder="z.B. Tomaten, Zwiebeln, spezielle Medikamente...">
-            <button type="button" onclick="addCustomAllergy()" class="add-btn">+ Hinzufügen</button>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">Fitpause</a>
+            <div class="nav-links">
+                <a href="#features" data-i18n="nav_features">Features</a>
+                <a href="#pricing" data-i18n="nav_pricing">Preise</a>
+                <a href="#how-it-works" data-i18n="nav_how">So funktioniert's</a>
+            </div>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('de')">DE</button>
+                <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="switchLanguage('es')">ES</button>
+                <button class="lang-btn" onclick="switchLanguage('fr')">FR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h1 class="hero-title" data-i18n="hero_title">Personalisierte Ernährung war noch nie so einfach</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">KI-gestützte Wochenpläne & Rezepte für jeden Geschmack</p>
+            
+            <div class="hero-features">
+                <div class="feature-item" data-i18n="feature_1">✨ Individuell angepasst an deine Bedürfnisse</div>
+                <div class="feature-item" data-i18n="feature_2">🥗 Gesunde Rezepte für jeden Tag</div>
+                <div class="feature-item" data-i18n="feature_3">🛒 Automatische Einkaufslisten</div>
+                <div class="feature-item" data-i18n="feature_4">⏰ Spart Zeit und Aufwand</div>
+            </div>
+            
+            <button class="btn btn--primary btn--large" onclick="startQuestionnaire()" data-i18n="get_started">
+                Jetzt kostenlos starten
+            </button>
         </div>
+    </section>
+
+    <!-- Questionnaire -->
+    <div id="questionnaire" class="questionnaire hidden">
+        <!-- Hier kommt der erweiterte 5-Schritt Fragebogen -->
     </div>
-    
-    <!-- Ausgewählte Allergien anzeigen -->
-    <div class="selected-allergies" id="selected-allergies">
-        <strong>Ihre Auswahl:</strong>
-        <div id="allergy-tags"></div>
-    </div>
-    
-    <!-- Verstecktes Input für Formular-Submission -->
-    <input type="hidden" name="allergies" id="allergies-hidden">
-</div>
+
+    <!-- Example Plan -->
+    <section class="example-plan" id="features">
+        <div class="container">
+            <h2 data-i18n="example_title">So könnte dein Wochenplan aussehen</h2>
+            <div class="plan-grid">
+                <!-- Montag - FIXIERTES BILD -->
+                <div class="plan-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&q=80&auto=format" 
+                         alt="Mediterrane Gemüsepfanne" loading="lazy">
+                    <div class="card-content">
+                        <h3 data-i18n="monday_meal">Mediterrane Gemüsepfanne</h3>
+                        <span class="day" data-i18n="monday">Montag</span>
+                    </div>
+                </div>
+                
+                <!-- Dienstag -->
+                <div class="plan-card">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&q=80&auto=format" 
+                         alt="Quinoa Salat mit Avocado" loading="lazy">
+                    <div class="card-content">
+                        <h3 data-i18n="tuesday_meal">Quinoa-Salat mit Avocado</h3>
+                        <span class="day" data-i18n="tuesday">Dienstag</span>
+                    </div>
+                </div>
+                
+                <!-- Mittwoch -->
+                <div class="plan-card">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop&q=80&auto=format" 
+                         alt="Lachs mit Süßkartoffeln" loading="lazy">
+                    <div class="card-content">
+                        <h3 data-i18n="wednesday_meal">Lachs mit Süßkartoffeln</h3>
+                        <span class="day" data-i18n="wednesday">Mittwoch</span>
+                    </div>
+                </div>
+                
+                <!-- Donnerstag -->
+                <div class="plan-card">
+                    <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=300&fit=crop&q=80&auto=format" 
+                         alt="Hähnchen Curry mit Reis" loading="lazy">
+                    <div class="card-content">
+                        <h3 data-i18n="thursday_meal">Hähnchen-Curry mit Reis</h3>
+                        <span class="day" data-i18n="thursday">Donnerstag</span>
+                    </div>
+                </div>
+                
+                <!-- Freitag -->
+                <div class="plan-card">
+                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop&q=80&auto=format" 
+                         alt="Pasta mit Gemüse" loading="lazy">
+                    <div class="card-content">
+                        <h3 data-i18n="friday_meal">Pasta mit Gemüse</h3>
+                        <span class="day" data-i18n="friday">Freitag</span>
+                    </div>
+                </div>
+                
+                <!-- Samstag -->
+                <div class="plan-card">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop&q=80&auto=format" 
+                         alt="Veggie Burger" loading="lazy">
+                    <div class="card-content">
+                        <h3 data-i18n="saturday_meal">Veggie-Burger</h3>
+                        <span class="day" data-i18n="saturday">Samstag</span>
+                    </div>
+                </div>
+                
+                <!-- Sonntag -->
+                <div class="plan-card">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop&q=80&auto=format" 
+                         alt="Asiatisches Stir-Fry" loading="lazy">
+                    <div class="card-content">
+                        <h3 data-i18n="sunday_meal">Asiatisches Stir-Fry</h3>
+                        <span class="day" data-i18n="sunday">Sonntag</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <span class="trust-icon">🔒</span>
+                    <span data-i18n="trust_gdpr">DSGVO-konform</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">✉️</span>
+                    <span data-i18n="trust_email">Sichere E-Mails</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🤖</span>
+                    <span data-i18n="trust_ai">KI-gestützt</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">📱</span>
+                    <span data-i18n="trust_mobile">Mobil optimiert</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Assistant -->
+    <div class="chat-bubble" onclick="toggleChat()">💬</div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
