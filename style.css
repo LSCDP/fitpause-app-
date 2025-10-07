@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* === LIGHT MODE VARIABLES === */
 :root {
   --primary: #6366f1;
   --primary-dark: #3b37b3;
@@ -8,6 +10,8 @@
   --badge: #fff;
   --border: #e5e7eb;
 }
+
+/* === DARK MODE OVERRIDES === */
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #9ca3fa;
@@ -19,5 +23,441 @@
     --border: #374151;
   }
   body { background: var(--bg); color: var(--font);}
+  .header,
+  .footer,
+  .questionnaire,
+  .example-plan,
+  .trust-section {
+    background: var(--bg);
+    color: var(--font);
+  }
+  .plan-card,
+  .badge,
+  .trust-item {
+    background: var(--badge);
+    color: var(--font);
+    border-color: var(--primary);
+  }
+  .btn--primary {
+    background: var(--primary);
+    color: var(--font);
+  }
+  .btn--secondary {
+    background: #22223b;
+    color: var(--primary);
+    border-color: var(--border);
+  }
+  .chat-bubble {
+    background: var(--primary);
+    color: var(--font);
+  }
 }
-/* ... Rest siehe mein vorheriger style.css Block mit ACCESSIBILITY, BUTTONS, HERO, CARDS, TRUST BADGES usw ... */
+
+/* === BASE === */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--font);
+  background: var(--bg);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === HEADER === */
+.header {
+  background: rgba(250, 250, 250, 0.8);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #6b7280;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #000;
+}
+.lang-switcher {
+  display: flex;
+  gap: 2px;
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 12px;
+}
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  color: #6b7280;
+  transition: all 0.2s;
+}
+.lang-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* === HERO === */
+.hero {
+  padding: 120px 0 80px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--bg) 0%, #f9fafb 100%);
+}
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 24px;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+.hero-subtitle {
+  font-size: 20px;
+  color: #6b7280;
+  margin-bottom: 40px;
+  font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px 0;
+}
+.feature-item {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* === BUTTONS === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  min-width: 44px;
+  min-height: 44px;
+}
+.btn--primary {
+  background: var(--primary);
+  color: white;
+  border: 2px solid transparent;
+}
+.btn--primary:hover, .btn--primary:focus {
+  background: var(--primary-dark);
+}
+.btn--secondary {
+  background: white;
+  color: #000;
+  border: 2px solid var(--border);
+}
+.btn--secondary:hover {
+  border-color: var(--primary);
+  background: #f3f4f6;
+}
+.btn--large {
+  padding: 20px 40px;
+  font-size: 18px;
+  border-radius: 16px;
+}
+button:focus, a:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* === QUESTIONNAIRE / ALLERGY SYSTEM === */
+.questionnaire {
+  padding: 80px 0;
+  background: white;
+  display: none;
+}
+.questionnaire.active {
+  display: block;
+}
+.questionnaire h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 48px;
+  letter-spacing: -1px;
+}
+.questionnaire form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.allergy-section {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+}
+.allergy-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+.allergy-btn {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  min-width: 44px;
+  min-height: 44px;
+}
+.allergy-btn:hover, .allergy-btn.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+.allergy-tag {
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px;
+}
+.remove-tag {
+  background: rgba(255,255,255,0.3);
+  border: none;
+  color: white;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* === EXAMPLE PLAN / PREMIUM CARDS === */
+.example-plan {
+  padding: 80px 0;
+  background: white;
+}
+.example-plan h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 48px;
+  letter-spacing: -1px;
+}
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+.plan-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  border-color: #d1d5db;
+}
+.plan-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+.plan-card .card-content {
+  padding: 24px;
+}
+.plan-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--font);
+  margin-bottom: 8px;
+}
+.plan-card .day {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === TRUST BADGES === */
+.trust-section {
+  padding: 60px 0;
+  background: #f9fafb;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.trust-item, .badge {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--badge);
+  border-radius: 16px;
+  border: 2px solid var(--primary);
+  color: var(--font);
+  font-weight: 600;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.trust-item:hover, .badge:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+  transform: scale(1.04);
+}
+.trust-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+/* === CHAT BUBBLE === */
+.chat-bubble {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 64px; height: 64px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+.chat-bubble:hover, .chat-bubble:focus {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  outline: 2px solid var(--accent);
+}
+
+/* === FOOTER === */
+.footer {
+  background: #000;
+  color: white;
+  padding: 48px 0;
+}
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer__brand h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px;}
+.footer__brand p { color: #9ca3af; font-size: 14px;}
+.footer__links { display: flex; gap: 32px;}
+.footer__links a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer__links a:hover { color: white;}
+.footer__social { display: flex; gap: 16px;}
+.footer__social a {
+  font-size: 20px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.footer__social a:hover { transform: scale(1.1); }
+
+/* === UTILITIES === */
+.hidden { display: none !important; }
+
+/* === RESPONSIVE MEDIA QUERIES === */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .nav { flex-direction: column; gap: 20px; padding: 16px 0; }
+  .nav-links { gap: 16px; }
+  .hero { padding: 100px 0 60px; }
+  .hero-title { font-size: 2.5rem; letter-spacing: -1px; }
+  .hero-subtitle { font-size: 18px; }
+  .plan-grid { grid-template-columns: 1fr; }
+  .plan-card img { height: 180px; }
+  .footer__content { flex-direction: column; text-align: center; gap: 32px; }
+  .allergy-buttons { gap: 8px; }
+  .allergy-btn { padding: 10px 16px; font-size: 13px; }
+}
+@media (max-width: 480px) {
+  .btn { padding: 10px 8px; font-size: 14px; }
+  .plan-card img { height: 120px; }
+  .hero { padding: 70px 0 30px; }
+  .container { padding: 0 10px; }
+}
+
+/* === SMOOTH ANIMATIONS === */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+  }
+}
+
+/* === PRINT STYLES (optional) === */
+@media print {
+  .header, .chat-bubble, .footer, .cookie-notice { display: none; }
+  body { background: white; color: #000; }
+  .container { max-width: 100%; }
+  .plan-card img { height: auto; }
+}
