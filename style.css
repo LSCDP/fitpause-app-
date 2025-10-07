@@ -461,3 +461,18 @@ button:focus, a:focus {
   .container { max-width: 100%; }
   .plan-card img { height: auto; }
 }
+
+.logo-header img {
+  height: 110px;
+  max-width: 90vw;
+  border-radius: 24px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(40,80,80,0.13);
+  background: transparent;
+}
+
+/* Header Abstand anpassen */
+.header {
+  padding-top: 140px;
+}
