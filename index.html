@@ -3,127 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitpause - Personalisierte KI-Ernährung</title>
-  <meta name="description" content="KI-gestützte Wochenpläne & Rezepte für jeden Geschmack. Personalisierte Ernährung war noch nie so einfach.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="LSCDP Team">
-  <meta name="keywords" content="Ernährung, KI, Meal Planning, Rezepte, Fitness, Gesund, Wochenplan, Vegan, Allergien, individuell">
-  <link rel="canonical" href="https://fitpause.de/">
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Fitpause – Personalisierte Ernährung & KI-Wochenpläne</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <!-- Logo für den Seitenkopf -->
-<div class="logo-block">
-  <img src="logo.png" alt="FitPause Logo">
-</div>
-<!-- Humorvolle Beschreibung -->
-<div class="site-description">
-  <p>
-    Deine Pause – deine Power! FitPause ist die moderne KI-Ernährungs-App für alle, die mehr wollen als nur langweiliges Salatblättern.<br>
-    Hier bekommst du maßgeschneiderte Wochenpläne, smarte Rezepte und clevere Einkaufslisten – für Fitnessfans, Küchenchaoten und alle, die eigentlich gar keine Zeit für 'gesund' haben.<br>
-    Ob Allergiker, Vielbeschäftigte oder Hardcore-Genießer: FitPause weiß, was dir schmeckt. Du tippst, die KI denkt – und am Ende sieht sogar dein Kühlschrank aus wie ein Ernährungsplan.<br>
-    Frischer Genuss mit Humor und Hirn – schnell, smart und garantiert ohne Quark im Kopf!
-  </p>
-</div>
-
-  <!-- Cookie Notice -->
-  <div id="cookie-notice" class="cookie-notice">
-    <div class="container">
-      <span id="cookie-text"></span>
-      <button onclick="acceptCookies()" class="btn btn--small" id="cookie-btn"></button>
+  <nav>
+    <div class="nav-links">
+      <a href="#">Fitpause</a>
+      <a href="#">Start</a>
+      <a href="#">So funktioniert's</a>
+      <a href="#">Preise</a>
+      <a href="#">Blog</a>
+      <a href="#">Kontakt</a>
     </div>
-  </div>
-  <header class="header">
-    <nav class="nav container" aria-label="Hauptnavigation">
-      <div class="nav-links">
-        <a href="#features" id="nav_features"></a>
-        <a href="#pricing" id="nav_pricing"></a>
-        <a href="#how-it-works" id="nav_how"></a>
-      </div>
-      <div class="lang-switcher">
-        <button onclick="switchLanguage('de')" class="lang-btn" id="lang_de" aria-label="Deutsch"><img src="https://flagcdn.com/w20/de.png" alt="DE"></button>
-        <button onclick="switchLanguage('en')" class="lang-btn" id="lang_en" aria-label="English"><img src="https://flagcdn.com/w20/gb.png" alt="EN"></button>
-        <button onclick="switchLanguage('es')" class="lang-btn" id="lang_es" aria-label="Español"><img src="https://flagcdn.com/w20/es.png" alt="ES"></button>
-        <button onclick="switchLanguage('fr')" class="lang-btn" id="lang_fr" aria-label="Français"><img src="https://flagcdn.com/w20/fr.png" alt="FR"></button>
-      </div>
-    </nav>
-  </header>
-  <section class="hero" id="hero">
-    <div class="container">
-      <h1 class="hero-title" id="hero_title"></h1>
-      <p class="hero-subtitle" id="hero_subtitle"></p>
-      <div class="hero-features">
-        <div class="feature-item" id="feature_1"></div>
-        <div class="feature-item" id="feature_2"></div>
-        <div class="feature-item" id="feature_3"></div>
-        <div class="feature-item" id="feature_4"></div>
-      </div>
-      <button class="btn btn--primary btn--large" id="get_started" onclick="startQuestionnaire()" aria-label="Fragebogen starten"></button>
+    <div class="nav-actions">
+      <select class="menu-lang">
+        <option selected>🇩🇪 DE</option>
+        <option>🇺🇸 EN</option>
+        <option>🇪🇸 ES</option>
+        <option>🇫🇷 FR</option>
+      </select>
+      <button class="secondary">Anmelden</button>
+      <button>Registrieren</button>
+    </div>
+  </nav>
+  <section class="hero">
+    <h1>Personalisierte Ernährung war noch nie so einfach</h1>
+    <p>KI-gestützte Wochenpläne & Rezepte für jeden Geschmack</p>
+    <div class="features">
+      <div class="feature-item">✨ Individuell angepasst an deine Bedürfnisse</div>
+      <div class="feature-item">🥗 Gesunde Rezepte für jeden Tag</div>
+      <div class="feature-item">🛒 Automatische Einkaufslisten</div>
+      <div class="feature-item">⏰ Spart Zeit und Aufwand</div>
+    </div>
+    <button class="cta-btn">Jetzt starten</button>
+  </section>
+  <section class="wochenplan">
+    <h3>So könnte dein Wochenplan aussehen</h3>
+    <ul class="plan-list">
+      <li><span>Montag</span><span>Mediterrane Gemüsepfanne</span></li>
+      <li><span>Dienstag</span><span>Quinoa-Salat mit Avocado</span></li>
+      <li><span>Mittwoch</span><span>Lachs mit Süßkartoffeln</span></li>
+      <li><span>Donnerstag</span><span>Hähnchen-Curry mit Reis</span></li>
+      <li><span>Freitag</span><span>Pasta mit Gemüse</span></li>
+      <li><span>Samstag</span><span>Veggie-Burger</span></li>
+      <li><span>Sonntag</span><span>Asiatisches Stir-Fry</span></li>
+    </ul>
+    <div class="badges">
+      <span class="badge">🔒 DSGVO-konform</span>
+      <span class="badge">✉️ Sichere E-Mails</span>
+      <span class="badge">🤖 KI-gestützt</span>
+      <span class="badge">📱 Mobil optimiert</span>
     </div>
   </section>
-  <div id="questionnaire" class="questionnaire hidden">
-    <form id="user-form">
-      <div class="allergy-section">
-        <div class="allergy-buttons">
-          <button type="button" onclick="toggleAllergy('Gluten', event)" id="allergy_gluten"></button>
-          <button type="button" onclick="toggleAllergy('Laktose', event)" id="allergy_lactose"></button>
+  <footer>
+    <div class="footer-main">
+      <div class="footer-block">
+        <h4>Fitpause</h4>
+        <div class="footer-links">
+          <a href="#">So funktioniert's</a>
+          <a href="#">Preise</a>
+          <a href="#">Blog</a>
+          <a href="#">Kontakt</a>
         </div>
-        <input id="custom-allergy" type="text" placeholder="">
-        <button type="button" onclick="addCustomAllergy()" id="add_custom_allergy"></button>
-        <div id="allergy-tags"></div>
-        <input id="allergies-hidden" type="hidden" name="allergien" />
       </div>
-    </form>
-  </div>
-  <section class="example-plan" id="features">
-    <div class="container">
-      <h2 id="example_title"></h2>
-      <div class="plan-grid">
-        <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&fit=crop&q=80&auto=format" alt="Mediterrane Gemüsepfanne" loading="lazy">
-          <div class="card-content"><h3 id="meal_mon"></h3><span class="day" id="mon"></span></div>
+      <div class="footer-block">
+        <h4>Rechtliches</h4>
+        <div class="footer-links">
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+          <a href="#">Impressum</a>
         </div>
-        <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&fit=crop&q=80&auto=format" alt="Quinoa Salat mit Avocado" loading="lazy">
-          <div class="card-content"><h3 id="meal_tue"></h3><span class="day" id="tue"></span></div>
-        </div>
-        <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&fit=crop&q=80&auto=format" alt="Lachs mit Süßkartoffeln" loading="lazy">
-          <div class="card-content"><h3 id="meal_wed"></h3><span class="day" id="wed"></span></div>
-        </div>
-        <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&fit=crop&q=80&auto=format" alt="Hähnchen-Curry mit Reis" loading="lazy">
-          <div class="card-content"><h3 id="meal_thu"></h3><span class="day" id="thu"></span></div>
-        </div>
-        <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&fit=crop&q=80&auto=format" alt="Pasta mit Gemüse" loading="lazy">
-          <div class="card-content"><h3 id="meal_fri"></h3><span class="day" id="fri"></span></div>
-        </div>
-        <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&fit=crop&q=80&auto=format" alt="Veggie Burger" loading="lazy">
-          <div class="card-content"><h3 id="meal_sat"></h3><span class="day" id="sat"></span></div>
-        </div>
-        <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&fit=crop&q=80&auto=format" alt="Asiatisches Stir-Fry" loading="lazy">
-          <div class="card-content"><h3 id="meal_sun"></h3><span class="day" id="sun"></span></div>
+      </div>
+      <div class="footer-block">
+        <h4>Folge uns</h4>
+        <div class="social-links">
+          <a href="#">📘 Facebook</a>
+          <a href="#">📷 Instagram</a>
+          <a href="#">🐦 Twitter</a>
         </div>
       </div>
     </div>
-  </section>
-  <section class="trust-section">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-item"><span class="trust-icon">🔒</span> <span id="trust_gdpr"></span></div>
-        <div class="trust-item"><span class="trust-icon">✉️</span> <span id="trust_email"></span></div>
-        <div class="trust-item"><span class="trust-icon">🤖</span> <span id="trust_ai"></span></div>
-        <div class="trust-item"><span class="trust-icon">📱</span> <span id="trust_mobile"></span></div>
-      </div>
-    </div>
-  </section>
-  <div class="chat-bubble" onclick="toggleChat()">💬</div>
+    <div class="footer-copy">© 2025 Fitpause. Alle Rechte vorbehalten.</div>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>
