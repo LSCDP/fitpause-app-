@@ -33,9 +33,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23667eea'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="logo.png"><!-- Passe „logo.png“ ggf. zum korrekten Dateinamen an! -->
+  <style>
+    .logo-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 0 24px 0;
+    }
+    .logo-header img {
+      height: 130px;
+      max-width: 95vw;
+      border-radius: 24px;
+      box-shadow: 0 10px 32px rgba(40,80,80,0.16);
+      background: transparent;
+      margin: 0 auto;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .logo-header img { height: 90px; }
+      .logo-header { padding: 32px 0 18px 0; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Logo prominent und mittig -->
+  <div class="logo-header">
+    <img src="logo.png" alt="FitPause Logo">
+    <!-- Nutze logo.png oder logo.jpg, je nach Dateiname im Projekt -->
+  </div>
+
   <!-- Cookie Notice -->
   <div id="cookie-notice" class="cookie-notice">
     <div class="container">
@@ -43,13 +70,9 @@
       <button onclick="acceptCookies()" class="btn btn--small" data-i18n="accept_cookies">Akzeptieren</button>
     </div>
   </div>
-  <!-- Header -->
+  <!-- Header + Navigation (ohne Schriftzug im Logo) -->
   <header class="header">
     <nav class="nav container" aria-label="Hauptnavigation">
-      <a href="#" class="logo" style="display: flex; align-items: center; gap: 12px;">
-  <img src="logo.png" alt="FitPause Logo" style="height:44px; width:auto; border-radius:12px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);">
-  <span style="font-size:28px; font-weight:900; color:var(--primary); letter-spacing:-1px;">FIT PAUSE</span>
-</a>
       <div class="nav-links">
         <a href="#features" data-i18n="nav_features">Features</a>
         <a href="#pricing" data-i18n="nav_pricing">Preise</a>
@@ -84,7 +107,6 @@
         <div class="allergy-buttons">
           <button type="button" onclick="toggleAllergy('Gluten', event)">Gluten</button>
           <button type="button" onclick="toggleAllergy('Laktose', event)">Laktose</button>
-          <!-- Weitere Allergien nach Bedarf -->
         </div>
         <input id="custom-allergy" type="text" placeholder="Eigene Allergie hinzufügen" />
         <button type="button" onclick="addCustomAllergy()">Hinzufügen</button>
@@ -93,20 +115,53 @@
       </div>
     </form>
   </div>
-  <!-- Example Plan -->
+  <!-- Example Plan: alle 7 Wochentage -->
   <section class="example-plan" id="features">
     <div class="container">
       <h2 data-i18n="example_title">So könnte dein Wochenplan aussehen</h2>
       <div class="plan-grid">
-        <!-- Montag -->
         <div class="plan-card">
-          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&q=80&auto=format" alt="Mediterrane Gemüsepfanne" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&fit=crop&q=80&auto=format" alt="Mediterrane Gemüsepfanne" loading="lazy">
           <div class="card-content">
-            <h3 data-i18n="monday_meal">Mediterrane Gemüsepfanne</h3>
-            <span class="day" data-i18n="monday">Montag</span>
+            <h3>Gemüsepfanne</h3><span class="day">Montag</span>
           </div>
         </div>
-        <!-- ... weitere Tage analog hinzufügen ... -->
+        <div class="plan-card">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&fit=crop&q=80&auto=format" alt="Quinoa Salat mit Avocado" loading="lazy">
+          <div class="card-content">
+            <h3>Quinoa-Salat mit Avocado</h3><span class="day">Dienstag</span>
+          </div>
+        </div>
+        <div class="plan-card">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&fit=crop&q=80&auto=format" alt="Lachs mit Süßkartoffeln" loading="lazy">
+          <div class="card-content">
+            <h3>Lachs mit Süßkartoffeln</h3><span class="day">Mittwoch</span>
+          </div>
+        </div>
+        <div class="plan-card">
+          <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&fit=crop&q=80&auto=format" alt="Hähnchen-Curry mit Reis" loading="lazy">
+          <div class="card-content">
+            <h3>Hähnchen-Curry mit Reis</h3><span class="day">Donnerstag</span>
+          </div>
+        </div>
+        <div class="plan-card">
+          <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&fit=crop&q=80&auto=format" alt="Pasta mit Gemüse" loading="lazy">
+          <div class="card-content">
+            <h3>Pasta mit Gemüse</h3><span class="day">Freitag</span>
+          </div>
+        </div>
+        <div class="plan-card">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&fit=crop&q=80&auto=format" alt="Veggie Burger" loading="lazy">
+          <div class="card-content">
+            <h3>Veggie-Burger</h3><span class="day">Samstag</span>
+          </div>
+        </div>
+        <div class="plan-card">
+          <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&fit=crop&q=80&auto=format" alt="Asiatisches Stir-Fry" loading="lazy">
+          <div class="card-content">
+            <h3>Asiatisches Stir-Fry</h3><span class="day">Sonntag</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
