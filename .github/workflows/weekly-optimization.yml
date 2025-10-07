@@ -1,0 +1,53 @@
+name: Weekly Optimization Report
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9 AM
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  competitive-analysis:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Competitive Analysis
+      run: |
+        node scripts/competitor-monitoring.js
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        
+    - name: Performance Monitoring
+      run: |
+        node scripts/performance-monitor.js
+        
+    - name: SEO Analysis
+      run: |
+        node scripts/seo-analysis.js
+        
+    - name: Generate Report
+      run: |
+        node scripts/weekly-report-generator.js
+        
+    - name: Create GitHub Issues
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('weekly-report.json', 'utf8'));
+          
+          // Create issues for each optimization opportunity
+          for (const issue of report.issues) {
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issue.title,
+              body: issue.body,
+              labels: issue.labels
+            });
+          }
