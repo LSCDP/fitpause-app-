@@ -40,10 +40,10 @@
                 <a href="#how-it-works" data-i18n="nav_how">So funktioniert's</a>
             </div>
             <div class="lang-switcher">
-                <button class="lang-btn active" onclick="switchLanguage('de')">DE</button>
-                <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
-                <button class="lang-btn" onclick="switchLanguage('es')">ES</button>
-                <button class="lang-btn" onclick="switchLanguage('fr')">FR</button>
+                <button onclick="switchLanguage('de')" class="lang-btn active">DE</button>
+                <button onclick="switchLanguage('en')" class="lang-btn">EN</button>
+                <button onclick="switchLanguage('es')" class="lang-btn">ES</button>
+                <button onclick="switchLanguage('fr')" class="lang-btn">FR</button>
             </div>
         </nav>
     </header>
@@ -61,7 +61,7 @@
                 <div class="feature-item" data-i18n="feature_4">⏰ Spart Zeit und Aufwand</div>
             </div>
             
-            <button class="btn btn--primary btn--large" onclick="startQuestionnaire()" data-i18n="get_started">
+            <button class="btn btn--primary btn--large" data-i18n="get_started" onclick="startQuestionnaire()">
                 Jetzt kostenlos starten
             </button>
         </div>
@@ -70,6 +70,19 @@
     <!-- Questionnaire -->
     <div id="questionnaire" class="questionnaire hidden">
         <!-- Hier kommt der erweiterte 5-Schritt Fragebogen -->
+        <form id="user-form">
+            <div class="allergy-section">
+                <div class="allergy-buttons">
+                    <button type="button" onclick="toggleAllergy('Gluten', event)">Gluten</button>
+                    <button type="button" onclick="toggleAllergy('Laktose', event)">Laktose</button>
+                    <!-- Weitere Allergien nach Bedarf -->
+                </div>
+                <input id="custom-allergy" type="text" placeholder="Eigene Allergie hinzufügen" />
+                <button type="button" onclick="addCustomAllergy()">Hinzufügen</button>
+                <div id="allergy-tags"></div>
+                <input id="allergies-hidden" type="hidden" name="allergien" />
+            </div>
+        </form>
     </div>
 
     <!-- Example Plan -->
@@ -77,70 +90,57 @@
         <div class="container">
             <h2 data-i18n="example_title">So könnte dein Wochenplan aussehen</h2>
             <div class="plan-grid">
-                <!-- Montag - FIXIERTES BILD -->
+                <!-- Montag -->
                 <div class="plan-card">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&q=80&auto=format" 
-                         alt="Mediterrane Gemüsepfanne" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&q=80&auto=format" alt="Mediterrane Gemüsepfanne" loading="lazy">
                     <div class="card-content">
                         <h3 data-i18n="monday_meal">Mediterrane Gemüsepfanne</h3>
                         <span class="day" data-i18n="monday">Montag</span>
                     </div>
                 </div>
-                
                 <!-- Dienstag -->
                 <div class="plan-card">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&q=80&auto=format" 
-                         alt="Quinoa Salat mit Avocado" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop&q=80&auto=format" alt="Quinoa Salat mit Avocado" loading="lazy">
                     <div class="card-content">
                         <h3 data-i18n="tuesday_meal">Quinoa-Salat mit Avocado</h3>
                         <span class="day" data-i18n="tuesday">Dienstag</span>
                     </div>
                 </div>
-                
                 <!-- Mittwoch -->
                 <div class="plan-card">
-                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop&q=80&auto=format" 
-                         alt="Lachs mit Süßkartoffeln" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop&q=80&auto=format" alt="Lachs mit Süßkartoffeln" loading="lazy">
                     <div class="card-content">
                         <h3 data-i18n="wednesday_meal">Lachs mit Süßkartoffeln</h3>
                         <span class="day" data-i18n="wednesday">Mittwoch</span>
                     </div>
                 </div>
-                
                 <!-- Donnerstag -->
                 <div class="plan-card">
-                    <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=300&fit=crop&q=80&auto=format" 
-                         alt="Hähnchen Curry mit Reis" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=300&fit=crop&q=80&auto=format" alt="Hähnchen Curry mit Reis" loading="lazy">
                     <div class="card-content">
                         <h3 data-i18n="thursday_meal">Hähnchen-Curry mit Reis</h3>
                         <span class="day" data-i18n="thursday">Donnerstag</span>
                     </div>
                 </div>
-                
                 <!-- Freitag -->
                 <div class="plan-card">
-                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop&q=80&auto=format" 
-                         alt="Pasta mit Gemüse" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop&q=80&auto=format" alt="Pasta mit Gemüse" loading="lazy">
                     <div class="card-content">
                         <h3 data-i18n="friday_meal">Pasta mit Gemüse</h3>
                         <span class="day" data-i18n="friday">Freitag</span>
                     </div>
                 </div>
-                
                 <!-- Samstag -->
                 <div class="plan-card">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop&q=80&auto=format" 
-                         alt="Veggie Burger" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop&q=80&auto=format" alt="Veggie Burger" loading="lazy">
                     <div class="card-content">
                         <h3 data-i18n="saturday_meal">Veggie-Burger</h3>
                         <span class="day" data-i18n="saturday">Samstag</span>
                     </div>
                 </div>
-                
                 <!-- Sonntag -->
                 <div class="plan-card">
-                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop&q=80&auto=format" 
-                         alt="Asiatisches Stir-Fry" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop&q=80&auto=format" alt="Asiatisches Stir-Fry" loading="lazy">
                     <div class="card-content">
                         <h3 data-i18n="sunday_meal">Asiatisches Stir-Fry</h3>
                         <span class="day" data-i18n="sunday">Sonntag</span>
