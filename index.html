@@ -1,597 +1,124 @@
 <!DOCTYPE html>
-<html lang="de" data-color-scheme="light">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitpause - Personalisierte Ernährung & KI-Wochenpläne</title>
-    <meta name="description" content="KI-gestützte Wochenpläne & Rezepte für jeden Geschmack. Personalisierte Ernährung war noch nie so einfach.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="alternate" hreflang="de" href="/" />
-    <link rel="alternate" hreflang="en" href="/?lang=en" />
-    <link rel="alternate" hreflang="es" href="/?lang=es" />
-    <link rel="alternate" hreflang="fr" href="/?lang=fr" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23218085'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitPause – Personalisierte Ernährung & KI-Wochenpläne</title>
+  <meta name="description" content="KI-gestützte Ernährungs- und Meal-Planning-Plattform – modern, schnell und professionell." />
+  <meta property="og:title" content="FitPause – KI-Ernährungs- und Meal-Planning" />
+  <meta property="og:description" content="Dein smarter Plan für gesunde Ernährung und Fitness. Intelligente Vorschläge, modernes Design, alles aus einer Hand." />
+  <meta property="og:image" content="assets/fitpause-og.jpg" />
+  <meta property="og:url" content="https://fitpause.de/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner hidden">
-        <div class="cookie-banner__content">
-            <div class="cookie-banner__text">
-                <p data-i18n="cookie_notice">Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Durch die Nutzung unserer Website stimmen Sie unserer Cookie-Richtlinie zu.</p>
-            </div>
-            <div class="cookie-banner__actions">
-                <button class="btn btn--outline btn--sm" onclick="cookieConsent.decline()" data-i18n="decline">Ablehnen</button>
-                <button class="btn btn--primary btn--sm" onclick="cookieConsent.accept()" data-i18n="accept">Akzeptieren</button>
-            </div>
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="nav__logo">FitPause</a>
+      <ul class="nav__list">
+        <li><a href="#" class="nav__link">Home</a></li>
+        <li><a href="#features" class="nav__link">Features</a></li>
+        <li><a href="#blog" class="nav__link">Blog</a></li>
+        <li><a href="#kontakt" class="nav__link">Kontakt</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a class="btn btn--primary" href="#start">Jetzt starten</a>
+        <a href="https://instagram.com/fitpause" class="social-link" aria-label="Instagram">
+          <!-- Beispiel Instagram Icon -->
+          <svg width="24" height="24" fill="currentColor">ircle cx="12" cy="12"2" r="10"/><path d="M17 8.27C16.61 8.62 16.11 8.84 15.57 8.9C15.12 8.47 14.5 8.21 13.83 8.21C12.33 8.21 11.11 9.43 11.11 10.93C11.11 12.43 12.33 13.65 13.83 13.65C14.5 13.65 15.12 13.39 15.57 12.96C16.11 13.02 16.61 13.24 17 13.59C16.22 14.21 15.24 14.58 14.17 14.58C12.06 14.58 10.34 12.86 10.34 10.75C10.34 8.64 12.06 6.92 14.17 6.92C15.24 6.92 16.22 7.29 17 7.92V8.27Z"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <h1>Endlich einfach gesund essen!</h1>
+        <p class="hero__subtitle">KI-gestützte Wochenpläne und Rezepte – für deinen Erfolg.</p>
+        <a href="#start" class="btn btn--primary hero__cta">Jetzt starten</a>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <h2 class="section-title">Was macht FitPause einzigartig?</h2>
+      <div class="features__grid">
+        <div class="card">
+          <svg class="card__icon" width="48" height="48" fill="none">ircle cx="24" cy="24" r="22" stroke="#32b8c6" strokeke-width="4"/><path d="M18 24h12M24 18v12" stroke="#32b8c6" stroke-width="4" stroke-linecap="round"/></svg>
+          <h3>KI-Personalisierung</h3>
+          <p>Ernährungspläne, die zu deinen Zielen und Bedürfnissen passen.</p>
         </div>
-    </div>
-
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__brand">
-                <a href="#" class="nav__logo" onclick="showPage('home')">
-                    <span class="nav__logo-text">Fitpause</span>
-                </a>
-            </div>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#" class="nav__link" onclick="showPage('home')" data-i18n="home">Start</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link" onclick="showPage('how-it-works')" data-i18n="how_it_works">So funktioniert's</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link" onclick="showPage('pricing')" data-i18n="pricing">Preise</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link" onclick="showPage('blog')" data-i18n="blog">Blog</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#" class="nav__link" onclick="showPage('contact')" data-i18n="contact">Kontakt</a>
-                    </li>
-                </ul>
-                
-                <div class="nav__actions">
-                    <div class="language-selector">
-                        <select id="language-select" class="form-control form-control--sm" onchange="changeLanguage(this.value)">
-                            <option value="de">🇩🇪 DE</option>
-                            <option value="en">🇺🇸 EN</option>
-                            <option value="es">🇪🇸 ES</option>
-                            <option value="fr">🇫🇷 FR</option>
-                        </select>
-                    </div>
-                    
-                    <div class="auth-buttons">
-                        <button class="btn btn--outline btn--sm" onclick="showPage('login')" data-i18n="login">Anmelden</button>
-                        <button class="btn btn--primary btn--sm" onclick="showPage('register')" data-i18n="register">Registrieren</button>
-                    </div>
-                    
-                    <div class="user-menu hidden" id="user-menu">
-                        <span class="user-name" id="user-name">Benutzer</span>
-                        <button class="btn btn--outline btn--sm" onclick="logout()" data-i18n="logout">Abmelden</button>
-                    </div>
-                </div>
-            </div>
-            
-            <button class="nav__toggle" id="nav-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Home Page -->
-        <div id="page-home" class="page active">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero__background">
-                    <div class="hero__overlay"></div>
-                </div>
-                <div class="container">
-                    <div class="hero__content">
-                        <h1 class="hero__title" data-i18n="hero_title">Personalisierte Ernährung war noch nie so einfach</h1>
-                        <p class="hero__subtitle" data-i18n="hero_subtitle">KI-gestützte Wochenpläne & Rezepte für jeden Geschmack</p>
-                        <div class="hero__rotating-messages">
-                            <span class="rotating-message active" data-i18n="message_1">✨ Individuell angepasst an deine Bedürfnisse</span>
-                            <span class="rotating-message" data-i18n="message_2">🥗 Gesunde Rezepte für jeden Tag</span>
-                            <span class="rotating-message" data-i18n="message_3">🛒 Automatische Einkaufslisten</span>
-                            <span class="rotating-message" data-i18n="message_4">⏰ Spart Zeit und Aufwand</span>
-                        </div>
-                        <button class="btn btn--primary btn--lg hero__cta" onclick="showPage('questionnaire')" data-i18n="get_started">Jetzt starten</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Example Meal Plan -->
-            <section class="example-plan">
-                <div class="container">
-                    <h2 class="section-title" data-i18n="example_plan_title">So könnte dein Wochenplan aussehen</h2>
-                    <div class="meal-cards">
-                        <div class="meal-card">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=250&fit=crop" alt="Montag" loading="lazy">
-                            <h3 data-i18n="monday">Montag</h3>
-                            <p data-i18n="monday_meal">Mediterrane Gemüsepfanne</p>
-                        </div>
-                        <div class="meal-card">
-                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=250&fit=crop" alt="Dienstag" loading="lazy">
-                            <h3 data-i18n="tuesday">Dienstag</h3>
-                            <p data-i18n="tuesday_meal">Quinoa-Salat mit Avocado</p>
-                        </div>
-                        <div class="meal-card">
-                            <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&h=250&fit=crop" alt="Mittwoch" loading="lazy">
-                            <h3 data-i18n="wednesday">Mittwoch</h3>
-                            <p data-i18n="wednesday_meal">Lachs mit Süßkartoffeln</p>
-                        </div>
-                        <div class="meal-card">
-                            <img src="https://images.unsplash.com/photo-1547573854-74d2a71d0826?w=400&h=250&fit=crop" alt="Donnerstag" loading="lazy">
-                            <h3 data-i18n="thursday">Donnerstag</h3>
-                            <p data-i18n="thursday_meal">Hähnchen-Curry mit Reis</p>
-                        </div>
-                        <div class="meal-card">
-                            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=250&fit=crop" alt="Freitag" loading="lazy">
-                            <h3 data-i18n="friday">Freitag</h3>
-                            <p data-i18n="friday_meal">Pasta mit Gemüse</p>
-                        </div>
-                        <div class="meal-card">
-                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=250&fit=crop" alt="Samstag" loading="lazy">
-                            <h3 data-i18n="saturday">Samstag</h3>
-                            <p data-i18n="saturday_meal">Veggie-Burger</p>
-                        </div>
-                        <div class="meal-card">
-                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=250&fit=crop" alt="Sonntag" loading="lazy">
-                            <h3 data-i18n="sunday">Sonntag</h3>
-                            <p data-i18n="sunday_meal">Asiatisches Stir-Fry</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Trust Section -->
-            <section class="trust-section">
-                <div class="container">
-                    <div class="trust-badges">
-                        <div class="trust-badge">
-                            <span class="trust-icon">🔒</span>
-                            <span data-i18n="gdpr_compliant">DSGVO-konform</span>
-                        </div>
-                        <div class="trust-badge">
-                            <span class="trust-icon">✉️</span>
-                            <span data-i18n="secure_email">Sichere E-Mails</span>
-                        </div>
-                        <div class="trust-badge">
-                            <span class="trust-icon">🤖</span>
-                            <span data-i18n="ai_powered">KI-gestützt</span>
-                        </div>
-                        <div class="trust-badge">
-                            <span class="trust-icon">📱</span>
-                            <span data-i18n="mobile_optimized">Mobil optimiert</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="card">
+          <svg class="card__icon" width="48" height="48" fill="none"><rect x="8" y="8" width="32" height="32" rx="8" fill="#32b8c6" fill-opacity="0.13"/><path d="M16 24l8 6 8-6-8-6-8 6z" fill="#32b8c6"/></svg>
+          <h3>Einkaufsliste</h3>
+          <p>Automatisch erstellt – so einfach und clever war Einkaufen noch nie!</p>
         </div>
-
-        <!-- Questionnaire Page -->
-        <div id="page-questionnaire" class="page">
-            <div class="container">
-                <div class="questionnaire">
-                    <div class="questionnaire__header">
-                        <h1 class="questionnaire__title" data-i18n="questionnaire_title">Erzähle uns von dir</h1>
-                        <div class="questionnaire__progress">
-                            <div class="progress-bar">
-                                <div class="progress-bar__fill" id="progress-fill"></div>
-                            </div>
-                            <span class="progress-text">
-                                <span data-i18n="step">Schritt</span> <span id="current-step">1</span> <span data-i18n="of">von</span> <span id="total-steps">5</span>
-                            </span>
-                        </div>
-                    </div>
-
-                    <form class="questionnaire__form" id="questionnaire-form">
-                        <!-- Step 1: Goals -->
-                        <div class="form-step active" data-step="1">
-                            <h2 data-i18n="goals">Deine Ziele</h2>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="goals" value="weight_loss">
-                                    <span data-i18n="weight_loss">Gewicht verlieren</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="goals" value="muscle_gain">
-                                    <span data-i18n="muscle_gain">Muskeln aufbauen</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="goals" value="healthy_eating">
-                                    <span data-i18n="healthy_eating">Gesünder essen</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="goals" value="save_time">
-                                    <span data-i18n="save_time">Zeit sparen</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Allergies -->
-                        <div class="form-step" data-step="2">
-                            <h2 data-i18n="allergies">Allergien & Unverträglichkeiten</h2>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="allergies" value="none">
-                                    <span data-i18n="no_allergies">Keine Allergien</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="allergies" value="lactose">
-                                    <span data-i18n="lactose">Laktose</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="allergies" value="gluten">
-                                    <span data-i18n="gluten">Gluten</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="allergies" value="nuts">
-                                    <span data-i18n="nuts">Nüsse</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="allergies" value="shellfish">
-                                    <span data-i18n="shellfish">Meeresfrüchte</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Diet Style -->
-                        <div class="form-step" data-step="3">
-                            <h2 data-i18n="diet_style">Ernährungsweise</h2>
-                            <div class="radio-group">
-                                <label class="radio-item">
-                                    <input type="radio" name="diet_style" value="omnivore">
-                                    <span data-i18n="omnivore">Alles</span>
-                                </label>
-                                <label class="radio-item">
-                                    <input type="radio" name="diet_style" value="vegetarian">
-                                    <span data-i18n="vegetarian">Vegetarisch</span>
-                                </label>
-                                <label class="radio-item">
-                                    <input type="radio" name="diet_style" value="vegan">
-                                    <span data-i18n="vegan">Vegan</span>
-                                </label>
-                                <label class="radio-item">
-                                    <input type="radio" name="diet_style" value="pescatarian">
-                                    <span data-i18n="pescatarian">Pescatarisch</span>
-                                </label>
-                                <label class="radio-item">
-                                    <input type="radio" name="diet_style" value="keto">
-                                    <span data-i18n="keto">Keto</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Details -->
-                        <div class="form-step" data-step="4">
-                            <h2 data-i18n="details">Details</h2>
-                            <div class="form-group">
-                                <label class="form-label" data-i18n="people_count">Anzahl Personen</label>
-                                <select name="people_count" class="form-control">
-                                    <option value="1">1 Person</option>
-                                    <option value="2">2 Personen</option>
-                                    <option value="3">3 Personen</option>
-                                    <option value="4">4+ Personen</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" data-i18n="cooking_time">Kochzeit pro Mahlzeit</label>
-                                <select name="cooking_time" class="form-control">
-                                    <option value="15" data-i18n="time_15">Bis 15 Minuten</option>
-                                    <option value="30" data-i18n="time_30">Bis 30 Minuten</option>
-                                    <option value="45" data-i18n="time_45">Bis 45 Minuten</option>
-                                    <option value="60" data-i18n="time_60">Über 1 Stunde</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" data-i18n="budget">Budget pro Person/Tag</label>
-                                <select name="budget" class="form-control">
-                                    <option value="5">Unter 5€</option>
-                                    <option value="10">5-10€</option>
-                                    <option value="15">10-15€</option>
-                                    <option value="20">Über 15€</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Step 5: Email -->
-                        <div class="form-step" data-step="5">
-                            <h2 data-i18n="email_title">Fast geschafft!</h2>
-                            <div class="form-group">
-                                <label class="form-label" data-i18n="email">E-Mail-Adresse</label>
-                                <input type="email" name="email" class="form-control" required placeholder="deine@email.de">
-                            </div>
-                            <p class="form-help" data-i18n="email_help">
-                                Wir senden dir deinen personalisierten Plan per E-Mail zu.
-                            </p>
-                        </div>
-
-                        <div class="questionnaire__actions">
-                            <button type="button" class="btn btn--outline" id="prev-btn" onclick="previousStep()" data-i18n="back">Zurück</button>
-                            <button type="button" class="btn btn--primary" id="next-btn" onclick="nextStep()" data-i18n="next">Weiter</button>
-                            <button type="submit" class="btn btn--primary hidden" id="submit-btn" data-i18n="submit">Absenden</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="card">
+          <svg class="card__icon" width="48" height="48" fill="none"><rcle cx="24" cy="24" r="22" stroke="#32b8c6" strokeke-width="4"/><path d="M31 19c0 6-7 10-7 10s-7-4-7-10a7 7 0 1 1 14 0z" stroke="#32b8c6" stroke-width="2"/></svg>
+          <h3>Rezepte für jede Lage</h3>
+          <p>Von schnellen Office-Snacks bis Powerfood für dein Workout.</p>
         </div>
-
-        <!-- Meal Plan Generation Page -->
-        <div id="page-generating" class="page">
-            <div class="container">
-                <div class="generation-screen">
-                    <div class="generation-animation">
-                        <div class="spinner"></div>
-                    </div>
-                    <h1 class="generation-title" data-i18n="generating_plan">Erstelle deinen persönlichen Plan...</h1>
-                    <div class="generation-steps">
-                        <div class="generation-step active">
-                            <span data-i18n="analyzing_preferences">🔍 Analysiere deine Vorlieben...</span>
-                        </div>
-                        <div class="generation-step">
-                            <span data-i18n="selecting_recipes">🍳 Wähle passende Rezepte aus...</span>
-                        </div>
-                        <div class="generation-step">
-                            <span data-i18n="creating_plan">📋 Erstelle Wochenplan...</span>
-                        </div>
-                        <div class="generation-step">
-                            <span data-i18n="generating_shopping_list">🛒 Generiere Einkaufsliste...</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+          <svg class="card__icon" width="48" height="48" fill="none"><rect x="12" y="12" width="24" height="24" rx="8" stroke="#32b8c6" stroke-width="3"/><path d="M16 20h16M16 24h8" stroke="#32b8c6" stroke-width="2"/></svg>
+          <h3>Mehrsprachig & Mobil</h3>
+          <p>Mobil optimiert & auf Deutsch/Englisch vollständig bedienbar.</p>
         </div>
+      </div>
+    </section>
 
-        <!-- Meal Plan Result Page -->
-        <div id="page-meal-plan" class="page">
-            <div class="container">
-                <div class="meal-plan-header">
-                    <h1 data-i18n="your_meal_plan">Dein Wochenplan</h1>
-                    <div class="meal-plan-actions">
-                        <button class="btn btn--outline" onclick="printMealPlan()" data-i18n="print">Drucken</button>
-                        <button class="btn btn--primary" onclick="saveMealPlan()" data-i18n="save">Speichern</button>
-                    </div>
-                </div>
-
-                <div class="meal-plan-tabs">
-                    <button class="tab-btn active" onclick="showTab('plan')" data-i18n="meal_plan">Essensplan</button>
-                    <button class="tab-btn" onclick="showTab('shopping')" data-i18n="shopping_list">Einkaufsliste</button>
-                </div>
-
-                <div id="meal-plan-content" class="meal-plan-content">
-                    <!-- Content will be populated by JavaScript -->
-                </div>
-
-                <div id="shopping-list-content" class="shopping-list-content hidden">
-                    <!-- Content will be populated by JavaScript -->
-                </div>
-            </div>
+    <section class="exampleplan">
+      <h2 class="section-title">So könnte dein Essensplan aussehen</h2>
+      <div class="plan-cards">
+        <div class="plan-card">
+          <div class="plan-card__day">Montag</div>
+          <div class="plan-card__meal">Mediterrane Gemüsepfanne</div>
         </div>
-
-        <!-- Other Pages (Simplified) -->
-        <div id="page-how-it-works" class="page">
-            <div class="container">
-                <h1 data-i18n="how_it_works">So funktioniert's</h1>
-                <div class="how-it-works-steps">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3 data-i18n="step1_title">Fragebogen ausfüllen</h3>
-                        <p data-i18n="step1_desc">Erzähle uns von deinen Zielen, Allergien und Vorlieben.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3 data-i18n="step2_title">KI erstellt deinen Plan</h3>
-                        <p data-i18n="step2_desc">Unsere KI analysiert deine Angaben und erstellt einen personalisierten Wochenplan.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3 data-i18n="step3_title">Kochen & genießen</h3>
-                        <p data-i18n="step3_desc">Erhalte Rezepte mit Einkaufsliste und koche gesund und abwechslungsreich.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="plan-card">
+          <div class="plan-card__day">Dienstag</div>
+          <div class="plan-card__meal">Quinoa-Salat mit Avocado</div>
         </div>
-
-        <div id="page-pricing" class="page">
-            <div class="container">
-                <h1 data-i18n="pricing">Preise</h1>
-                <div class="pricing-cards">
-                    <div class="pricing-card">
-                        <h3 data-i18n="free_plan">Kostenlos</h3>
-                        <div class="price">0€ <span data-i18n="per_month">pro Monat</span></div>
-                        <ul class="features">
-                            <li data-i18n="feature_basic_plan">✓ 1 Wochenplan pro Monat</li>
-                            <li data-i18n="feature_basic_recipes">✓ Grundrezepte</li>
-                            <li data-i18n="feature_shopping_list">✓ Einkaufsliste</li>
-                        </ul>
-                        <button class="btn btn--outline btn--full-width" onclick="showPage('questionnaire')" data-i18n="get_started">Jetzt starten</button>
-                    </div>
-                    <div class="pricing-card featured">
-                        <h3 data-i18n="premium_plan">Premium</h3>
-                        <div class="price">4,99€ <span data-i18n="per_month">pro Monat</span></div>
-                        <ul class="features">
-                            <li data-i18n="feature_unlimited">✓ Unbegrenzte Pläne</li>
-                            <li data-i18n="feature_premium_recipes">✓ Premium-Rezepte</li>
-                            <li data-i18n="feature_nutrition">✓ Nährwertanalyse</li>
-                            <li data-i18n="feature_export">✓ PDF-Export</li>
-                            <li data-i18n="feature_chat">✓ KI-Chat-Assistent</li>
-                        </ul>
-                        <button class="btn btn--primary btn--full-width" onclick="startSubscription()" data-i18n="subscribe">Abonnieren</button>
-                    </div>
-                </div>
-            </div>
+        <div class="plan-card">
+          <div class="plan-card__day">Mittwoch</div>
+          <div class="plan-card__meal">Lachs mit Süßkartoffeln</div>
         </div>
-
-        <div id="page-blog" class="page">
-            <div class="container">
-                <h1 data-i18n="blog">Blog</h1>
-                <div class="blog-posts" id="blog-posts">
-                    <!-- Blog posts will be populated by JavaScript -->
-                </div>
-            </div>
+        <div class="plan-card">
+          <div class="plan-card__day">Donnerstag</div>
+          <div class="plan-card__meal">Hähnchen-Curry mit Reis</div>
         </div>
-
-        <div id="page-contact" class="page">
-            <div class="container">
-                <h1 data-i18n="contact">Kontakt</h1>
-                <div class="contact-content">
-                    <p data-i18n="contact_text">Haben Sie Fragen? Wir sind hier, um zu helfen!</p>
-                    <div class="contact-info">
-                        <p><strong>E-Mail:</strong> info@fitpause.de</p>
-                        <p><strong>Telefon:</strong> +49 123 456 789</p>
-                    </div>
-                </div>
-            </div>
+        <div class="plan-card">
+          <div class="plan-card__day">Freitag</div>
+          <div class="plan-card__meal">Pasta mit Gemüse</div>
         </div>
-
-        <div id="page-login" class="page">
-            <div class="container">
-                <div class="auth-form">
-                    <h1 data-i18n="login">Anmelden</h1>
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="email">E-Mail</label>
-                            <input type="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="password">Passwort</label>
-                            <input type="password" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn--primary btn--full-width" data-i18n="login">Anmelden</button>
-                    </form>
-                    <p><a href="#" onclick="showPage('register')" data-i18n="no_account">Noch kein Konto? Jetzt registrieren</a></p>
-                </div>
-            </div>
+        <div class="plan-card">
+          <div class="plan-card__day">Samstag</div>
+          <div class="plan-card__meal">Veggie-Burger</div>
         </div>
-
-        <div id="page-register" class="page">
-            <div class="container">
-                <div class="auth-form">
-                    <h1 data-i18n="register">Registrieren</h1>
-                    <form id="register-form">
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="name">Name</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="email">E-Mail</label>
-                            <input type="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="password">Passwort</label>
-                            <input type="password" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn--primary btn--full-width" data-i18n="register">Registrieren</button>
-                    </form>
-                    <p><a href="#" onclick="showPage('login')" data-i18n="have_account">Schon ein Konto? Jetzt anmelden</a></p>
-                </div>
-            </div>
+        <div class="plan-card">
+          <div class="plan-card__day">Sonntag</div>
+          <div class="plan-card__meal">Asiatisches Stir-Fry</div>
         </div>
+      </div>
+    </section>
 
-        <!-- Legal Pages -->
-        <div id="page-privacy" class="page">
-            <div class="container">
-                <h1 data-i18n="privacy">Datenschutz</h1>
-                <div class="legal-content">
-                    <p data-i18n="privacy_intro">Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten auf.</p>
-                    <!-- More legal content would go here -->
-                </div>
-            </div>
+    <section id="blog" class="blog">
+      <h2 class="section-title">Neues im Blog</h2>
+      <div class="blog-cards">
+        <div class="blog-card">
+          <h3>Meal Prep Tipps für den Alltag</h3>
+          <p>So sparst du Zeit und bleibst trotzdem gesund.</p>
         </div>
+        <div class="blog-card">
+          <h3>Die besten Office-Snacks</h3>
+          <p>Fit und leistungsfähig bleiben – auch im Büro!</p>
+        </div>
+        <div class="blog-card">
+          <h3>Was bringt eine KI-Ernährungsberatung?</h3>
+          <p>Chancen und Grenzen digitaler Unterstützung.</p>
+        </div>
+      </div>
+    </section>
 
-        <div id="page-terms" class="page">
-            <div class="container">
-                <h1 data-i18n="terms">AGB</h1>
-                <div class="legal-content">
-                    <p data-i18n="terms_intro">Diese Allgemeinen Geschäftsbedingungen regeln die Nutzung der Fitpause-Plattform.</p>
-                    <!-- More legal content would go here -->
-                </div>
-            </div>
-        </div>
-
-        <div id="page-imprint" class="page">
-            <div class="container">
-                <h1 data-i18n="imprint">Impressum</h1>
-                <div class="legal-content">
-                    <p><strong data-i18n="responsible_for_content">Verantwortlich für den Inhalt:</strong></p>
-                    <p>[Name]<br>[Adresse]<br>[PLZ Ort]<br>E-Mail: [email]</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__brand">
-                    <h3>Fitpause</h3>
-                    <p data-i18n="footer_tagline">Personalisierte Ernährung mit KI</p>
-                </div>
-                <div class="footer__links">
-                    <h4 data-i18n="quick_links">Quick Links</h4>
-                    <ul>
-                        <li><a href="#" onclick="showPage('how-it-works')" data-i18n="how_it_works">So funktioniert's</a></li>
-                        <li><a href="#" onclick="showPage('pricing')" data-i18n="pricing">Preise</a></li>
-                        <li><a href="#" onclick="showPage('blog')" data-i18n="blog">Blog</a></li>
-                        <li><a href="#" onclick="showPage('contact')" data-i18n="contact">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer__legal">
-                    <h4 data-i18n="legal">Rechtliches</h4>
-                    <ul>
-                        <li><a href="#" onclick="showPage('privacy')" data-i18n="privacy">Datenschutz</a></li>
-                        <li><a href="#" onclick="showPage('terms')" data-i18n="terms">AGB</a></li>
-                        <li><a href="#" onclick="showPage('imprint')" data-i18n="imprint">Impressum</a></li>
-                    </ul>
-                </div>
-                <div class="footer__social">
-                    <h4 data-i18n="follow_us">Folge uns</h4>
-                    <div class="social-links">
-                        <a href="#" target="_blank">📘 Facebook</a>
-                        <a href="#" target="_blank">📷 Instagram</a>
-                        <a href="#" target="_blank">🐦 Twitter</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 Fitpause. <span data-i18n="all_rights_reserved">Alle Rechte vorbehalten.</span></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- AI Chat Assistant -->
-    <div class="chat-widget">
-        <div class="chat-bubble" id="chat-bubble" onclick="toggleChat()">
-            <span class="chat-icon">💬</span>
-        </div>
-        
-        <div class="chat-window hidden" id="chat-window">
-            <div class="chat-header">
-                <h3 data-i18n="ai_assistant">KI-Assistent</h3>
-                <button class="chat-close" onclick="toggleChat()">×</button>
-            </div>
-            <div class="chat-messages" id="chat-messages">
-                <div class="chat-message bot">
-                    <span data-i18n="welcome_message">Hallo! Ich bin dein KI-Assistent. Wie kann ich dir helfen?</span>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chat-input" placeholder="Stelle mir eine Frage..." data-i18n-placeholder="chat_placeholder">
-                <button onclick="sendChatMessage()" data-i18n="send">Senden</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
-</body>
-</html>
+    <section id="kontakt" class="contact">
+      <h2 class="section-title">Kontakt &
