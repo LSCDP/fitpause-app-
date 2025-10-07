@@ -2,26 +2,31 @@
 
 /* === LIGHT MODE VARIABLES === */
 :root {
-  --primary: #6366f1;
-  --primary-dark: #3b37b3;
-  --accent: #10b981;
-  --bg: #fafafa;
-  --font: #1f2937;
-  --badge: #fff;
-  --border: #e5e7eb;
+  --primary: #36b39a;        /* Türkisgrün aus dem Logo */
+  --primary-dark: #2e9076;   /* Dunkleres Türkisgrün */
+  --accent: #fec857;         /* Akzent-Gelb, Button-Schatten, Highlights */
+  --bg: #ebfaf6;             /* Sehr helles Türkis, Hintergrund */
+  --font: #26333a;           /* Dunkles Blau/Anthrazit für Text */
+  --badge: #fefeea;          /* Sehr helles Gelb, für Trust-Badges/Card-Hintergründe */
+  --border: #91c64e;         /* Grüner Farbton für Rahmen, Hervorhebung */
 }
+
 
 /* === DARK MODE OVERRIDES === */
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #9ca3fa;
-    --primary-dark: #6366f1;
-    --accent: #22d3ee;
-    --bg: #171717;
-    --font: #e5e7eb;
-    --badge: #22223b;
-    --border: #374151;
+    --primary: #36b39a;
+    --primary-dark: #1c6854;
+    --accent: #ffe066;
+    --bg: #182420;
+    --font: #f2f7f5;
+    --badge: #232f2b;
+    --border: #8dc38a;
   }
+  body { background: var(--bg); color: var(--font);}
+  /* ...farbige Bereiche wie gehabt... */
+}
+
   body { background: var(--bg); color: var(--font);}
   .header,
   .footer,
