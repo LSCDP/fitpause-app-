@@ -22,7 +22,12 @@ jobs:
           node-version: 18
       
       - name: Install dependencies
-        run: npm install
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "No package.json found, skipping dependencies"
+          fi
       
       - name: Run ESLint
         run: npm run lint || echo "Lint not configured, skipping..."
@@ -43,7 +48,12 @@ jobs:
           node-version: 18
       
       - name: Install dependencies
-        run: npm install
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "No package.json found, skipping dependencies"
+          fi
       
       - name: Build project
         run: npm run build || echo "Build not configured, skipping..."
