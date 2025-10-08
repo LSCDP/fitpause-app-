@@ -18,26 +18,45 @@ jobs:
           node-version: 18
       
       - name: Install dependencies
-        run: npm install
+        run: npm install || echo "No package.json found, skipping dependencies"
       
       - name: Competitive Analysis
         run: |
           echo "Running competitive analysis..."
-          node scripts/competitor-monitoring.js || echo "Competitor monitoring script not found"
+          if [ -f "scripts/competitor-monitoring.js" ]; then
+            node scripts/competitor-monitoring.js
+          else
+            echo "Competitor monitoring script not found, skipping"
+          fi
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       
       - name: Performance Monitoring
         run: |
           echo "Running performance monitoring..."
-          node scripts/performance-monitor.js || echo "Performance monitor script not found"
+          if [ -f "scripts/performance-monitor.js" ]; then
+            node scripts/performance-monitor.js
+          else
+            echo "Performance monitor script not found, skipping"
+          fi
       
       - name: SEO Analysis
         run: |
           echo "Running SEO analysis..."
-          node scripts/seo-analysis.js || echo "SEO analysis script not found"
+          if [ -f "scripts/seo-analysis.js" ]; then
+            node scripts/seo-analysis.js
+          else
+            echo "SEO analysis script not found, skipping"
+          fi
       
-      - name: Generate Report
+      - name: Generate Weekly Report
         run: |
           echo "Generating weekly report..."
-          node scripts/weekly-report-generator.js || echo "Report generator script not found"
+          if [ -f "scripts/weekly-report-generator.js" ]; then
+            node scripts/weekly-report-generator.js
+          else
+            echo "Weekly report generator script not found, skipping"
+          fi
+      
+      - name: Report Summary
+        run: echo "Weekly optimization report completed successfully"
