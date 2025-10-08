@@ -1,296 +1,220 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>FitPause – Personalisierte Ernährung & KI-Pläne</title>
-  <!-- SEO & Social -->
-  <meta name="description" content="Smarte, personalisierte Wochenpläne & Rezepte per KI mit individueller Sprachauswahl, Allergiefilter und Mobil-Optimierung.">
-  <meta property="og:title" content="FitPause – Personalisierte Ernährung & KI-Pläne">
-  <meta property="og:description" content="Personalisierte Ernährungspläne, smarte Rezepte und KI-Unterstützung. Für Teams & Familien, mobil optimiert.">
-  <meta property="og:url" content="https://fitpause.de">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="de_DE">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FitPause">
-  <meta name="twitter:description" content="Personalisierte Ernährungspläne & KI-Features.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800">
-  <link rel="canonical" href="https://fitpause.de/">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #14b8a6;
-      --primary-hover: #208e97;
-      --accent: #08988A;
-      --font-main: 'Inter', 'Montserrat', 'Poppins', Arial, sans-serif;
-    }
-    body {
-      font-family: var(--font-main);
-      margin: 0; padding: 0;
-      background: #f8f9fc;
-      color: #19343b;
-    }
-    nav {display:flex;gap:24px;padding:1rem 2rem 0 2rem;}
-    nav a {text-decoration:none;color:var(--primary);font-weight:600;}
-    .header {
-      display:flex;justify-content:space-between;align-items:center;
-      padding: 1.2rem 2rem 1.2rem 2rem; background: #fff; border-bottom: 1px solid #dadada; font-weight:700;
-    }
-    .lang-switch {display:flex;gap:10px;align-items:center;}
-    .lang-btn {background:none;border:none;font-size:1.2rem;cursor:pointer;outline:none;transition:filter .15s;}
-    .lang-btn.active,.lang-btn:focus{font-weight:bold;filter:brightness(1.18);}
-    .cta {
-      background: var(--primary); color:#fff; padding:.95rem 2.1rem; border-radius:9px;
-      font-size:1.13rem;font-family:inherit;font-weight:700;border:none;margin:18px 0;letter-spacing:.4px;
-      box-shadow:0 4px 14px #14b8a640;cursor:pointer;transition: background .2s, box-shadow .2s;
-    }
-    .cta:hover {background: var(--primary-hover);}
-    h1,h2,h3 {font-family:'Montserrat','Inter',Arial,sans-serif;}
-    h1 { font-size:2.2rem; color:var(--accent);}
-    .hero {
-      background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400') center/cover fixed;
-      position: relative; min-height:52vh; display:flex; align-items:center; justify-content:center; color:#fff; text-shadow:0 2px 10px #0008;
-    }
-    .hero-overlay { background:rgba(20,184,166,0.10); padding:3rem 1.5rem; border-radius:16px;text-align:center;}
-    .food-gallery {display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:3rem auto 2.5rem auto;max-width:1280px;}
-    .food-card{background:#fff;border-radius:16px;box-shadow:0 2px 12px #14b8a620;width:330px;overflow:hidden;display:flex;flex-direction:column;}
-    .food-card img{width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;background:#e6e6e6;}
-    .food-caption{padding:20px;text-align:left;}
-    .food-caption h3{margin:0 0 6px 0;color:var(--accent);}
-    .form-wrapper{background:#fff;border-radius:20px;box-shadow:0 2px 16px #14b8a62b;max-width:440px;margin:0 auto;padding:2.2rem 1.5rem 2.2rem 1.5rem;margin-bottom:2.5rem;}
-    .progress-bar{width:100%;height:13px;background:#e3f4f9;border-radius:8px;margin-bottom:18px;}
-    .progress-bar-fill{height:100%;background:var(--primary);border-radius:8px;transition:width .35s;}
-    .step-text{text-align:right;font-size:.96rem;margin-bottom:8px;}
-    .form-step{display:none;}
-    .form-step.active{display:block;}
-    .form-group{margin-bottom:18px;}
-    label{display:block;font-weight:600;margin-bottom:6px;}
-    input[type="text"],input[type="email"],input[type="number"],select{
-      padding:.68rem .7rem;width:100%;border-radius:7px;border:1px solid #b1c8c7;font-size:1rem;background:#f5fbfa;}
-    .onboarding-buttons{display:flex;justify-content:space-between;}
-    .plan-table{margin:2rem auto 2rem auto;max-width:1050px;}
-    .plan-grid{display:flex;flex-wrap:wrap;gap:18px;}
-    .plan-day{background:#fff;border-radius:10px;padding:16px;box-shadow:0 2px 14px #14b8a612;max-width:250px;}
-    .plan-day img{border-radius:10px;width:100%;height:110px;object-fit:cover;}
-    .chat-fab{position:fixed;bottom:28px;right:28px;z-index:99;font-size:2rem;background:#14b8a6;color:#fff;border-radius:50%;border:none;width:54px;height:54px;box-shadow:0 2px 12px #08988a44;cursor:pointer;}
-    .chat-overlay{position:fixed;bottom:0;right:0;width:320px;max-width:96vw;background:#fff;border:1px solid #14b8a6;border-radius:12px 12px 0 0;box-shadow:0 6px 32px #14b8a624;z-index:999;padding:18px 12px;display:none;}
-    .chat-box input{width:60%;margin-right:4px;}
-    .footer{display:flex;justify-content:space-between;align-items:start;padding:1.2rem 2% 2rem 2%;}
-    .footer a{color:var(--accent);margin-left:10px;text-decoration:none;}
-    .pricing{margin:2rem auto;max-width:900px;}
-    .pricing .plan{background:#fff;padding:20px 16px;border-radius:10px;box-shadow:0 2px 14px #14b8a612;width:230px;}
-    .pricing h2{margin-bottom:1.2rem;}
-    .blog-articles{display:flex;gap:18px;flex-wrap:wrap;}
-    .blog-articles article{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 14px #14b8a612;width:260px;}
-    @media (max-width:900px){
-      .food-gallery{flex-direction:column;gap:22px;align-items:center;}
-      .food-card{width:98vw;max-width:400px;}
-      .footer{flex-direction:column;gap:14px;}
-      .plan-grid{flex-direction:column;align-items:center;}
-      nav{flex-direction:column;gap:8px;}
-    }
-    @media (max-width:600px){
-      .form-wrapper{padding:1.2rem .35rem 1.2rem .35rem;}
-      .header,nav{padding:.8rem .5rem;}
-      .hero-overlay h1{font-size:1.11rem;}
-      .cta{padding:.88rem 1.14rem;}
-      .food-card{width:92vw;}
-      .food-card img{height:140px;}
-      .plan-day{width:96vw;}
-      .pricing .plan{width:96vw;}
-      .blog-articles article{width:95vw;}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FitPause – Personalisierte Ernährung & KI-Pläne</title>
+<meta name="description" content="Smarte, personalisierte Wochenpläne & Rezepte per KI mit individueller Sprachauswahl, Allergiefilter und Mobil-Optimierung." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root{--primary:#14b8a6;--primary-hover:#0ea39a;--accent:#08988A;--bg:#f8f9fc;--ink:#19343b}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:var(--primary);text-decoration:none}
+img{display:block;max-width:100%}
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e6eeed;padding:.75rem .9rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between}
+.brand{font-family:'Montserrat',Inter,Arial,sans-serif;font-weight:800;color:var(--accent)}
+.burger{width:44px;height:44px;border-radius:10px;border:1px solid #d9e8e6;background:#f6fbfb;display:grid;place-items:center;cursor:pointer}
+.lang-switch{display:flex;gap:6px}
+.lang-btn{width:44px;height:44px;border-radius:10px;border:1px solid #cfe3e1;background:#f5fbfa;cursor:pointer}
+.lang-btn.active{border-color:var(--primary);box-shadow:0 0 0 2px #14b8a622}
+.nav{display:none;flex-direction:column;gap:6px;padding:.6rem .9rem;background:#fff;border-bottom:1px solid #e6eeed}
+.nav.show{display:flex}
+.nav a{padding:.8rem;border-radius:10px}
+/* Hero with parallax */
+.hero{min-height:58vh;position:relative;display:grid;place-items:center;overflow:hidden}
+.hero .bg{position:absolute;inset:-10% 0 0 0;height:120%;width:100%;object-fit:cover;filter:saturate(1.05)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(#052a2a33,#052a2a77)}
+.hero-content{position:relative;z-index:1;text-align:center;color:#fff;padding:2rem 1rem;text-shadow:0 2px 10px #0007}
+.cta{height:48px;min-width:44px;padding:0 18px;border:none;border-radius:12px;background:var(--primary);color:#fff;font-weight:700;box-shadow:0 6px 16px #14b8a640;cursor:pointer}
+.cta:hover{background:var(--primary-hover)}
+section{padding:1.2rem .9rem}
+/* Gallery */
+.food-gallery{display:grid;gap:16px}
+@media(min-width:640px){.food-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:980px){.food-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.food-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px #14b8a620}
+.food-caption{padding:14px}
+.food-caption h3{margin:.2rem 0;color:var(--accent)}
+/* Form */
+.form-wrapper{background:#fff;border-radius:18px;box-shadow:0 2px 16px #14b8a62b;max-width:620px;margin:0 auto;padding:1rem}
+.progress-bar{height:14px;background:#e3f4f9;border-radius:10px;margin:.6rem 0}
+.progress-bar-fill{height:100%;background:var(--primary);border-radius:10px;transition:width .35s}
+.step-text{text-align:right;font-size:.95rem}
+.form-step{display:none}
+.form-step.active{display:block}
+.form-group{margin-bottom:14px}
+label{display:block;font-weight:600;margin-bottom:6px}
+input[type=text],input[type=email],input[type=number],select{width:100%;padding:.75rem .85rem;border-radius:10px;border:1px solid #b7cdcb;background:#f5fbfa}
+.onboarding-buttons{display:flex;gap:10px}
+.btn-secondary{height:44px;padding:0 16px;border-radius:10px;border:1px solid #b7cdcb;background:#fff;cursor:pointer}
+/* Plan */
+.plan-grid{display:grid;gap:14px}
+@media(min-width:720px){.plan-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.plan-day{background:#fff;border-radius:12px;padding:12px;box-shadow:0 2px 14px #14b8a612}
+.plan-day img{border-radius:10px;aspect-ratio:16/9;object-fit:cover}
+/* Chat */
+.chat-fab{position:fixed;bottom:20px;right:20px;z-index:50;width:56px;height:56px;border-radius:50%;border:none;background:#14b8a6;color:#fff;font-size:22px;box-shadow:0 2px 12px #08988a44;cursor:pointer}
+.chat-overlay{position:fixed;bottom:0;right:0;width:360px;max-width:96vw;background:#fff;border:1px solid #14b8a6;border-radius:12px 12px 0 0;box-shadow:0 6px 32px #14b8a624;z-index:60;padding:12px;display:none}
+.chat-box input{width:70%;height:44px;padding:0 .6rem;border-radius:10px;border:1px solid #cfe3e1}
+/* Footer */
+.footer{display:grid;grid-template-columns:1fr;gap:10px;padding:1.2rem .9rem 2rem;background:#fff;border-top:1px solid #e6eeed}
+@media(min-width:720px){.footer{grid-template-columns:1fr auto}}
+.footer a{color:var(--accent)}
+</style>
 </head>
 <body>
-  <nav>
-    <a href="#home">Start</a>
-    <a href="#blog">Blog</a>
-  </nav>
-  <div class="header">
-    <span>FitPause</span>
-    <div class="lang-switch">
-      <button class="lang-btn active" id="lang-de" onclick="switchLang('de')" aria-label="Deutsch wählen">🇩🇪</button>
-      <button class="lang-btn" id="lang-en" onclick="switchLang('en')" aria-label="Switch to English">🇬🇧</button>
-    </div>
+<header class="topbar">
+  <button id="burger" class="burger" aria-label="Menü öffnen">☰</button>
+  <div class="brand">FitPause</div>
+  <div class="lang-switch" aria-label="Sprachauswahl">
+    <button class="lang-btn active" id="lang-de" data-lang="de">🇩🇪</button>
+    <button class="lang-btn" id="lang-en" data-lang="en">🇬🇧</button>
+    <button class="lang-btn" id="lang-es" data-lang="es">🇪🇸</button>
+    <button class="lang-btn" id="lang-fr" data-lang="fr">🇫🇷</button>
   </div>
-  <div class="hero"><div class="hero-overlay">
-    <h1>Dein smarter Plan für Ernährung &amp; Fitness</h1>
-    <p>Erhalte persönliche Wochenpläne, Rezepte und Einkaufslisten &ndash; angetrieben von KI.</p>
-    <button class="cta">Jetzt starten</button>
-  </div></div>
-
-  <div class="food-gallery">
-    <div class="food-card"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=220&fit=crop" loading="lazy" alt="Mediterrane Gemüsepfanne"
-        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
-      <div class="food-caption"><h3>Mediterrane Gemüsepfanne</h3><p>Vitamin- und geschmacksintensiv, perfekt für Fitnessziele!</p></div>
-    </div>
-    <div class="food-card"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=220&fit=crop" loading="lazy" alt="Gesunde Snacks"
-        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
-      <div class="food-caption"><h3>Gesunde Snacks fürs Büro</h3><p>Leicht vorzubereiten, sättigend und abwechslungsreich.</p></div>
-    </div>
-    <div class="food-card"><img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=400&h=220&fit=crop" loading="lazy" alt="Veggie Burger"
-        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
-      <div class="food-caption"><h3>Veggie Burger</h3><p>Für ein gesundes und pflanzenbasiertes BBQ!</p></div>
-    </div>
+</header>
+<nav class="nav" id="main-nav">
+  <a href="#home" data-i18n="nav_home">Start</a>
+  <a href="#blog" data-i18n="nav_blog">Blog</a>
+  <a href="#pricing" data-i18n="nav_pricing">Preise</a>
+</nav>
+<section class="hero" id="home">
+  <img class="bg" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80&auto=format" alt="Frisches, gesundes Essen" loading="lazy" />
+  <div class="hero-content">
+    <h1 data-i18n="hero_title">Dein smarter Plan für Ernährung & Fitness</h1>
+    <p data-i18n="hero_sub">Erhalte persönliche Wochenpläne, Rezepte und Einkaufslisten – angetrieben von KI.</p>
+    <button class="cta" id="cta-start" data-i18n="cta_start">Jetzt starten</button>
   </div>
-
-  <!-- Multi-step Formular -->
+</section>
+<section>
+  <div class="food-gallery" id="food-gallery"></div>
+</section>
+<section>
   <div class="form-wrapper">
-    <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
     <div class="step-text" id="step-txt"></div>
-    <form id="multi-step-form" onsubmit="event.preventDefault();showPreview();">
+    <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    <form id="multi-step-form" novalidate>
       <div class="form-step" id="step1">
         <div class="form-group">
-          <label>Name*</label><input type="text" required>
-          <label>Ziel*</label>
-          <select required><option>Muskeln aufbauen</option><option>Abnehmen</option><option>Gesünder essen</option></select>
+          <label for="name" data-i18n="label_name">Name*</label>
+          <input id="name" name="name" type="text" required minlength="2" />
+          <label for="goal" data-i18n="label_goal">Ziel*</label>
+          <select id="goal" name="goal" required>
+            <option value="" disabled selected data-i18n="opt_choose">Bitte wählen</option>
+            <option value="muscle" data-i18n="goal_muscle">Muskeln aufbauen</option>
+            <option value="lose" data-i18n="goal_lose">Abnehmen</option>
+            <option value="healthy" data-i18n="goal_healthy">Gesünder essen</option>
+          </select>
         </div>
       </div>
       <div class="form-step" id="step2">
         <div class="form-group">
-          <label>Ernährungsform*</label>
-          <select required><option>Allesesser</option><option>Vegetarisch</option><option>Vegan</option></select>
-          <label>Allergien</label>
-          <input type="checkbox"> Laktose
-          <input type="checkbox"> Gluten
-          <input type="text" placeholder="Sonstige…">
+          <label for="diet" data-i18n="label_diet">Ernährungsform*</label>
+          <select id="diet" name="diet" required>
+            <option value="" disabled selected data-i18n="opt_choose">Bitte wählen</option>
+            <option value="omnivore" data-i18n="diet_omni">Allesesser</option>
+            <option value="vegetarian" data-i18n="diet_veg">Vegetarisch</option>
+            <option value="vegan" data-i18n="diet_vegan">Vegan</option>
+          </select>
+          <fieldset>
+            <legend data-i18n="label_allergies">Allergien / Unverträglichkeiten</legend>
+            <label><input type="checkbox" name="allergies" value="lactose" /> <span data-i18n="all_lactose">Laktose</span></label>
+            <label><input type="checkbox" name="allergies" value="gluten" /> <span data-i18n="all_gluten">Gluten</span></label>
+            <label><input type="checkbox" name="allergies" value="nuts" /> <span data-i18n="all_nuts">Nüsse</span></label>
+            <input type="text" name="allergies_custom" placeholder="Sonstige…" aria-label="weitere Allergien" />
+          </fieldset>
         </div>
       </div>
       <div class="form-step" id="step3">
         <div class="form-group">
-          <label>Anzahl Personen*</label><input type="number" min="1" max="20" required>
+          <label for="people" data-i18n="label_people">Anzahl Personen*</label>
+          <input id="people" name="people" type="number" min="1" max="20" required />
         </div>
       </div>
       <div class="form-step" id="step4">
         <div class="form-group">
-          <label>Kochzeit*</label>
-          <select required><option>15 min</option><option>30 min</option><option>45 min</option></select>
-          <label>Budget</label><input type="text">
+          <label for="time" data-i18n="label_time">Kochzeit*</label>
+          <select id="time" name="time" required>
+            <option value="" disabled selected data-i18n="opt_choose">Bitte wählen</option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45">45 min</option>
+          </select>
+          <label for="budget" data-i18n="label_budget">Budget</label>
+          <input id="budget" name="budget" type="text" inputmode="decimal" placeholder="z.B. 50€" />
         </div>
       </div>
       <div class="form-step" id="step5">
         <div class="form-group">
-          <label>E-Mail*</label><input type="email" required>
+          <label for="email" data-i18n="label_email">E-Mail*</label>
+          <input id="email" name="email" type="email" required />
+          <label><input id="consent" type="checkbox" required /> <span data-i18n="label_consent">Ich stimme der Verarbeitung nach DSGVO zu</span></label>
         </div>
       </div>
       <div class="onboarding-buttons">
-        <button type="button" onclick="prevStep()">Zurück</button>
-        <button type="button" onclick="nextStep()">Weiter</button>
-        <button type="submit" style="display:none;" id="finish-btn">Plan anzeigen</button>
+        <button class="btn-secondary" type="button" onclick="prevStep()" data-i18n="btn_back">Zurück</button>
+        <button class="btn-secondary" type="button" onclick="nextStep()" data-i18n="btn_next">Weiter</button>
+        <button class="cta" id="finish-btn" type="submit" style="display:none" data-i18n="btn_show_plan">Plan anzeigen</button>
       </div>
     </form>
-    <div id="preview" style="display:none;padding:2rem 0 0 0"></div>
+    <div id="preview" style="display:none;padding:1rem 0 0"></div>
   </div>
-
-  <!-- 7-Tage-Plan -->
-  <section class="plan-table" id="plan-table">
-    <h2>Dein 7-Tage-Menüplan</h2>
-    <div class="plan-grid">
-      <div class="plan-day"><img src="https://images.unsplash.com/photo-1512058564366-c9e2f1dbfa1c?w=300" loading="lazy" alt="Frühstück Montag" />
-        <h4>Montag</h4>
-        <ul><li><b>Frühstück:</b> Overnight Oats</li><li><b>Mittag:</b> Gemüsepfanne</li><li><b>Abend:</b> Lachs & Süßkartoffeln</li></ul>
-      </div>
-      <div class="plan-day"><img src="https://images.unsplash.com/photo-1502741126161-b048400d98b6?w=300" loading="lazy" alt="Dienstag" />
-        <h4>Dienstag</h4>
-        <ul><li><b>Frühstück:</b> Joghurt & Nüsse</li><li><b>Mittag:</b> Quinoasalat</li><li><b>Abend:</b> Hähnchen-Curry</li></ul>
-      </div>
-      <div class="plan-day"><img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=300" loading="lazy" alt="Mittwoch" />
-        <h4>Mittwoch</h4>
-        <ul><li><b>Frühstück:</b> Avocado Toast</li><li><b>Mittag:</b> Linsensuppe</li><li><b>Abend:</b> Pasta mit Gemüse</li></ul>
-      </div>
-      <!-- ...weitere Tage analog... -->
+</section>
+<section id="plan-table">
+  <h2 data-i18n="plan_title">Dein 7-Tage-Menüplan</h2>
+  <div class="plan-grid" id="plan-grid"></div>
+</section>
+<section id="pricing">
+  <h2 data-i18n="pricing_title">Preise & Abos</h2>
+  <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="plan-day">
+      <h3>Free</h3>
+      <p data-i18n="pricing_free_desc">Basisfunktionen, 3 Rezepte/Woche</p>
+      <strong>0€</strong>
     </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="pricing">
-    <h2>Preise & Abos</h2>
-    <div style="display:flex;gap:32px;flex-wrap:wrap;">
-      <div class="plan"><h3>Free</h3>Basisfunktionen, 3 Rezepte/Woche<br><b>0€</b></div>
-      <div class="plan"><h3>Pro</h3>Voller Zugang, 7-Tage-Plan, Allergiefilter<br><b>9,90€</b><br>
-        <button class="cta" onclick="alert('Demo: Digistore24 Checkout!')">Abo abschließen</button>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Blogbereich -->
-  <section id="blog" style="margin-top:2rem;">
-    <h2>Blog</h2>
-    <div class="blog-articles">
-      <article>
-        <h3>Meal Prep Tipps</h3>
-        <p>So organisierst du deine Woche gesund und lecker.</p>
-      </article>
-      <article>
-        <h3>Meal Prep Tips (EN)</h3>
-        <p>Easy ways to prep healthy food for the week.</p>
-      </article>
-    </div>
-  </section>
-  
-  <!-- Chat-FAB und Overlay -->
-  <button class="chat-fab" onclick="document.getElementById('chat-overlay').style.display='block'">💬</button>
-  <div class="chat-overlay" id="chat-overlay">
-    <div class="chat-box">
-      <span onclick="document.getElementById('chat-overlay').style.display='none'" style="float:right;cursor:pointer;font-size:1.4rem;">✕</span>
-      <h4>FitPause Chat</h4>
-      <div id="chat-history" style="min-height:100px;background:#f4f7f7;margin-bottom:10px;"></div>
-      <input id="chat-in" placeholder="Tippe hier…"><button onclick="dummyChatSend()">Senden</button>
+    <div class="plan-day">
+      <h3>Pro</h3>
+      <p data-i18n="pricing_pro_desc">Voller Zugang, 7-Tage-Plan, Allergiefilter</p>
+      <strong>9,90€</strong>
+      <p><a class="cta" href="https://www.digistore24.com/" target="_blank" rel="noopener" data-i18n="btn_upgrade">Jetzt upgraden</a></p>
     </div>
   </div>
-  
-  <footer class="footer">
-    <div>© 2025 FitPause</div>
-    <div>
-      <a href="#impressum">Impressum</a>
-      <a href="#datenschutz">Datenschutz</a>
-      <a href="#agb">AGB</a>
-      <a href="mailto:info@fitpause.de">Kontakt</a>
-    </div>
-  </footer>
-  
-  <!-- JavaScript Logik für Language, Multistep, Chat -->
-  <script>
-    // Language Autodetect
-    window.onload = function() {
-      const userLang = (navigator.language || navigator.userLanguage).substr(0,2);
-      if(userLang==="en") switchLang('en');
-      showStep(curStep);
-    }
-    function switchLang(lang) {
-      document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-      document.getElementById('lang-'+lang).classList.add('active');
-      document.documentElement.lang = lang;
-      alert('Demo: Inhalt würde jetzt auf '+(lang==="de"?"Deutsch":"Englisch")+" wechseln.");
-    }
-    // Multi-Step Logic
-    let curStep=1, totalSteps=5;
-    function showStep(step) {
-      for(let i=1;i<=totalSteps;i++)
-        document.getElementById('step'+i).style.display = (i===step) ? "block" : "none";
-      document.getElementById('progress-fill').style.width = 100*step/totalSteps + "%";
-      document.getElementById('step-txt').textContent = "Schritt " + step + " von " + totalSteps;
-      document.querySelector('button[onclick="prevStep()"]').style.display = (step>1) ? "" : "none";
-      document.querySelector('button[onclick="nextStep()"]').style.display = (step<totalSteps) ? "" : "none";
-      document.getElementById('finish-btn').style.display = (step===totalSteps) ? "" : "none";
-    }
-    function nextStep(){if(curStep<totalSteps){curStep++;showStep(curStep);}}
-    function prevStep(){if(curStep>1){curStep--;showStep(curStep);}}
-    function showPreview(){
-      document.getElementById('preview').style.display="block";
-      document.getElementById('preview').innerHTML="<b>Demo-Plan für 7 Tage wird hier angezeigt…</b>";
-    }
-    // Chat Dummy
-    function dummyChatSend(){
-      let me=document.getElementById('chat-in').value;
-      if(me.trim()) {
-        document.getElementById('chat-history').innerHTML+="<div><b>Du:</b> "+me+"</div>";
-        document.getElementById('chat-in').value="";
-      }
-    }
-  </script>
-</body>
-</html>
+  <details style="margin-top:.6rem"><summary>FAQ</summary>
+    <p data-i18n="faq_text">Testphase, Storno und Konditionen werden hier erklärt (Demo).</p>
+  </details>
+</section>
+<section id="blog">
+  <h2 data-i18n="blog_title">Blog</h2>
+  <div class="food-gallery" id="blog-list"></div>
+</section>
+<button class="chat-fab" id="chat-fab" aria-label="Chat">💬</button>
+<div class="chat-overlay" id="chat-overlay" role="dialog" aria-modal="true" aria-label="FitPause Chat">
+  <div class="chat-box">
+    <span id="chat-close" style="float:right;cursor:pointer;font-size:1.4rem">✕</span>
+    <div id="chat-history" style="min-height:120px;background:#f4f7f7;margin:8px 0;padding:8px;border-radius:10px"></div>
+    <input id="chat-in" placeholder="Frage mich alles zu gesunder Ernährung…" />
+    <button class="btn-secondary" id="chat-send">Senden</button>
+  </div>
+</div>
+<footer class="footer">
+  <div>© 2025 FitPause</div>
+  <div>
+    <a href="#impressum">Impressum</a>
+    <a href="#datenschutz">Datenschutz</a>
+    <a href="#agb">AGB</a>
+    <a href="mailto:info@fitpause.de">Kontakt</a>
+  </div>
+</footer>
+<script>
+// Simple mobile nav
+const burger=document.getElementById('burger');
+const nav=document.getElementById('main-nav');
+burger.addEventListener('click',()=>nav.classList.toggle('show'));
+
+// Parallax (lightweight)
+const bg=document.querySelector('.hero .bg');
+window.addEventListener('scroll
