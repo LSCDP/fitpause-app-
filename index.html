@@ -2,6 +2,75 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap" rel="stylesheet">
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin: 48px auto 64px auto;
+    max-width: 1150px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(20, 184, 166, 0.08), 0 2px 6px rgba(0,0,0,0.10);
+    padding: 0;
+    overflow: hidden;
+    width: 340px;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 2px solid #14b8a615;
+  }
+  .card:hover {
+    box-shadow: 0 8px 36px #14b8a6cc, 0 8px 36px rgba(20,184,166,0.2);
+    transform: translateY(-6px) scale(1.03);
+    border-color: #14b8a6;
+  }
+  .brand-bar {
+    background: linear-gradient(90deg,#14b8a6 70%,#31e4c6 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border-radius: 0 0 16px 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 12px #14b8a640;
+  }
+  .card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px 18px 0 0;
+  }
+  .caption {
+    padding: 24px 18px 20px 18px;
+    text-align: left;
+  }
+  .caption h3 {
+    margin: 0 0 12px 0;
+    color: #08988A;
+    font-weight: 800;
+    font-size: 1.19rem;
+    letter-spacing: -.5px;
+  }
+  .caption p {
+    margin: 0;
+    color: #426060;
+    font-size: 0.97rem;
+    line-height: 1.35;
+  }
+  @media (max-width: 800px) {
+    .gallery { flex-direction: column; gap: 32px; align-items: center; }
+    .card { width: 98vw; max-width: 400px; }
+  }
+</style>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FitPause – Personalisierte Ernährung & KI‑Wochenpläne</title>
   <meta name="description" content="KI‑gestützte Ernährungs- und Meal‑Planning‑Plattform – modern, schnell und professionell." />
@@ -93,25 +162,29 @@
     </section>
 
     <!-- Blog -->
-    <section class="py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-slate-900 mb-8">Aus dem Blog</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <article class="bg-white rounded-xl shadow overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=640&h=384&fit=crop&q=80&auto=format" alt="Meal Prep" width="640" height="384" loading="lazy" class="w-full h-48 object-cover"/>
-            <div class="p-6">
-              <h3 class="font-semibold text-lg text-slate-900 mb-2">Die besten Office‑Snacks</h3>
-              <p class="text-slate-700 mb-4">Fit und leistungsfähig bleiben – auch im Büro!</p>
-              <a href="#" class="inline-flex items-center rounded-lg bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 text-sm font-semibold">Mehr lesen</a>
-            </div>
-          </article>
-          <article class="bg-white rounded-xl shadow overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=640&h=384&fit=crop&q=80&auto=format" alt="KI Ernährung" width="640" height="384" loading="lazy" class="w-full h-48 object-cover"/>
-            <div class="p-6">
-              <h3 class="font-semibold text-lg text-slate-900 mb-2">Was bringt eine KI‑Ernährungsberatung?</h3>
-              <p class="text-slate-700 mb-4">Chancen und Grenzen digitaler Unterstützung.</p>
-              <a href="#" class="inline-flex items-center rounded-lg bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 text-sm font-semibold">Mehr lesen</a>
-            </div>
-          </article>
-          <article class="bg-white rounded-xl shadow overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=640&h=384&fit=crop&q=80&auto=format" alt="Einkaufsliste" width
+    <div class="gallery">
+  <div class="card">
+    <div class="brand-bar">Meal Prep</div>
+    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=640&h=384&fit=crop&q=80&auto=format" alt="Mediterranes Meal Prep Gericht auf Tisch – ideal für Ernährungsplanung">
+    <div class="caption">
+      <h3>Gesund Vorbereiten</h3>
+      <p>Mediterrane Meal Prep Inspiration für eine stressfreie Fitnesswoche.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="brand-bar">KI Ernährung</div>
+    <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=640&h=384&fit=crop&q=80&auto=format" alt="Frische gesunde Zutaten – Basis für personalisierte Ernährung mit KI">
+    <div class="caption">
+      <h3>Intelligente Rezepte</h3>
+      <p>Bunte Zutatenvielfalt für smarte Essensplanung mit künstlicher Intelligenz.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="brand-bar">Einkaufsliste</div>
+    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=640&h=384&fit=crop&q=80&auto=format" alt="Einkaufsliste und frische Lebensmittel – alles im Blick behalten">
+    <div class="caption">
+      <h3>Planen & Optimieren</h3>
+      <p>Alle Produkte griffbereit: So verwaltet man die perfekte FitPause-Einkaufsliste.</p>
+    </div>
+  </div>
+</div>
