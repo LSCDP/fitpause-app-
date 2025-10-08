@@ -1,196 +1,296 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>FitPause – Personalisierte Ernährung & KI-Pläne</title>
-  <meta name="description" content="Erhalte smarte, personalisierte Wochenpläne & Rezepte per KI – mit individueller Sprachauswahl, Allergiefilter und Mobil-Optimierung." />
-  <link rel="canonical" href="https://fitpause.de/" />
-  <meta property="og:title" content="FitPause – Personalisierte Ernährung & KI-Pläne" />
-  <meta property="og:description" content="Personalisierte Ernährungspläne, smarte Rezepte und KI-Unterstützung. Für Teams & Familien, mobil optimiert." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://fitpause.de" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop&q=70" />
-  <meta property="og:locale" content="de_DE" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FitPause" />
-  <meta name="twitter:description" content="Personalisierte Ernährungspläne & KI-Features." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop&q=70" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- SEO & Social -->
+  <meta name="description" content="Smarte, personalisierte Wochenpläne & Rezepte per KI mit individueller Sprachauswahl, Allergiefilter und Mobil-Optimierung.">
+  <meta property="og:title" content="FitPause – Personalisierte Ernährung & KI-Pläne">
+  <meta property="og:description" content="Personalisierte Ernährungspläne, smarte Rezepte und KI-Unterstützung. Für Teams & Familien, mobil optimiert.">
+  <meta property="og:url" content="https://fitpause.de">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FitPause">
+  <meta name="twitter:description" content="Personalisierte Ernährungspläne & KI-Features.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800">
+  <link rel="canonical" href="https://fitpause.de/">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root { --primary:#14b8a6; --primary-hover:#0ea5a3; --text:#143642; --muted:#5a6a77; --card:#fff; --radius:14px; --shadow:0 10px 30px rgba(14,165,160,.18) }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:#f5fbfb}
-    a{color:inherit; text-decoration:none}
-    .container{width:min(1100px,92%); margin-inline:auto}
-    .btn{display:inline-flex; align-items:center; gap:.5rem; background:var(--primary); color:#fff; padding:.85rem 1.05rem; border:none; border-radius:12px; cursor:pointer; box-shadow:var(--shadow); transition:transform .15s, background .2s}
-    .btn:hover{background:var(--primary-hover); transform:translateY(-1px)}
-    .ghost{background:#e8fbf8; color:#065e58}
-
-    header.hero{position:relative; min-height:72vh; display:grid; place-items:center; overflow:hidden}
-    .hero::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.4) 50%, rgba(255,255,255,.95)); z-index:1}
-    .hero .bg{position:absolute; inset:-10% -10% 0 -10%; background:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat; transform:translate3d(0, calc(var(--y,0px) * .25), 0); will-change:transform; z-index:0}
-    .hero .content{position:relative; z-index:2; text-align:center; display:grid; gap:1rem}
-    .hero h1{font-size:clamp(2rem,5vw,3rem); margin:0}
-    .hero p{margin:0 auto 1rem; color:#2a6b70; max-width:60ch}
-    .hero .actions{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap}
-
-    .lang-switch{position:fixed; top:10px; right:14px; z-index:9; background:#ffffffb0; backdrop-filter:blur(6px); padding:.35rem .5rem; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.08); display:flex; gap:.35rem}
-    .lang-switch button{border:none; background:transparent; padding:.45rem .6rem; border-radius:8px; cursor:pointer; color:#0b5162}
-    .lang-switch button.active{background:#dff7f5; color:#065e58}
-
-    section#onboarding{padding:48px 0}
-    .card{background:var(--card); border-radius:var(--radius); box-shadow:0 10px 25px rgba(6,41,41,.08); padding:clamp(16px,3vw,28px)}
-    .progress{height:10px; background:#ebf5f4; border-radius:20px; overflow:hidden; margin-bottom:16px}
-    .progress>i{display:block; height:100%; width:0%; background:linear-gradient(90deg, var(--primary), #5ee2d3)}
-    .steps{display:grid; gap:18px}
-    .form-step{display:none}
-    .form-step.active{display:block}
-    .form-group{display:grid; gap:8px}
-    label{font-weight:600}
-    input[type=text],input[type=email],input[type=number],select{padding:.7rem .8rem; border:1px solid #def0ee; border-radius:10px; outline:none}
-    .onboarding-buttons{display:flex; gap:.6rem; margin-top:12px; align-items:center}
-    .muted{color:var(--muted)}
-    .preview{background:#f6fffe; border:1px dashed #b5eee9; padding:12px; border-radius:12px; color:#095b53; margin-top:10px}
-
-    section#menu{padding:48px 0}
-    .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:16px}
-    .meal{background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.06); display:flex; flex-direction:column}
-    .meal img{width:100%; height:160px; object-fit:cover; aspect-ratio:16/9}
-    .meal .p{padding:12px 14px; color:#3f5b61}
-
-    .chat-fab{position:fixed; right:16px; bottom:16px; width:56px; height:56px; border-radius:50%; display:grid; place-items:center; background:var(--primary); color:#fff; border:none; box-shadow:var(--shadow); z-index:10; cursor:pointer}
-    .chat-overlay{position:fixed; inset:0; background:#022c224d; opacity:0; visibility:hidden; transition:.2s; z-index:11}
-    .chat-overlay.active{opacity:1; visibility:visible}
-    .chat-card{position:fixed; right:16px; bottom:84px; width:min(380px,92vw); background:#fff; border-radius:16px; box-shadow:0 18px 42px rgba(0,0,0,.22); padding:10px; transform:translateY(12px); opacity:0; visibility:hidden; transition:.2s; z-index:12}
-    .chat-card.active{transform:none; opacity:1; visibility:visible}
-    .chat-header{display:flex; align-items:center; justify-content:space-between; padding:6px 8px}
-    .chat-feed{height:240px; overflow:auto; padding:8px; display:flex; flex-direction:column; gap:8px; background:#f7fbfb; border-radius:12px}
-    .chat-msg{background:#fff; padding:8px 10px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.05); max-width:78%}
-
-    section#pricing{padding:48px 0}
-    .pricing{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
-    .price-card{background:#fff; border-radius:14px; padding:18px; box-shadow:0 10px 28px rgba(0,0,0,.07)}
-    .price{font-size:2rem; font-weight:700}
-
-    section#blog{padding:48px 0}
-    .blog-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
-    .blog-card{background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.06)}
-    .blog-card img{width:100%; height:160px; object-fit:cover}
-    .blog-card .p{padding:12px 14px}
-
-    footer{background:#062a2b; color:#d7f3f0; padding:28px 0; margin-top:28px}
-    footer a{color:#c5fffb}
-    .foot{display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center}
-    .legal{display:flex; gap:14px; flex-wrap:wrap; font-size:.95rem}
+    :root {
+      --primary: #14b8a6;
+      --primary-hover: #208e97;
+      --accent: #08988A;
+      --font-main: 'Inter', 'Montserrat', 'Poppins', Arial, sans-serif;
+    }
+    body {
+      font-family: var(--font-main);
+      margin: 0; padding: 0;
+      background: #f8f9fc;
+      color: #19343b;
+    }
+    nav {display:flex;gap:24px;padding:1rem 2rem 0 2rem;}
+    nav a {text-decoration:none;color:var(--primary);font-weight:600;}
+    .header {
+      display:flex;justify-content:space-between;align-items:center;
+      padding: 1.2rem 2rem 1.2rem 2rem; background: #fff; border-bottom: 1px solid #dadada; font-weight:700;
+    }
+    .lang-switch {display:flex;gap:10px;align-items:center;}
+    .lang-btn {background:none;border:none;font-size:1.2rem;cursor:pointer;outline:none;transition:filter .15s;}
+    .lang-btn.active,.lang-btn:focus{font-weight:bold;filter:brightness(1.18);}
+    .cta {
+      background: var(--primary); color:#fff; padding:.95rem 2.1rem; border-radius:9px;
+      font-size:1.13rem;font-family:inherit;font-weight:700;border:none;margin:18px 0;letter-spacing:.4px;
+      box-shadow:0 4px 14px #14b8a640;cursor:pointer;transition: background .2s, box-shadow .2s;
+    }
+    .cta:hover {background: var(--primary-hover);}
+    h1,h2,h3 {font-family:'Montserrat','Inter',Arial,sans-serif;}
+    h1 { font-size:2.2rem; color:var(--accent);}
+    .hero {
+      background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400') center/cover fixed;
+      position: relative; min-height:52vh; display:flex; align-items:center; justify-content:center; color:#fff; text-shadow:0 2px 10px #0008;
+    }
+    .hero-overlay { background:rgba(20,184,166,0.10); padding:3rem 1.5rem; border-radius:16px;text-align:center;}
+    .food-gallery {display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:3rem auto 2.5rem auto;max-width:1280px;}
+    .food-card{background:#fff;border-radius:16px;box-shadow:0 2px 12px #14b8a620;width:330px;overflow:hidden;display:flex;flex-direction:column;}
+    .food-card img{width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;background:#e6e6e6;}
+    .food-caption{padding:20px;text-align:left;}
+    .food-caption h3{margin:0 0 6px 0;color:var(--accent);}
+    .form-wrapper{background:#fff;border-radius:20px;box-shadow:0 2px 16px #14b8a62b;max-width:440px;margin:0 auto;padding:2.2rem 1.5rem 2.2rem 1.5rem;margin-bottom:2.5rem;}
+    .progress-bar{width:100%;height:13px;background:#e3f4f9;border-radius:8px;margin-bottom:18px;}
+    .progress-bar-fill{height:100%;background:var(--primary);border-radius:8px;transition:width .35s;}
+    .step-text{text-align:right;font-size:.96rem;margin-bottom:8px;}
+    .form-step{display:none;}
+    .form-step.active{display:block;}
+    .form-group{margin-bottom:18px;}
+    label{display:block;font-weight:600;margin-bottom:6px;}
+    input[type="text"],input[type="email"],input[type="number"],select{
+      padding:.68rem .7rem;width:100%;border-radius:7px;border:1px solid #b1c8c7;font-size:1rem;background:#f5fbfa;}
+    .onboarding-buttons{display:flex;justify-content:space-between;}
+    .plan-table{margin:2rem auto 2rem auto;max-width:1050px;}
+    .plan-grid{display:flex;flex-wrap:wrap;gap:18px;}
+    .plan-day{background:#fff;border-radius:10px;padding:16px;box-shadow:0 2px 14px #14b8a612;max-width:250px;}
+    .plan-day img{border-radius:10px;width:100%;height:110px;object-fit:cover;}
+    .chat-fab{position:fixed;bottom:28px;right:28px;z-index:99;font-size:2rem;background:#14b8a6;color:#fff;border-radius:50%;border:none;width:54px;height:54px;box-shadow:0 2px 12px #08988a44;cursor:pointer;}
+    .chat-overlay{position:fixed;bottom:0;right:0;width:320px;max-width:96vw;background:#fff;border:1px solid #14b8a6;border-radius:12px 12px 0 0;box-shadow:0 6px 32px #14b8a624;z-index:999;padding:18px 12px;display:none;}
+    .chat-box input{width:60%;margin-right:4px;}
+    .footer{display:flex;justify-content:space-between;align-items:start;padding:1.2rem 2% 2rem 2%;}
+    .footer a{color:var(--accent);margin-left:10px;text-decoration:none;}
+    .pricing{margin:2rem auto;max-width:900px;}
+    .pricing .plan{background:#fff;padding:20px 16px;border-radius:10px;box-shadow:0 2px 14px #14b8a612;width:230px;}
+    .pricing h2{margin-bottom:1.2rem;}
+    .blog-articles{display:flex;gap:18px;flex-wrap:wrap;}
+    .blog-articles article{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 14px #14b8a612;width:260px;}
+    @media (max-width:900px){
+      .food-gallery{flex-direction:column;gap:22px;align-items:center;}
+      .food-card{width:98vw;max-width:400px;}
+      .footer{flex-direction:column;gap:14px;}
+      .plan-grid{flex-direction:column;align-items:center;}
+      nav{flex-direction:column;gap:8px;}
+    }
+    @media (max-width:600px){
+      .form-wrapper{padding:1.2rem .35rem 1.2rem .35rem;}
+      .header,nav{padding:.8rem .5rem;}
+      .hero-overlay h1{font-size:1.11rem;}
+      .cta{padding:.88rem 1.14rem;}
+      .food-card{width:92vw;}
+      .food-card img{height:140px;}
+      .plan-day{width:96vw;}
+      .pricing .plan{width:96vw;}
+      .blog-articles article{width:95vw;}
+    }
   </style>
 </head>
 <body>
-  <nav class="lang-switch" aria-label="Language switcher">
-    <button data-lang="de" class="active" aria-pressed="true">DE</button>
-    <button data-lang="en" aria-pressed="false">EN</button>
+  <nav>
+    <a href="#home">Start</a>
+    <a href="#blog">Blog</a>
   </nav>
-
-  <header class="hero" role="banner">
-    <div class="bg" aria-hidden="true"></div>
-    <div class="container content">
-      <h1 data-i18n="hero_title">FitPause: Deine smarten Ernährungs- & Aktivitäts-Pausen</h1>
-      <p data-i18n="hero_sub">Starte mit personalisierten 7-Tage-Plänen, Rezepten & Tipps – abgestimmt auf dich.</p>
-      <div class="actions">
-        <a href="#onboarding" class="btn" data-i18n="cta_start">Jetzt starten</a>
-        <a href="#pricing" class="btn ghost" data-i18n="cta_pricing">Preise ansehen</a>
-      </div>
+  <div class="header">
+    <span>FitPause</span>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="lang-de" onclick="switchLang('de')" aria-label="Deutsch wählen">🇩🇪</button>
+      <button class="lang-btn" id="lang-en" onclick="switchLang('en')" aria-label="Switch to English">🇬🇧</button>
     </div>
-  </header>
+  </div>
+  <div class="hero"><div class="hero-overlay">
+    <h1>Dein smarter Plan für Ernährung &amp; Fitness</h1>
+    <p>Erhalte persönliche Wochenpläne, Rezepte und Einkaufslisten &ndash; angetrieben von KI.</p>
+    <button class="cta">Jetzt starten</button>
+  </div></div>
 
-  <section id="onboarding" class="container">
-    <div class="card" role="form" aria-labelledby="onb-title">
-      <div class="progress" aria-hidden="true"><i id="progress-fill"></i></div>
-      <h2 id="onb-title" data-i18n="onb_title">Sag uns kurz, was dir wichtig ist</h2>
-      <p class="muted" data-i18n="onb_sub">In 5 Schritten zu deinem Plan – danach Vorschau.</p>
-      <div class="steps">
-        <div class="form-step active" id="step1">
-          <div class="form-group">
-            <label for="goal" data-i18n="q_goal">Dein Ziel</label>
-            <select id="goal" required>
-              <option value="balance" selected data-i18n="goal_balance">Ausgeglichen essen</option>
-              <option value="lose" data-i18n="goal_lose">Abnehmen</option>
-              <option value="gain" data-i18n="goal_gain">Zunehmen</option>
-            </select>
-          </div>
+  <div class="food-gallery">
+    <div class="food-card"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=220&fit=crop" loading="lazy" alt="Mediterrane Gemüsepfanne"
+        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
+      <div class="food-caption"><h3>Mediterrane Gemüsepfanne</h3><p>Vitamin- und geschmacksintensiv, perfekt für Fitnessziele!</p></div>
+    </div>
+    <div class="food-card"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=220&fit=crop" loading="lazy" alt="Gesunde Snacks"
+        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
+      <div class="food-caption"><h3>Gesunde Snacks fürs Büro</h3><p>Leicht vorzubereiten, sättigend und abwechslungsreich.</p></div>
+    </div>
+    <div class="food-card"><img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=400&h=220&fit=crop" loading="lazy" alt="Veggie Burger"
+        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
+      <div class="food-caption"><h3>Veggie Burger</h3><p>Für ein gesundes und pflanzenbasiertes BBQ!</p></div>
+    </div>
+  </div>
+
+  <!-- Multi-step Formular -->
+  <div class="form-wrapper">
+    <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    <div class="step-text" id="step-txt"></div>
+    <form id="multi-step-form" onsubmit="event.preventDefault();showPreview();">
+      <div class="form-step" id="step1">
+        <div class="form-group">
+          <label>Name*</label><input type="text" required>
+          <label>Ziel*</label>
+          <select required><option>Muskeln aufbauen</option><option>Abnehmen</option><option>Gesünder essen</option></select>
         </div>
-        <div class="form-step" id="step2">
-          <div class="form-group">
-            <label for="diet" data-i18n="q_diet">Ernährungsform</label>
-            <select id="diet" required>
-              <option value="omn" selected data-i18n="diet_omn">Allesesser</option>
-              <option value="veg" data-i18n="diet_veg">Vegetarisch</option>
-              <option value="vegan" data-i18n="diet_vegan">Vegan</option>
-            </select>
-          </div>
+      </div>
+      <div class="form-step" id="step2">
+        <div class="form-group">
+          <label>Ernährungsform*</label>
+          <select required><option>Allesesser</option><option>Vegetarisch</option><option>Vegan</option></select>
+          <label>Allergien</label>
+          <input type="checkbox"> Laktose
+          <input type="checkbox"> Gluten
+          <input type="text" placeholder="Sonstige…">
         </div>
-        <div class="form-step" id="step3">
-          <div class="form-group">
-            <label for="allergy" data-i18n="q_allergy">Allergien/Unverträglichkeiten</label>
-            <input id="allergy" type="text" placeholder="z. B. Nüsse, Laktose" />
-          </div>
+      </div>
+      <div class="form-step" id="step3">
+        <div class="form-group">
+          <label>Anzahl Personen*</label><input type="number" min="1" max="20" required>
         </div>
-        <div class="form-step" id="step4">
-          <div class="form-group">
-            <label for="people" data-i18n="q_people">Anzahl Personen</label>
-            <input id="people" type="number" min="1" max="12" value="1" required />
-          </div>
-          <div class="form-group">
-            <label for="time" data-i18n="q_time">Kochzeit pro Mahlzeit</label>
-            <select id="time" required>
-              <option data-i18n="t_15">Bis 15 Minuten</option>
-              <option data-i18n="t_30">Bis 30 Minuten</option>
-              <option data-i18n="t_45">Bis 45 Minuten</option>
-              <option data-i18n="t_60">Über 1 Stunde</option>
-            </select>
-          </div>
+      </div>
+      <div class="form-step" id="step4">
+        <div class="form-group">
+          <label>Kochzeit*</label>
+          <select required><option>15 min</option><option>30 min</option><option>45 min</option></select>
+          <label>Budget</label><input type="text">
         </div>
-        <div class="form-step" id="step5">
-          <div class="form-group">
-            <label for="email" data-i18n="q_email">E-Mail-Adresse für den Ernährungsplan</label>
-            <input id="email" type="email" placeholder="you@example.com" required />
-          </div>
+      </div>
+      <div class="form-step" id="step5">
+        <div class="form-group">
+          <label>E-Mail*</label><input type="email" required>
         </div>
       </div>
       <div class="onboarding-buttons">
-        <button type="button" class="btn ghost" onclick="prevStep()" aria-label="Zurück" data-i18n="btn_back">Zurück</button>
-        <button type="button" class="btn" onclick="nextStep()" aria-label="Weiter" data-i18n="btn_next">Weiter</button>
-        <button type="button" class="btn" id="finish-btn" style="display:none" onclick="showPreview()" data-i18n="btn_finish">Vorschau</button>
-        <span id="step-txt" class="muted" style="margin-left:auto">Schritt 1 von 5</span>
+        <button type="button" onclick="prevStep()">Zurück</button>
+        <button type="button" onclick="nextStep()">Weiter</button>
+        <button type="submit" style="display:none;" id="finish-btn">Plan anzeigen</button>
       </div>
-      <div id="preview" class="preview" style="display:none" aria-live="polite"></div>
+    </form>
+    <div id="preview" style="display:none;padding:2rem 0 0 0"></div>
+  </div>
+
+  <!-- 7-Tage-Plan -->
+  <section class="plan-table" id="plan-table">
+    <h2>Dein 7-Tage-Menüplan</h2>
+    <div class="plan-grid">
+      <div class="plan-day"><img src="https://images.unsplash.com/photo-1512058564366-c9e2f1dbfa1c?w=300" loading="lazy" alt="Frühstück Montag" />
+        <h4>Montag</h4>
+        <ul><li><b>Frühstück:</b> Overnight Oats</li><li><b>Mittag:</b> Gemüsepfanne</li><li><b>Abend:</b> Lachs & Süßkartoffeln</li></ul>
+      </div>
+      <div class="plan-day"><img src="https://images.unsplash.com/photo-1502741126161-b048400d98b6?w=300" loading="lazy" alt="Dienstag" />
+        <h4>Dienstag</h4>
+        <ul><li><b>Frühstück:</b> Joghurt & Nüsse</li><li><b>Mittag:</b> Quinoasalat</li><li><b>Abend:</b> Hähnchen-Curry</li></ul>
+      </div>
+      <div class="plan-day"><img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=300" loading="lazy" alt="Mittwoch" />
+        <h4>Mittwoch</h4>
+        <ul><li><b>Frühstück:</b> Avocado Toast</li><li><b>Mittag:</b> Linsensuppe</li><li><b>Abend:</b> Pasta mit Gemüse</li></ul>
+      </div>
+      <!-- ...weitere Tage analog... -->
     </div>
   </section>
 
-  <section id="menu" class="container">
-    <h2 data-i18n="menu_title">Dein 7‑Tage‑Menüplan</h2>
-    <div class="grid" id="menu-grid" aria-live="polite"></div>
+  <!-- Pricing -->
+  <section class="pricing">
+    <h2>Preise & Abos</h2>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;">
+      <div class="plan"><h3>Free</h3>Basisfunktionen, 3 Rezepte/Woche<br><b>0€</b></div>
+      <div class="plan"><h3>Pro</h3>Voller Zugang, 7-Tage-Plan, Allergiefilter<br><b>9,90€</b><br>
+        <button class="cta" onclick="alert('Demo: Digistore24 Checkout!')">Abo abschließen</button>
+      </div>
+    </div>
   </section>
-
-  <section id="pricing" class="container">
-    <h2 data-i18n="pricing_title">Preise & Abos</h2>
-    <div class="pricing">
-      <article class="price-card" aria-label="Free">
-        <h3>Free</h3>
-        <p data-i18n="p_free">Basisfunktionen, 3 Rezepte/Woche</p>
-        <div class="price">0€</div>
-        <button class="btn" onclick="alert('Dummy: Checkout nicht aktiv.')" data-i18n="btn_choose">Wählen</button>
+  
+  <!-- Blogbereich -->
+  <section id="blog" style="margin-top:2rem;">
+    <h2>Blog</h2>
+    <div class="blog-articles">
+      <article>
+        <h3>Meal Prep Tipps</h3>
+        <p>So organisierst du deine Woche gesund und lecker.</p>
       </article>
-      <article class="price-card" aria-label="Pro">
-        <h3>Pro</h3>
-        <p data-i18n="p_pro">Voller Zugang, 7‑Tage‑Plan, Allergiefilter</p>
-        <div class="price">9,90€</div>
-        <button class="btn" onclick="alert('Dummy: Checkout nicht aktiv.')" data-i18n="btn_choose">Wählen</button>
+      <article>
+        <h3>Meal Prep Tips (EN)</h3>
+        <p>Easy ways to prep healthy food for the week.</p>
       </article>
     </div>
   </section>
-
-  <section id="blog" class="container
+  
+  <!-- Chat-FAB und Overlay -->
+  <button class="chat-fab" onclick="document.getElementById('chat-overlay').style.display='block'">💬</button>
+  <div class="chat-overlay" id="chat-overlay">
+    <div class="chat-box">
+      <span onclick="document.getElementById('chat-overlay').style.display='none'" style="float:right;cursor:pointer;font-size:1.4rem;">✕</span>
+      <h4>FitPause Chat</h4>
+      <div id="chat-history" style="min-height:100px;background:#f4f7f7;margin-bottom:10px;"></div>
+      <input id="chat-in" placeholder="Tippe hier…"><button onclick="dummyChatSend()">Senden</button>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div>© 2025 FitPause</div>
+    <div>
+      <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
+      <a href="#agb">AGB</a>
+      <a href="mailto:info@fitpause.de">Kontakt</a>
+    </div>
+  </footer>
+  
+  <!-- JavaScript Logik für Language, Multistep, Chat -->
+  <script>
+    // Language Autodetect
+    window.onload = function() {
+      const userLang = (navigator.language || navigator.userLanguage).substr(0,2);
+      if(userLang==="en") switchLang('en');
+      showStep(curStep);
+    }
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+      document.getElementById('lang-'+lang).classList.add('active');
+      document.documentElement.lang = lang;
+      alert('Demo: Inhalt würde jetzt auf '+(lang==="de"?"Deutsch":"Englisch")+" wechseln.");
+    }
+    // Multi-Step Logic
+    let curStep=1, totalSteps=5;
+    function showStep(step) {
+      for(let i=1;i<=totalSteps;i++)
+        document.getElementById('step'+i).style.display = (i===step) ? "block" : "none";
+      document.getElementById('progress-fill').style.width = 100*step/totalSteps + "%";
+      document.getElementById('step-txt').textContent = "Schritt " + step + " von " + totalSteps;
+      document.querySelector('button[onclick="prevStep()"]').style.display = (step>1) ? "" : "none";
+      document.querySelector('button[onclick="nextStep()"]').style.display = (step<totalSteps) ? "" : "none";
+      document.getElementById('finish-btn').style.display = (step===totalSteps) ? "" : "none";
+    }
+    function nextStep(){if(curStep<totalSteps){curStep++;showStep(curStep);}}
+    function prevStep(){if(curStep>1){curStep--;showStep(curStep);}}
+    function showPreview(){
+      document.getElementById('preview').style.display="block";
+      document.getElementById('preview').innerHTML="<b>Demo-Plan für 7 Tage wird hier angezeigt…</b>";
+    }
+    // Chat Dummy
+    function dummyChatSend(){
+      let me=document.getElementById('chat-in').value;
+      if(me.trim()) {
+        document.getElementById('chat-history').innerHTML+="<div><b>Du:</b> "+me+"</div>";
+        document.getElementById('chat-in').value="";
+      }
+    }
+  </script>
+</body>
+</html>
