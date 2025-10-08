@@ -1,190 +1,317 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap" rel="stylesheet">
-<style>
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: center;
-    margin: 48px auto 64px auto;
-    max-width: 1150px;
-  }
-  .card {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 18px rgba(20, 184, 166, 0.08), 0 2px 6px rgba(0,0,0,0.10);
-    padding: 0;
-    overflow: hidden;
-    width: 340px;
-    position: relative;
-    transition: box-shadow 0.2s, transform 0.2s;
-    border: 2px solid #14b8a615;
-  }
-  .card:hover {
-    box-shadow: 0 8px 36px #14b8a6cc, 0 8px 36px rgba(20,184,166,0.2);
-    transform: translateY(-6px) scale(1.03);
-    border-color: #14b8a6;
-  }
-  .brand-bar {
-    background: linear-gradient(90deg,#14b8a6 70%,#31e4c6 100%);
-    color: #fff;
-    font-weight: 800;
-    font-size: 1rem;
-    padding: 8px 18px;
-    border-radius: 0 0 16px 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 12px #14b8a640;
-  }
-  .card img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 18px 18px 0 0;
-  }
-  .caption {
-    padding: 24px 18px 20px 18px;
-    text-align: left;
-  }
-  .caption h3 {
-    margin: 0 0 12px 0;
-    color: #08988A;
-    font-weight: 800;
-    font-size: 1.19rem;
-    letter-spacing: -.5px;
-  }
-  .caption p {
-    margin: 0;
-    color: #426060;
-    font-size: 0.97rem;
-    line-height: 1.35;
-  }
-  @media (max-width: 800px) {
-    .gallery { flex-direction: column; gap: 32px; align-items: center; }
-    .card { width: 98vw; max-width: 400px; }
-  }
-</style>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FitPause – Personalisierte Ernährung & KI‑Wochenpläne</title>
-  <meta name="description" content="KI‑gestützte Ernährungs- und Meal‑Planning‑Plattform – modern, schnell und professionell." />
-  <link rel="canonical" href="https://lscdp.github.io/fitpause-app-/" />
-  <meta property="og:title" content="FitPause – KI‑Ernährungs- und Meal‑Planning" />
-  <meta property="og:description" content="Dein smarter Plan für gesunde Ernährung und Fitness. Intelligente Vorschläge, modernes Design, alles aus einer Hand." />
-  <meta property="og:url" content="https://lscdp.github.io/fitpause-app-/" />
-  <meta property="og:image" content="https://lscdp.github.io/fitpause-app-/assets/fitpause-og.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#14b8a6" />
-  <link rel="icon" href="./logo.png" type="image/png" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T00EKS3DHH"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T00EKS3DHH');</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>:root{color-scheme:light}*{box-sizing:border-box}a:focus-visible,button:focus-visible{outline:2px solid #14b8a6;outline-offset:2px}@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FitPause","description":"KI‑gestützte Ernährungs- und Meal‑Planning‑Plattform","brand":{"@type":"Brand","name":"FitPause"},"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"featureList":["Personalisierte Ernährungspläne","KI‑basierte Empfehlungen","Team- und Familienprofile"]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie starte ich mit FitPause?","acceptedAnswer":{"@type":"Answer","text":"Klicke auf Jetzt starten und erstelle dein Profil in 1 Minute."}},{"@type":"Question","name":"Ist FitPause kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja, die Basisfunktionen sind kostenlos nutzbar."}}]}</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <title>FitPause – Personalisierte Ernährung & KI-Pläne</title>
+  <!-- SEO & Social -->
+  <meta name="description" content="Erhalte smarte, personalisierte Wochenpläne & Rezepte per KI – mit individueller Sprachauswahl, Allergiefilter und Mobil-Optimierung.">
+  <meta property="og:title" content="FitPause – Personalisierte Ernährung & KI-Pläne">
+  <meta property="og:description" content="Personalisierte Ernährungspläne, smarte Rezepte und KI-Unterstützung. Für Teams & Familien, mobil optimiert.">
+  <meta property="og:url" content="https://fitpause.de">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FitPause">
+  <meta name="twitter:description" content="Personalisierte Ernährungspläne & KI-Features.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800">
+  <link rel="canonical" href="https://fitpause.de/">
+  <!-- Google Fonts (Inter, Montserrat, Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #14b8a6;
+      --primary-hover: #208e97;
+      --accent: #08988A;
+      --font-main: 'Inter', 'Montserrat', 'Poppins', Arial, sans-serif;
+    }
+    body {
+      font-family: var(--font-main);
+      margin: 0;
+      padding: 0;
+      background: #f8f9fc;
+      color: #19343b;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+      background: #fff;
+      border-bottom: 1px solid #dadada;
+      font-weight: 700;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      outline: none;
+      transition: filter .15s;
+    }
+    .lang-btn.active, .lang-btn:focus { font-weight: bold; filter: brightness(1.15);}
+    .cta {
+      background: var(--primary);
+      color: #fff;
+      padding: .95rem 2.1rem;
+      border-radius: 9px;
+      font-size: 1.13rem;
+      font-family: inherit;
+      font-weight: 700;
+      border: none;
+      margin: 18px 0;
+      letter-spacing: .4px;
+      box-shadow: 0 4px 14px #14b8a640;
+      cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+    }
+    .cta:hover { background: var(--primary-hover);}
+    h1, h2, h3 { font-family: 'Montserrat', 'Inter', Arial, sans-serif;}
+    h1 { font-size: 2.3rem; color: var(--accent); }
+    .hero {
+      text-align: center;
+      margin-top: 28px;
+      padding: 2.5rem 1rem 1.5rem 1rem;
+    }
+    .food-gallery {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 3rem auto 2.5rem auto;
+      max-width: 1280px;
+    }
+    .food-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #14b8a620;
+      width: 330px;
+      overflow: hidden;
+      margin: 0 0 16px 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .food-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px 16px 0 0;
+      background: #e6e6e6;
+    }
+    .food-caption { padding: 20px; text-align: left;}
+    .food-caption h3 { margin: 0 0 6px 0; color: var(--accent);}
+    /* Multi-step Form */
+    .form-wrapper {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 2px 16px #14b8a62b;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 2.2rem 1.2rem 2.2rem 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 13px;
+      background: #e3f4f9;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      overflow: hidden
+    }
+    .progress-bar-fill {
+      height: 100%; background: var(--primary); border-radius: 8px; transition: width .35s;}
+    .step-text { text-align: right; font-size: .96rem; margin-bottom: 8px;}
+    .form-step { display: none; }
+    .form-step.active { display: block;}
+    .form-group { margin-bottom: 18px;}
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input[type="text"], input[type="email"], select {
+      padding: .68rem .7rem; width: 100%; border-radius: 7px; border: 1px solid #b1c8c7;
+      font-size: 1rem; background: #f5fbfa;}
+    .onboarding-buttons { display: flex; justify-content: space-between;}
+    .onboarding-buttons .cta { margin: 0; }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .food-gallery { flex-direction: column; gap: 22px; align-items: center;}
+      .food-card { width: 98vw; max-width: 400px;}
+    }
+    @media (max-width: 600px) {
+      .form-wrapper { padding: 1.2rem .15rem 1.2rem .15rem; }
+      .header, .hero {padding: 1rem .3rem .8rem .3rem;}
+      h1 { font-size: 1.44rem;}
+      .cta { padding: .9rem 1.22rem;}
+      .food-card { width: 92vw;}
+      .food-card img { height: 140px; }
+    }
+  </style>
+  <script>
+    // Sprachumschaltung Dummy
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+      document.documentElement.lang = lang;
+      // Echte Übersetzung in der App ggf. via JS-Objekt oder Serverlösung – ggf. aus app.js übernehmen!
+      alert('Demo: Inhalt würde jetzt auf ' + (lang==="de"?"Deutsch":"Englisch")+" wechseln.");
+    }
+    // Multi-Step Logik (nur Frontend-Demo!)
+    let curStep = 1, totalSteps = 5;
+    function showStep(step) {
+      for (let i=1; i<=totalSteps; i++) {
+        document.getElementById('step'+i).classList.remove('active');
+      }
+      document.getElementById('step'+step).classList.add('active');
+      document.getElementById('progress-fill').style.width = (100*step/totalSteps) + '%';
+      document.getElementById('step-txt').textContent = "Schritt "+step+" von "+totalSteps;
+    }
+    function nextStep() { if (curStep<totalSteps) { curStep++; showStep(curStep); } }
+    function prevStep() { if (curStep>1) { curStep--; showStep(curStep); } }
+    // Initialisierung
+    window.onload = function() {showStep(curStep);}
+  </script>
 </head>
-<body class="bg-slate-50 text-slate-900">
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded shadow">Zum Inhalt springen</a>
-  <header class="bg-white sticky top-0 shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-4">
-        <div class="flex-1"></div>
-        <a href="#" class="flex items-center gap-2">
-          <img src="./logo.png" alt="FitPause Logo" width="64" height="64" class="w-16 h-16 object-contain" loading="lazy"/>
-          <span class="text-3xl font-extrabold tracking-tight">FitPause</span>
-        </a>
-        <div class="flex-1 flex items-center justify-end gap-4">
-          <div class="hidden sm:flex items-center gap-3 text-slate-500">
-            <a aria-label="Instagram" href="https://instagram.com" class="hover:text-teal-600" target="_blank" rel="noopener"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/></svg></a>
-            <a aria-label="Facebook" href="https://facebook.com" class="hover:text-teal-600" target="_blank" rel="noopener"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.5l.5-3h-3V9.5c0-.9.3-1.5 1.6-1.5H17V5.2C16.7 5.2 15.8 5 14.7 5 12.4 5 11 6.3 11 9v2H8.5v3H11v8h2.5z"/></svg></a>
-            <a aria-label="LinkedIn" href="https://linkedin.com" class="hover:text-teal-600" target="_blank" rel="noopener"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM4 8h4v12H4zM14 8c-3 0-5 2-5 5v7h4v-6c0-1.7.8-3 2.5-3s2.5 1.3 2.5 3v6H22v-7c0-3-2-5-5-5z"/></svg></a>
-          </div>
-          <button id="langBtn" class="inline-flex items-center rounded-full border border-teal-600 text-teal-700 hover:bg-teal-50 px-3 py-1 text-sm font-semibold">DE / EN</button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-    <!-- Hero -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-5xl font-extrabold tracking-tight text-slate-900">Dein smarter Plan für Ernährung & Fitness</h1>
-          <p class="mt-4 text-lg text-slate-600">Erhalte persönliche Wochenpläne, Rezepte und Einkaufslisten – angetrieben von KI.</p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#kontakt" class="inline-flex items-center justify-center rounded-lg bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 text-lg font-semibold shadow-md">Jetzt starten</a>
-            <a href="#features" class="inline-flex items-center justify-center rounded-lg border border-slate-300 text-slate-700 hover:bg-white/60 px-6 py-3 text-lg font-semibold">Features ansehen</a>
-          </div>
-          <div class="mt-10 grid grid-cols-3 gap-4">
-            <div class="flex items-start gap-3"><svg class="w-8 h-8 text-teal-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.2L5 7v10l7 3.8L19 17V7l-7-2.8z"/><path d="M12 8l4 4-4 4-4-4 4-4z"/></svg><p class="text-sm text-slate-700"><span class="font-semibold">Sicher</span> mit DSGVO‑Konformität.</p></div>
-            <div class="flex items-start gap-3"><svg class="w-8 h-8 text-teal-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-9 9a9 9 0 1 1 18 0H3z"/></svg><p class="text-sm text-slate-700"><span class="font-semibold">Gemeinsam</span> für Teams & Familien.</p></div>
-            <div class="flex items-start gap-3"><svg class="w-8 h-8 text-teal-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7l3-7z"/></svg><p class="text-sm text-slate-700"><span class="font-semibold">Ausgezeichnet</span> von Expertinnen & Experten.</p></div>
-          </div>
-        </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1280&h=840&fit=crop&q=80&auto=format" alt="FitPause App Screenshot" width="1280" height="840" loading="lazy" class="w-full rounded-2xl shadow-xl ring-1 ring-black/5" />
-        </div>
-      </div>
-      <div class="fixed bottom-0 inset-x-0 z-40 sm:hidden p-3"><a href="#kontakt" class="block text-center rounded-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-4 text-lg font-bold shadow-lg">Jetzt starten</a></div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-slate-900 mb-10">Warum FitPause?</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white rounded-xl shadow p-6"><div class="mb-3 text-teal-600"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 4v6c0 5-9 8-9 8s-9-3-9-8V7l9-4z"/></svg></div><h3 class="font-semibold text-lg text-slate-900 mb-2">Personalisierte Pläne</h3><ul class="text-slate-700 list-disc ml-5 space-y-1"><li>Individuelle Ziele & Allergien</li><li>Automatische Einkaufslisten</li><li>Flexible Wochenübersicht</li></ul></div>
-          <div class="bg-white rounded-xl shadow p-6"><div class="mb-3 text-teal-600"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4V4zm0 7h16v2H4v-2zm0 7h16v2H4v-2z"/></svg></div><h3 class="font-semibold text-lg text-slate-900 mb-2">KI‑Empfehlungen</h3><ul class="text-slate-700 list-disc ml-5 space-y-1"><li>Rezepte, die zu dir passen</li><li>Nährwerte im Blick</li><li>Smarter Austausch von Zutaten</li></ul></div>
-          <div class="bg-white rounded-xl shadow p-6"><div class="mb-3 text-teal-600"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-9 9a9 9 0 1 1 18 0H3z"/></svg></div><h3 class="font-semibold text-lg text-slate-900 mb-2">Teamfähig</h3><ul class="text-slate-700 list-disc ml-5 space-y-1"><li>Profile für Familie oder Team</li><li>Geteilte Einkaufslisten</li><li>Rollen & Berechtigungen</li></ul></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Über uns / Team -->
-    <section class="py-16 bg-white">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-slate-900 mb-6">Über uns</h2>
-        <div class="grid md:grid-cols-3 gap-8 items-center">
-          <p class="md:col-span-2 text-slate-700">Unsere Mission: Gesunde Ernährung für alle einfach machen – mit Technologie, die sich deinem Alltag anpasst.</p>
-          <div class="flex items-center gap-4">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=96&h=96&fit=crop&q=80&auto=format" alt="Team" width="96" height="96" loading="lazy" class="w-24 h-24 rounded-full object-cover" />
-            <div><p class="font-semibold">FitPause Team</p><p class="text-slate-600 text-sm">Ernährung, Design & KI</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Blog -->
-    <div class="gallery">
-  <div class="card">
-    <div class="brand-bar">Meal Prep</div>
-    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=640&q=80" alt="Mediterranes Meal Prep Gericht – Unsplash" />
-    <div class="caption">
-      <h3>Gesund Vorbereiten</h3>
-      <p>Mediterrane Meal Prep Inspiration für eine stressfreie Fitnesswoche.</p>
+<body>
+  <div class="header">
+    <span>FitPause</span>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="lang-de" onclick="switchLang('de')" aria-label="Deutsch wählen">🇩🇪</button>
+      <button class="lang-btn" id="lang-en" onclick="switchLang('en')" aria-label="Switch to English">🇬🇧</button>
     </div>
   </div>
-  <div class="card">
-    <div class="brand-bar">KI Ernährung</div>
-    <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=640&h=384&fit=crop&q=80&auto=format" alt="Frische gesunde Zutaten – Basis für personalisierte Ernährung mit KI">
-    <div class="caption">
-      <h3>Intelligente Rezepte</h3>
-      <p>Bunte Zutatenvielfalt für smarte Essensplanung mit künstlicher Intelligenz.</p>
-    </div>
+
+  <div class="hero">
+    <h1>Dein smarter Plan für Ernährung &amp; Fitness</h1>
+    <p>Erhalte persönliche Wochenpläne, Rezepte und Einkaufslisten &ndash; angetrieben von KI.</p>
+    <button class="cta">Jetzt starten</button>
   </div>
-  <div class="card">
-    <div class="brand-bar">Einkaufsliste</div>
-    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=640&h=384&fit=crop&q=80&auto=format" alt="Einkaufsliste und frische Lebensmittel – alles im Blick behalten">
-    <div class="caption">
-      <h3>Planen & Optimieren</h3>
-      <p>Alle Produkte griffbereit: So verwaltet man die perfekte FitPause-Einkaufsliste.</p>
+
+  <div class="food-gallery">
+    <div class="food-card">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=220&fit=crop"
+        alt="Mediterrane Gemüsepfanne"
+        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
+      <div class="food-caption">
+        <h3>Mediterrane Gemüsepfanne</h3>
+        <p>Vitamin- und geschmacksintensiv, perfekt für Fitnessziele!</p>
+      </div>
     </div>
+    <div class="food-card">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=220&fit=crop"
+        alt="Gesunde Snacks"
+        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
+      <div class="food-caption">
+        <h3>Gesunde Snacks fürs Büro</h3>
+        <p>Leicht vorzubereiten, sättigend und abwechslungsreich.</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=400&h=220&fit=crop"
+        alt="Veggie Burger"
+        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=220&fit=crop'">
+      <div class="food-caption">
+        <h3>Veggie Burger</h3>
+        <p>Für ein gesundes und pflanzenbasiertes BBQ!</p>
+      </div>
+    </div>
+    <!-- Weitere Cards nach Bedarf -->
   </div>
-</div>
+
+  <!-- Onboarding Formular -->
+  <div class="form-wrapper">
+    <div class="progress-bar">
+      <div class="progress-bar-fill" id="progress-fill" style="width:20%"></div>
+    </div>
+    <div class="step-text" id="step-txt"></div>
+    <form id="multi-step-form" autocomplete="off" onsubmit="event.preventDefault();alert('Demo: Formular abgeschlossen!');">
+      <!-- Schritt 1: Ziele auswählen -->
+      <div class="form-step" id="step1">
+        <div class="form-group">
+          <label>Dein Ziel:</label>
+          <select required>
+            <option>Muskeln aufbauen</option>
+            <option>Gewicht verlieren</option>
+            <option>Gesünder essen</option>
+          </select>
+        </div>
+      </div>
+      <!-- Schritt 2: Allergien (mit eigener Eingabe) -->
+      <div class="form-step" id="step2">
+        <div class="form-group">
+          <label>Allergien &amp; Unverträglichkeiten:</label>
+          <input type="checkbox" id="allg-lactose"><label for="allg-lactose">Laktose</label>
+          <input type="checkbox" id="allg-gluten"><label for="allg-gluten">Gluten</label>
+          <input type="checkbox" id="allg-nuts"><label for="allg-nuts">Nüsse</label>
+          <input type="checkbox" id="allg-shellfish"><label for="allg-shellfish">Meeresfrüchte</label>
+          <input type="text" id="custom-allergy" placeholder="Weitere Allergie eintragen… (optional)">
+        </div>
+      </div>
+      <!-- Schritt 3: Ernährungsstil -->
+      <div class="form-step" id="step3">
+        <div class="form-group">
+          <label>Ernährungsweise:</label>
+          <select required>
+            <option>Omnivore (Alles)</option>
+            <option>Vegetarisch</option>
+            <option>Vegan</option>
+          </select>
+        </div>
+      </div>
+      <!-- Schritt 4: Anzahl Personen & Kochzeit -->
+      <div class="form-step" id="step4">
+        <div class="form-group">
+          <label>Anzahl Personen:</label>
+          <input type="number" required min="1" max="12" value="1">
+        </div>
+        <div class="form-group">
+          <label>Kochzeit pro Mahlzeit:</label>
+          <select required>
+            <option>Bis 15 Minuten</option>
+            <option>Bis 30 Minuten</option>
+            <option>Bis 45 Minuten</option>
+            <option>Über 1 Stunde</option>
+          </select>
+        </div>
+      </div>
+      <!-- Schritt 5: E-Mail -->
+      <div class="form-step" id="step5">
+        <div class="form-group">
+          <label>E-Mail-Adresse für den Ernährungsplan:</label>
+          <input type="email" required>
+        </div>
+      </div>
+      <!-- Navigation Buttons -->
+      <div class="onboarding-buttons">
+        <button type="button" class="cta" onclick="prevStep()">Zurück</button>
+        <button type="button" class="cta" onclick="nextStep()">Weiter</button>
+        <button type="submit" class="cta" style="display:none;" id="finish-btn">Absenden</button>
+      </div>
+      <script>
+        // Buttons anpassen
+        function updateButtons() {
+          document.querySelector('.onboarding-buttons button[onclick="prevStep()"]').style.display = (curStep>1) ? 'inline-block' : 'none';
+          document.querySelector('.onboarding-buttons button[onclick="nextStep()"]').style.display = (curStep<totalSteps) ? 'inline-block' : 'none';
+          document.getElementById('finish-btn').style.display = (curStep===totalSteps) ? 'inline-block' : 'none';
+        }
+        // Steps updaten nach Vor/Zurück
+        function showStep(step){
+          for(let i=1;i<=totalSteps;i++)
+            document.getElementById('step'+i).classList.remove('active');
+          document.getElementById('step'+step).classList.add('active');
+          document.getElementById('progress-fill').style.width=(100*step/totalSteps)+'%';
+          document.getElementById('step-txt').textContent="Schritt "+step+" von "+totalSteps;
+          updateButtons();
+        }
+        window.onload=function(){showStep(curStep);}
+        window.nextStep=function(){if(curStep<totalSteps){curStep++;showStep(curStep);}}
+        window.prevStep=function(){if(curStep>1){curStep--;showStep(curStep);}}
+      </script>
+    </form>
+  </div>
+</body>
+</html>
