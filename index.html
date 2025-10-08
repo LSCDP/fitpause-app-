@@ -1,150 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FitPause – Personalisierte Ernährung & KI‑Wochenpläne</title>
-    <meta name="description" content="KI‑gestützte Ernährungs- und Meal‑Planning‑Plattform – modern, schnell und professionell.">
-    <link rel="canonical" href="https://lscdp.github.io/fitpause-app-/">
-    <meta property="og:title" content="FitPause – KI‑Ernährungs- und Meal‑Planning">
-    <meta property="og:description" content="Dein smarter Plan für gesunde Ernährung und Fitness. Intelligente Vorschläge, modernes Design, alles aus einer Hand.">
-    <meta property="og:url" content="https://lscdp.github.io/fitpause-app-/">
-    <meta property="og:image" content="https://lscdp.github.io/fitpause-app-/assets/fitpause-og.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#14b8a6">
-    <link rel="icon" href="./logo.png" type="image/png">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T00EKS3DHH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-T00EKS3DHH');
-    </script>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root { color-scheme: light; }
-      * { box-sizing: border-box; }
-      a:focus-visible, button:focus-visible { outline: 2px solid #14b8a6; outline-offset: 2px; }
-      @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
-    </style>
-  </head>
-  <body class="bg-slate-50 text-slate-900">
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded shadow">Zum Inhalt springen</a>
-
-    <header class="bg-white sticky top-0 shadow-md z-50">
-      <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 h-20" aria-label="Hauptnavigation">
-        <div class="flex items-center gap-3">
-          <img src="./logo.png" alt="FitPause Logo" class="h-12 w-auto" width="48" height="48" decoding="async">
-          <span class="font-bold text-2xl text-teal-500 tracking-wide">FitPause</span>
-        </div>
-        <ul class="flex gap-8 text-slate-800 text-lg font-semibold m-0 p-0">
-          <li><a class="hover:text-teal-500" href="#home">Home</a></li>
-          <li><a class="hover:text-teal-500" href="#features">Features</a></li>
-          <li><a class="hover:text-teal-500" href="#blog">Blog</a></li>
-          <li><a class="hover:text-teal-500" href="#kontakt">Kontakt</a></li>
-        </ul>
-        <div class="flex items-center gap-4">
-          <a class="px-5 py-2 bg-teal-500 text-white rounded-xl font-bold shadow hover:bg-teal-600 transition" href="#start">Jetzt starten</a>
-          <a aria-label="Instagram" class="text-gray-400 hover:text-teal-500" href="https://instagram.com/fitpause" target="_blank" rel="noopener noreferrer">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-            </svg>
-          </a>
-        </div>
-      </nav>
-    </header>
-
-    <main id="main" tabindex="-1">
-      <!-- Hero Section -->
-      <section id="home" class="py-16 text-center">
-        <h1 class="text-4xl font-bold text-teal-600">FitPause – Personalisierte Ernährung & KI‑Wochenpläne</h1>
-        <p class="mt-4 text-lg text-slate-600">Dein smarter Plan für gesunde Ernährung und Fitness.</p>
-      </section>
-      <!-- Features Section -->
-      <section id="features" class="py-12 bg-white">
-        <!-- Beispiel-Features (optional mit SVG-Icons) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div class="bg-slate-50 rounded-lg shadow py-8 px-6 text-center">
-            <svg class="mx-auto mb-4 w-10 h-10 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-            <h3 class="font-semibold text-lg text-teal-600 mb-2">KI‑Personalisierung</h3>
-            <p class="text-slate-600">Individuelle Ernährungspläne nach deinen Zielen und Vorlieben.</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitPause – Personalisierte Ernährung & KI‑Wochenpläne</title>
+  <meta name="description" content="KI‑gestützte Ernährungs- und Meal‑Planning‑Plattform – modern, schnell und professionell." />
+  <link rel="canonical" href="https://lscdp.github.io/fitpause-app-/" />
+  <meta property="og:title" content="FitPause – KI‑Ernährungs- und Meal‑Planning" />
+  <meta property="og:description" content="Dein smarter Plan für gesunde Ernährung und Fitness. Intelligente Vorschläge, modernes Design, alles aus einer Hand." />
+  <meta property="og:url" content="https://lscdp.github.io/fitpause-app-/" />
+  <meta property="og:image" content="https://lscdp.github.io/fitpause-app-/assets/fitpause-og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#14b8a6" />
+  <link rel="icon" href="./logo.png" type="image/png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T00EKS3DHH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T00EKS3DHH');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>:root{color-scheme:light}*{box-sizing:border-box}a:focus-visible,button:focus-visible{outline:2px solid #14b8a6;outline-offset:2px}@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FitPause","description":"KI‑gestützte Ernährungs- und Meal‑Planning‑Plattform","brand":{"@type":"Brand","name":"FitPause"},"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"featureList":["Personalisierte Ernährungspläne","KI‑basierte Empfehlungen","Team- und Familienprofile"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie starte ich mit FitPause?","acceptedAnswer":{"@type":"Answer","text":"Klicke auf Jetzt starten und erstelle dein Profil in 1 Minute."}},{"@type":"Question","name":"Ist FitPause kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja, die Basisfunktionen sind kostenlos nutzbar."}}]}</script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded shadow">Zum Inhalt springen</a>
+  <header class="bg-white sticky top-0 shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex-1"></div>
+        <a href="#" class="flex items-center gap-2">
+          <img src="assets/logo.webp" alt="FitPause Logo" width="64" height="64" class="w-16 h-16 object-contain" loading="lazy"/>
+          <span class="text-3xl font-extrabold tracking-tight">FitPause</span>
+        </a>
+        <div class="flex-1 flex items-center justify-end gap-4">
+          <div class="hidden sm:flex items-center gap-3 text-slate-500">
+            <a aria-label="Instagram" href="https://instagram.com" class="hover:text-teal-600" target="_blank" rel="noopener"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/></svg></a>
+            <a aria-label="Facebook" href="https://facebook.com" class="hover:text-teal-600" target="_blank" rel="noopener"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.5l.5-3h-3V9.5c0-.9.3-1.5 1.6-1.5H17V5.2C16.7 5.2 15.8 5 14.7 5 12.4 5 11 6.3 11 9v2H8.5v3H11v8h2.5z"/></svg></a>
+            <a aria-label="LinkedIn" href="https://linkedin.com" class="hover:text-teal-600" target="_blank" rel="noopener"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM4 8h4v12H4zM14 8c-3 0-5 2-5 5v7h4v-6c0-1.7.8-3 2.5-3s2.5 1.3 2.5 3v6H22v-7c0-3-2-5-5-5z"/></svg></a>
           </div>
-          <div class="bg-slate-50 rounded-lg shadow py-8 px-6 text-center">
-            <svg class="mx-auto mb-4 w-10 h-10 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-            <h3 class="font-semibold text-lg text-teal-600 mb-2">Automatische Einkaufsliste</h3>
-            <p class="text-slate-600">Einfach, clever & zeitsparend – kein Stress mehr beim Einkaufen!</p>
-          </div>
-          <div class="bg-slate-50 rounded-lg shadow py-8 px-6 text-center">
-            <svg class="mx-auto mb-4 w-10 h-10 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
-            <h3 class="font-semibold text-lg text-teal-600 mb-2">Mobil & Mehrsprachig</h3>
-            <p class="text-slate-600">Optimal für Handy und Desktop, vollständige Deutsch/Englisch-Unterstützung.</p>
-          </div>
-        </div>
-      </section>
-      <!-- Blog Section -->
-      <section id="blog" class="py-12 bg-slate-50">
-        <h2 class="text-center font-bold text-2xl text-teal-600 mb-6">Neues im Blog</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <article class="bg-white rounded-xl shadow p-6 text-left">
-            <div class="mb-4">
-              <svg class="w-7 h-7 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-            </div>
-            <h3 class="font-semibold text-lg text-teal-700 mb-2">Meal Prep Tipps für den Alltag</h3>
-            <p class="text-slate-700 mb-2">So sparst du Zeit und bleibst trotzdem gesund. <a href="#" class="text-teal-500 underline">Mehr lesen</a></p>
-          </article>
-          <article class="bg-white rounded-xl shadow p-6 text-left">
-            <div class="mb-4">
-              <svg class="w-7 h-7 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-            </div>
-            <h3 class="font-semibold text-lg text-teal-700 mb-2">Die besten Office-Snacks</h3>
-            <p class="text-slate-700 mb-2">Fit und leistungsfähig bleiben – auch im Büro! <a href="#" class="text-teal-500 underline">Mehr lesen</a></p>
-          </article>
-          <article class="bg-white rounded-xl shadow p-6 text-left">
-            <div class="mb-4">
-              <svg class="w-7 h-7 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <h3 class="font-semibold text-lg text-teal-700 mb-2">Was bringt eine KI-Ernährungsberatung?</h3>
-            <p class="text-slate-700 mb-2">Chancen und Grenzen digitaler Unterstützung. <a href="#" class="text-teal-500 underline">Mehr lesen</a></p>
-          </article>
-        </div>
-      </section>
-      <!-- Kontakt Section -->
-      <section id="kontakt" class="py-12 bg-white">
-        <h2 class="text-center font-bold text-2xl text-teal-600 mb-6">Kontakt & Support</h2>
-        <form class="max-w-lg mx-auto flex flex-col gap-4 bg-slate-50 p-8 rounded-xl shadow" autocomplete="on">
-          <input class="border border-slate-300 rounded p-3 text-lg" type="text" name="name" placeholder="Name*" required>
-          <input class="border border-slate-300 rounded p-3 text-lg" type="email" name="email" placeholder="E-Mail*" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}">
-          <textarea class="border border-slate-300 rounded p-3 text-lg" name="message" rows="4" placeholder="Deine Nachricht*" required></textarea>
-          <!-- Honeypot (Spam-Schutz) -->
-          <input type="text" name="website" style="display:none">
-          <button class="bg-teal-500 text-white px-5 py-3 rounded-xl font-bold hover:bg-teal-600 transition" type="submit">Absenden</button>
-          <!-- Erfolgs-/Fehlermeldung via JS ergänzbar -->
-        </form>
-        <p class="mt-6 text-center text-slate-500">Oder per E-Mail: <a href="mailto:info@fitpause.de" class="text-teal-500 underline">info@fitpause.de</a></p>
-      </section>
-      <!-- Start/CTA Section -->
-      <section id="start" class="py-12 text-center bg-slate-50">
-        <h2 class="text-2xl font-bold mb-4 text-teal-600">Starte jetzt deinen Ernährungsplan mit KI!</h2>
-        <a href="#features" class="bg-teal-500 text-white px-8 py-4 rounded-xl font-bold shadow hover:bg-teal-600 transition">Starte deinen Plan</a>
-      </section>
-    </main>
-
-    <footer class="border-t bg-slate-50 py-8">
-      <div class="max-w-7xl mx-auto px-4 text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center">
-        <span>© 2025 FitPause</span>
-        <div class="flex gap-4 mt-2 md:mt-0">
-          <a href="#impressum" class="hover:text-teal-500">Impressum</a>
-          <a href="#datenschutz" class="hover:text-teal-500">Datenschutz</a>
-          <a href="#agb" class="hover:text-teal-500">AGB</a>
-        </div>
-        <div class="flex gap-2 mt-2 md:mt-0">
-          <a aria-label="Instagram" class="text-gray-400 hover:text-teal-500" href="https://instagram.com/fitpause" target="_blank" rel="noopener noreferrer">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
-          </a>
+          <button id="langBtn" class="inline-flex items-center rounded-full border border-teal-600 text-teal-700 hover:bg-teal-50 px-3 py-1 text-sm font-semibold">DE / EN</button>
         </div>
       </div>
-    </footer>
-  </body>
-</html>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl font-extrabold tracking-tight text-slate-900">Dein smarter Plan für Ernährung & Fitness</h1>
+          <p class="mt-4 text-lg text-slate-600">Erhalte persönliche Wochenpläne, Rezepte und Einkaufslisten – angetrieben von KI.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#kontakt" class="inline-flex items-center justify-center rounded-lg bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 text-lg font-semibold shadow-md">Jetzt starten</a>
+            <a href="#features" class="inline-flex items-center justify-center rounded-lg border border-slate-300 text-slate-700 hover:bg-white/60 px-6 py-3 text-lg font-semibold">Features ansehen</a>
+          </div>
+          <div class="mt-10 grid grid-cols-3 gap-4">
+            <div class="flex items-start gap-3"><svg class="w-8 h-8 text-teal-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.2L5 7v10l7 3.8L19 17V7l-7-2.8z"/><path d="M12 8l4 4-4 4-4-4 4-4z"/></svg><p class="text-sm text-slate-700"><span class="font-semibold">Sicher</span> mit DSGVO‑Konformität.</p></div>
+            <div class="flex items-start gap-3"><svg class="w-8 h-8 text-teal-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-9 9a9 9 0 1 1 18 0H3z"/></svg><p class="text-sm text-slate-700"><span class="font-semibold">Gemeinsam</span> für Teams & Familien.</p></div>
+            <div class="flex items-start gap-3"><svg class="w-8 h-8 text-teal-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7l3-7z"/></svg><p class="text-sm text-slate-700"><span class="font-semibold">Ausgezeichnet</span> von Expertinnen & Experten.</p></div>
+          </div>
+        </div>
+        <div>
+          <img src="assets/hero.webp" alt="FitPause App Screenshot" width="1280" height="840" loading="lazy" class="w-full rounded-2xl shadow-xl ring-1 ring-black/5" />
+        </div>
+      </div>
+      <div class="fixed bottom-0 inset-x-0 z-40 sm:hidden p-3"><a href="#kontakt" class="block text-center rounded-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-4 text-lg font-bold shadow-lg">Jetzt starten</a></div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 mb-10">Warum FitPause?</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl shadow p-6"><div class="mb-3 text-teal-600"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 4v6c0 5-9 8-9 8s-9-3-9-8V7l9-4z"/></svg></div><h3 class="font-semibold text-lg text-slate-900 mb-2">Personalisierte Pläne</h3><ul class="text-slate-700 list-disc ml-5 space-y-1"><li>Individuelle Ziele & Allergien</li><li>Automatische Einkaufslisten</li><li>Flexible Wochenübersicht</li></ul></div>
+          <div class="bg-white rounded-xl shadow p-6"><div class="mb-3 text-teal-600"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4V4zm0 7h16v2H4v-2zm0 7h16v2H4v-2z"/></svg></div><h3 class="font-semibold text-lg text-slate-900 mb-2">KI‑Empfehlungen</h3><ul class="text-slate-700 list-disc ml-5 space-y-1"><li>Rezepte, die zu dir passen</li><li>Nährwerte im Blick</li><li>Smarter Austausch von Zutaten</li></ul></div>
+          <div class="bg-white rounded-xl shadow p-6"><div class="mb-3 text-teal-600"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-9 9a9 9 0 1 1 18 0H3z"/></svg></div><h3 class="font-semibold text-lg text-slate-900 mb-2">Teamfähig</h3><ul class="text-slate-700 list-disc ml-5 space-y-1"><li>Profile für Familie oder Team</li><li>Geteilte Einkaufslisten</li><li>Rollen & Berechtigungen</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Über uns / Team -->
+    <section class="py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 mb-6">Über uns</h2>
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+          <p class="md:col-span-2 text-slate-700">Unsere Mission: Gesunde Ernährung für alle einfach machen – mit Technologie, die sich deinem Alltag anpasst.</p>
+          <div class="flex items-center gap-4">
+            <img src="assets/team.webp" alt="Team" width="96" height="96" loading="lazy" class="w-24 h-24 rounded-full object-cover" />
+            <div><p class="font-semibold">FitPause Team</p><p class="text-slate-600 text-sm">Ernährung, Design & KI</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 mb-8">Aus dem Blog</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="bg-white rounded-xl shadow overflow-hidden">
+            <img src="assets/blog1.webp" alt="Meal Prep" width="640" height="384" loading="lazy" class="w-full h-48 object-cover"/>
+            <div class="p-6">
+              <h3 class="font-semibold text-lg text-slate-900 mb-2">Die besten Office‑Snacks</h3>
+              <p class="text-slate-700 mb-4">Fit und leistungsfähig bleiben – auch im Büro!</p>
+              <a href="#" class="inline-flex items-center rounded-lg bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 text-sm font-semibold">Mehr lesen</a>
+            </div>
+          </article>
+          <article class="bg-white rounded-xl shadow overflow-hidden">
+            <img src="assets/blog2.webp" alt="KI Ernährung" width="640" height="384" loading="lazy" class="w-full h-48 object-cover"/>
+            <div class="p-6">
+              <h3 class="font-semibold text-lg text-slate-900 mb-2">Was bringt eine KI‑Ernährungsberatung?</h3>
+              <p class="text-slate-700 mb-4">Chancen und Grenzen digitaler Unterstützung.</p>
+              <a href="#" class="inline-flex items-center rounded-lg bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 text-sm font-semibold">Mehr lesen</a>
+            </div>
+          </article>
+          <article class="bg-white rounded-xl shadow overflow-hidden">
+            <img src="assets/blog3.webp" alt="Einkaufsliste" width
