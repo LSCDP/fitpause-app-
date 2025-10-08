@@ -1,5 +1,4 @@
 name: Fitpause CICD Pipeline
-
 on:
   push:
     branches:
@@ -8,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -30,10 +28,20 @@ jobs:
           fi
       
       - name: Run ESLint
-        run: npm run lint || echo "Lint not configured, skipping..."
+        run: |
+          if [ -f package.json ]; then
+            npm run lint || echo "Lint not configured, skipping..."
+          else
+            echo "No package.json found, skipping lint"
+          fi
       
       - name: Run Tests
-        run: npm run test || echo "Tests not configured, skipping..."
+        run: |
+          if [ -f package.json ]; then
+            npm run test || echo "Tests not configured, skipping..."
+          else
+            echo "No package.json found, skipping tests"
+          fi
   
   build:
     runs-on: ubuntu-latest
@@ -56,4 +64,9 @@ jobs:
           fi
       
       - name: Build project
-        run: npm run build || echo "Build not configured, skipping..."
+        run: |
+          if [ -f package.json ]; then
+            npm run build || echo "Build not configured, skipping..."
+          else
+            echo "No package.json found, skipping build"
+          fi
