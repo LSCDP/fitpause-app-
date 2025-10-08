@@ -10,6 +10,10 @@ on:
   schedule:
     - cron: '0 2 * * 0'  # Weekly on Sunday at 2 AM
 
+permissions:
+  security-events: write
+  contents: read
+
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -26,9 +30,10 @@ jobs:
           output: 'trivy-results.sarif'
       
       - name: Upload Trivy scan results
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
+        continue-on-error: true
       
       - name: Security check
         run: echo "Security scan completed"
