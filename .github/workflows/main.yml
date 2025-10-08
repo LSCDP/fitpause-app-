@@ -1,89 +1,65 @@
-name: Fitpause CI/CD Pipeline
+name: Fitpause CICD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: |
-        npm install
-        npm install -g lighthouse-ci
-    
-    - name: Run ESLint
-      run: npm run lint
-    
-    - name: Run Tests
-      run: npm run test
-    
-    - name: Lighthouse CI
-      run: lhci autorun
-      env:
-        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-    
-    - name: Accessibility Tests
-      run: npm run test:a11y
-
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install -g lighthouse-ci
+      - name: Run ESLint
+        run: npm run lint
+      - name: Run Tests
+        run: npm run test
+      - name: Lighthouse CI
+        run: lhci autorun
+        env:
+          LHCIGITHUBAPPTOKEN: ${{ secrets.LHCIGITHUBAPPTOKEN }}
+      - name: Accessibility Tests
+        run: npm run testa11y
   security:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Run Security Scan
-      uses: securecodewarrior/github-action-add-sarif@v1
-      with:
-        sarif-file: 'security-scan-results.sarif'
-    
-    - name: GDPR Compliance Check
-      run: |
-        echo "Checking GDPR compliance..."
-        # Custom script to verify GDPR compliance
-        node scripts/gdpr-check.js
-
+      - uses: actions/checkout@v3
+      - name: Run Security Scan
+        uses: securecodewarrior/github-action-add-sarif@v1
+        with:
+          sarif-file: security-scan-results.sarif
+      - name: GDPR Compliance Check
+        run: |
+          echo Checking GDPR compliance...
+          node scripts/gdpr-check.js
   deploy:
-    needs: [test, security]
+    needs:
+      - test
+      - security
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-    
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Deploy to Netlify
-      uses: nwtgck/actions-netlify@v2.0
-      with:
-        publish-dir: './dist'
-        production-branch: main
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        deploy-message: "Deploy from GitHub Actions"
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-  weekly-report:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'schedule'
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Generate Weekly Report
-      run: |
-        node scripts/generate-weekly-report.js
-        
-    - name: Create GitHub Issues
-      run: |
-        node scripts/create-optimization-issues.js
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: .dist
+          production-branch: main
+          github-token: ${{ secrets.GITHUBTOKEN }}
+          deploy-message: Deploy from GitHub Actions
+        env:
+          NETLIFYAUTHTOKEN: ${{ secrets.NETLIFYAUTHTOKEN }}
+          NETLIFYSITEID: ${{ secrets.NETLIFYSITEID }}
