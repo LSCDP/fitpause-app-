@@ -40,7 +40,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav-brand">
-                <a href="#" class="logo">
+                <a href="/" class="logo">
                     <span class="logo-icon">🍽️</span>
                     <span class="logo-text">FitPause</span>
                 </a>
@@ -48,10 +48,10 @@
             
             <!-- Desktop Navigation -->
             <div class="nav-menu" id="nav-menu">
-                <a href="#features" class="nav-link" data-i18n="nav_features">Funktionen</a>
-                <a href="#pricing" class="nav-link" data-i18n="nav_pricing">Preise</a>
-                <a href="#blog" class="nav-link" data-i18n="nav_blog">Blog</a>
-                <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontakt</a>
+                <a href="/funktionen" class="nav-link" data-i18n="nav_features">Funktionen</a>
+                <a href="/preise" class="nav-link" data-i18n="nav_pricing">Preise</a>
+                <a href="/blog" class="nav-link" data-i18n="nav_blog">Blog</a>
+                <a href="/kontakt" class="nav-link" data-i18n="nav_contact">Kontakt</a>
             </div>
             
             <!-- Language Switcher -->
@@ -216,8 +216,10 @@
                     
                     <div class="custom-allergy">
                         <label data-i18n="allergy_custom">Weitere Allergien:</label>
-                        <input type="text" id="custom-allergy-input" placeholder="z.B. Tomaten, Zwiebeln..." data-i18n-placeholder="allergy_placeholder">
-                        <button type="button" onclick="addCustomAllergy()" data-i18n="add">Hinzufügen</button>
+                        <div class="input-group">
+                            <input type="text" id="custom-allergy-input" placeholder="z.B. Tomaten, Zwiebeln..." data-i18n-placeholder="allergy_placeholder">
+                            <button type="button" onclick="addCustomAllergy()" data-i18n="add">Hinzufügen</button>
+                        </div>
                     </div>
                     
                     <div class="selected-allergies" id="selected-allergies">
@@ -437,7 +439,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features-section" id="features-detail">
+    <section class="features-section">
         <div class="container">
             <h2 class="section-title" data-i18n="features_title">Warum FitPause?</h2>
             
@@ -572,22 +574,22 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4 data-i18n="footer_product">Produkt</h4>
-                        <a href="#features" data-i18n="nav_features">Funktionen</a>
-                        <a href="#pricing" data-i18n="nav_pricing">Preise</a>
-                        <a href="#blog" data-i18n="nav_blog">Blog</a>
+                        <a href="/funktionen" data-i18n="nav_features">Funktionen</a>
+                        <a href="/preise" data-i18n="nav_pricing">Preise</a>
+                        <a href="/blog" data-i18n="nav_blog">Blog</a>
                     </div>
                     
                     <div class="footer-column">
                         <h4 data-i18n="footer_legal">Rechtliches</h4>
-                        <a href="/impressum.html" data-i18n="impressum">Impressum</a>
-                        <a href="/datenschutz.html" data-i18n="privacy">Datenschutz</a>
-                        <a href="/agb.html" data-i18n="terms">AGB</a>
+                        <a href="/impressum" data-i18n="impressum">Impressum</a>
+                        <a href="/datenschutz" data-i18n="privacy">Datenschutz</a>
+                        <a href="/agb" data-i18n="terms">AGB</a>
                     </div>
                     
                     <div class="footer-column">
                         <h4 data-i18n="footer_support">Support</h4>
                         <a href="#" data-i18n="faq">FAQ</a>
-                        <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+                        <a href="/kontakt" data-i18n="nav_contact">Kontakt</a>
                         <a href="#" data-i18n="help">Hilfe</a>
                     </div>
                 </div>
@@ -605,6 +607,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
