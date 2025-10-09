@@ -1,68 +1,547 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum | FitPause</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | FitPause</title>
+    <meta name="description" content="Impressum und Kontaktdaten von FitPause - KI-gestützte Ernährungs- und Meal-Planning-Plattform">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 text-slate-700">
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🍽️</span>
+                    <span class="logo-text">FitPause</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="/funktionen" class="nav-link">Funktionen</a>
+                <a href="/preise" class="nav-link">Preise</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('de')" data-lang="de">
+                    <span class="flag">🇩🇪</span> DE
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">
+                    <span class="flag">🇬🇧</span> EN
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('es')" data-lang="es">
+                    <span class="flag">🇪🇸</span> ES
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('fr')" data-lang="fr">
+                    <span class="flag">🇫🇷</span> FR
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Main Navigation -->
-  <header class="bg-white sticky top-0 shadow z-50">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 h-20">
-      <a href="index.html" class="font-bold text-2xl text-teal-600">FitPause</a>
-      <ul class="flex gap-8 text-slate-800 text-lg font-semibold">
-        <li><a href="index.html" class="hover:text-teal-500">Home</a></li>
-        <li><a href="datenschutz.html" class="hover:text-teal-500">Datenschutz</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Impressum Content -->
+    <section class="legal-content">
+        <div class="container">
+            <div class="legal-wrapper">
+                <div class="legal-hero">
+                    <h1>📄 Impressum</h1>
+                    <p class="legal-intro">Angaben gemäß § 5 TMG (Telemediengesetz)</p>
+                    <div class="legal-badges">
+                        <div class="legal-badge">
+                            <span>🇩🇪</span>
+                            <span>Deutsches Recht</span>
+                        </div>
+                        <div class="legal-badge">
+                            <span>⚖️</span>
+                            <span>TMG-konform</span>
+                        </div>
+                        <div class="legal-badge">
+                            <span>📍</span>
+                            <span>Oberhausen</span>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Main Content -->
-  <main class="py-12 max-w-2xl mx-auto px-4 bg-white rounded-xl shadow mt-8 mb-12">
-    <h1 class="text-3xl font-bold text-teal-600 mb-6">Impressum</h1>
-    
-    <p><span class="font-semibold">FitPause – KI-gestützte Ernährungs- und Meal-Planning-Plattform</span></p>
-    
-    <p>
-      LSCDP<br>
-      Musterstraße 123<br>
-      46045 Oberhausen<br>
-      Deutschland
-    </p>
-    
-    <p class="mt-4">
-      Email: <a href="mailto:info@fitpause.de" class="text-teal-500 underline">info@fitpause.de</a><br>
-      Telefon: +49 123 4567890
-    </p>
-    
-    <h2 class="text-xl font-bold text-teal-500 mt-8 mb-3">Vertreten durch:</h2>
-    <p>Max Mustermann (Inhaber)</p>
-    
-    <h2 class="text-xl font-bold text-teal-500 mt-8 mb-3">Umsatzsteuer-ID</h2>
-    <p>DE123456789 (Beispielnummer)</p>
-    
-    <h2 class="text-xl font-bold text-teal-500 mt-8 mb-3">Online-Streitbeilegung</h2>
-    <p>
-      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: 
-      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" class="text-teal-500 underline">https://ec.europa.eu/consumers/odr/</a>
-    </p>
-    
-    <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-    
-    <hr class="my-8">
-    
-    <p class="text-gray-400 text-sm">Angaben gemäß § 5 TMG</p>
-  </main>
+                <div class="legal-content-main">
+                    <div class="company-info">
+                        <div class="company-header">
+                            <div class="company-logo">🍽️</div>
+                            <div class="company-details">
+                                <h2>FitPause</h2>
+                                <p class="company-tagline">KI-gestützte Ernährungs- und Meal-Planning-Plattform</p>
+                            </div>
+                        </div>
+                    </div>
 
-  <!-- Trust & Legal Footer -->
-  <footer class="bg-teal-100 py-6 text-center text-gray-500">
-    © 2025 LSCDP. <a href="index.html" class="text-teal-500 underline">Zurück zur Startseite</a>
-  </footer>
+                    <h2>Anbieter & Verantwortlicher</h2>
+                    <div class="contact-card">
+                        <h3>LSCDP</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <div>
+                                    <strong>Anschrift:</strong><br>
+                                    Musterstraße 123<br>
+                                    46045 Oberhausen<br>
+                                    Deutschland
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <div>
+                                    <strong>E-Mail:</strong><br>
+                                    <a href="mailto:info@fitpause.de">info@fitpause.de</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <div>
+                                    <strong>Telefon:</strong><br>
+                                    <a href="tel:+491234567890">+49 123 4567890</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  <!-- JavaScript -->
-  <script src="app.js"></script>
+                    <h2>Vertretungsberechtigte Person</h2>
+                    <div class="representative-card">
+                        <div class="representative-info">
+                            <h3>Max Mustermann</h3>
+                            <p>Geschäftsführer & Inhaber</p>
+                        </div>
+                    </div>
 
+                    <h2>Registrierung & Steuern</h2>
+                    <div class="registration-grid">
+                        <div class="registration-item">
+                            <h4>💼 Handelsregister</h4>
+                            <p>Eintragung im Handelsregister<br>
+                            Registergericht: Amtsgericht Duisburg<br>
+                            Registernummer: HRB 123456</p>
+                        </div>
+                        <div class="registration-item">
+                            <h4>🏛️ Umsatzsteuer-ID</h4>
+                            <p>Umsatzsteuer-Identifikationsnummer<br>
+                            gemäß §27a Umsatzsteuergesetz:<br>
+                            <strong>DE123456789</strong></p>
+                        </div>
+                        <div class="registration-item">
+                            <h4>📊 Steuer-Nr.</h4>
+                            <p>Steuernummer:<br>
+                            <strong>123/456/78910</strong><br>
+                            Finanzamt Oberhausen</p>
+                        </div>
+                    </div>
+
+                    <h2>Berufsaufsichtsbehörde</h2>
+                    <div class="authority-card">
+                        <h4>🏢 Zuständige Aufsichtsbehörde</h4>
+                        <p>Bezirksregierung Düsseldorf<br>
+                        Cecilienallee 2<br>
+                        40474 Düsseldorf<br>
+                        <a href="https://www.brd.nrw.de/" target="_blank">www.brd.nrw.de ↗</a></p>
+                    </div>
+
+                    <h2>Online-Streitbeilegung</h2>
+                    <div class="odr-section">
+                        <div class="odr-info">
+                            <h4>🇪🇺 EU-Streitbeilegung</h4>
+                            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:</p>
+                            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" class="odr-link">
+                                ec.europa.eu/consumers/odr ↗
+                            </a>
+                        </div>
+                        <div class="odr-contact">
+                            <h4>✉️ Unsere E-Mail für Streitbeilegung</h4>
+                            <p><a href="mailto:info@fitpause.de">info@fitpause.de</a></p>
+                        </div>
+                    </div>
+
+                    <h2>Verbraucherstreitbeilegung</h2>
+                    <div class="consumer-arbitration">
+                        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+                    </div>
+
+                    <h2>Haftungsausschluss</h2>
+                    <div class="disclaimer-section">
+                        <div class="disclaimer-item">
+                            <h4>📝 Haftung für Inhalte</h4>
+                            <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+                        </div>
+                        <div class="disclaimer-item">
+                            <h4>🔗 Haftung für Links</h4>
+                            <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte können wir keine Gewähr übernehmen.</p>
+                        </div>
+                        <div class="disclaimer-item">
+                            <h4>⚕️ Medizinischer Hinweis</h4>
+                            <p>Die bereitgestellten Ernährungsempfehlungen ersetzen keine professionelle medizinische Beratung. Bei gesundheitlichen Problemen konsultieren Sie einen Arzt.</p>
+                        </div>
+                    </div>
+
+                    <h2>Urheberrecht</h2>
+                    <div class="copyright-section">
+                        <div class="copyright-item">
+                            <h4>©️ Inhalte und Werke</h4>
+                            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.</p>
+                        </div>
+                        <div class="copyright-item">
+                            <h4>🎨 Design und Grafiken</h4>
+                            <p>Das Layout, Design und alle Grafiken sind urheberrechtlich geschützt. Eine Vervielfältigung außerhalb der Grenzen des Urheberrechts ist untersagt.</p>
+                        </div>
+                    </div>
+
+                    <h2>Technische Umsetzung</h2>
+                    <div class="tech-info">
+                        <div class="tech-item">
+                            <h4>🖥️ Hosting</h4>
+                            <p>Diese Website wird gehostet bei:<br>
+                            <strong>Netlify, Inc.</strong><br>
+                            2325 3rd Street, Suite 215<br>
+                            San Francisco, CA 94107, USA</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>🔧 Content Management</h4>
+                            <p>Entwicklung und Wartung:<br>
+                            <strong>LSCDP</strong><br>
+                            Musterstraße 123<br>
+                            46045 Oberhausen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legal-footer">
+                    <div class="update-info">
+                        <p><strong>Letzte Aktualisierung:</strong> 9. Oktober 2025</p>
+                    </div>
+                    <div class="quick-contact">
+                        <h4>🚀 Schnellkontakt</h4>
+                        <div class="quick-contact-methods">
+                            <a href="mailto:info@fitpause.de" class="contact-method-link">
+                                📧 E-Mail senden
+                            </a>
+                            <a href="tel:+491234567890" class="contact-method-link">
+                                📞 Anrufen
+                            </a>
+                            <a href="/kontakt" class="contact-method-link">
+                                💬 Kontaktformular
+                            </a>
+                        </div>
+                    </div>
+                    <div class="legal-links">
+                        <a href="/datenschutz">🔒 Datenschutz</a>
+                        <a href="/agb">📋 AGB</a>
+                        <a href="/kontakt">📞 Kontakt</a>
+                        <a href="/">🏠 Zur Startseite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🍽️</span>
+                        <span class="logo-text">FitPause</span>
+                    </div>
+                    <p>KI-gestützte Ernährungs- und Meal-Planning-Plattform</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitPause. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+    
+    <style>
+    /* Additional styles for impressum */
+    .company-info {
+        margin-bottom: 3rem;
+    }
+    
+    .company-header {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        padding: 2rem;
+        border-radius: 20px;
+        color: white;
+    }
+    
+    .company-logo {
+        font-size: 4rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 1rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .company-details h2 {
+        margin: 0 0 0.5rem 0;
+        padding: 0;
+        border: none;
+        color: white;
+        font-size: 2rem;
+    }
+    
+    .company-tagline {
+        opacity: 0.9;
+        font-size: 1.1rem;
+    }
+    
+    .contact-details {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        color: var(--primary);
+        width: 40px;
+        text-align: center;
+    }
+    
+    .contact-item a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    
+    .contact-item a:hover {
+        text-decoration: underline;
+    }
+    
+    .representative-card {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        margin: 1rem 0;
+    }
+    
+    .representative-info h3 {
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .representative-info p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+    
+    .registration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .registration-item {
+        background: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 15px;
+        text-align: center;
+        border-left: 4px solid var(--primary);
+    }
+    
+    .registration-item h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+    
+    .authority-card {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem 0;
+        text-align: center;
+    }
+    
+    .authority-card h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .authority-card a {
+        color: var(--accent);
+        text-decoration: none;
+    }
+    
+    .authority-card a:hover {
+        text-decoration: underline;
+    }
+    
+    .odr-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .odr-info, .odr-contact {
+        background: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+    
+    .odr-info h4, .odr-contact h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .odr-link {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: var(--transition);
+    }
+    
+    .odr-link:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+    }
+    
+    .consumer-arbitration {
+        background: rgba(255, 107, 53, 0.1);
+        border-left: 4px solid var(--secondary);
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+    }
+    
+    .disclaimer-section, .copyright-section {
+        margin: 2rem 0;
+    }
+    
+    .disclaimer-item, .copyright-item {
+        background: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+        border-left: 4px solid var(--secondary);
+    }
+    
+    .disclaimer-item h4, .copyright-item h4 {
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .tech-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .tech-item {
+        background: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+    
+    .tech-item h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .quick-contact {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        text-align: center;
+    }
+    
+    .quick-contact h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .quick-contact-methods {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .contact-method-link {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+    
+    .contact-method-link:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+        .company-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+        
+        .company-logo {
+            font-size: 3rem;
+        }
+        
+        .registration-grid, .odr-section, .tech-info {
+            grid-template-columns: 1fr;
+        }
+        
+        .quick-contact-methods {
+            flex-direction: column;
+        }
+    }
+    </style>
 </body>
 </html>
