@@ -286,3 +286,22 @@ body {
   .btn--primary {padding: 8px 10px;}
 }
 
+.main-nav {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 1rem;
+}
+.main-nav a {
+  color: #2d3a4e;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+.main-nav a:hover {
+  background: #f6f6f9;
+}
