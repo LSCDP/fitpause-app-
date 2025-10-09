@@ -39,7 +39,6 @@ const translations = {
     diet_vegan: "Vegan",
     diet_keto: "Keto",
     step3_title: "Hast du Allergien oder Unverträglichkeiten?",
-    allergy_common: "Häufige Allergien:",
     allergy_gluten: "Gluten",
     allergy_lactose: "Laktose",
     allergy_nuts: "Nüsse",
@@ -128,6 +127,7 @@ const translations = {
     blog_post_3_title: "5 Tipps für gesunde Ernährung",
     blog_post_3_excerpt: "Einfache Schritte zu einem gesünderen Lebensstil...",
     read_time: "Min Lesezeit",
+    view_all_posts: "Alle Beiträge ansehen",
     
     // Chat
     chat_tooltip: "Frag mich alles!",
@@ -184,7 +184,6 @@ const translations = {
     diet_vegan: "Vegan",
     diet_keto: "Keto",
     step3_title: "Do you have allergies or intolerances?",
-    allergy_common: "Common allergies:",
     allergy_gluten: "Gluten",
     allergy_lactose: "Lactose",
     allergy_nuts: "Nuts",
@@ -228,70 +227,12 @@ const translations = {
     menu_sunday: "Sunday: Grill Plate Deluxe",
     menu_sunday_desc: "Meat or vegan—your choice!",
     
-    // Pricing  
-    pricing_title: "Pricing & Plans",
-    plan_free: "Free",
-    plan_pro: "Pro",
-    per_month: "/month",
-    free_feature_1: "3 recipes/week",
-    free_feature_2: "Basic functions & daily plan",
-    free_feature_3: "No shopping lists",
-    free_feature_4: "Limited recipes",
-    pro_feature_1: "7-day plan + allergy filter",
-    pro_feature_2: "Unlimited recipes",
-    pro_feature_3: "Automatic shopping lists",
-    pro_feature_4: "AI chat assistant",
-    pro_feature_5: "Nutritional information",
-    most_popular: "Most Popular",
-    start_free: "Start free",
-    upgrade_pro: "Upgrade to Pro",
-    pricing_note: "Cancel monthly • 14-day money-back guarantee",
-    faq_test: "FAQ: Trial & Cancellation", 
-    faq_plan: "FAQ: How does the plan work?",
-    
-    // Features
-    features_title: "Why FitPause?",
-    feature_ai_title: "AI-powered Plans",
-    feature_ai_desc: "Personalized weekly plans based on your goals, preferences and allergies.",
-    feature_recipes_title: "Smart Recipe Suggestions",
-    feature_recipes_desc: "Healthy and delicious recipes, adapted to your individual needs.",
-    feature_allergies_title: "Allergy Filter",
-    feature_allergies_desc: "Automatic filtering of recipes according to your allergies and intolerances.",
-    feature_multilang_title: "Multilingual",
-    feature_multilang_desc: "Use the app in your preferred language for optimal understanding.",
-    feature_mobile_title: "Mobile-optimized",
-    feature_mobile_desc: "Perfectly optimized for smartphone and tablet – usable anywhere, anytime.",
-    feature_gdpr_title: "GDPR compliant",
-    feature_gdpr_desc: "Highest data protection standards according to German and European law.",
-    
-    // Blog
-    blog_title: "Blog",
-    blog_post_1_title: "Why Protein is Crucial for Fitness Success",
-    blog_post_1_excerpt: "Protein keeps you full & helps muscle grow. Here's why...",
-    blog_post_2_title: "Mealprep for Beginners",
-    blog_post_2_excerpt: "How to save time & money with mealprep...",
-    blog_post_3_title: "5 Tips for Healthy Eating",
-    blog_post_3_excerpt: "Simple steps to a healthier lifestyle...",
-    read_time: "min read",
-    
     // Chat
     chat_tooltip: "Ask me anything!",
     chat_title: "🤖 FitPause Assistant",
     chat_welcome: "Hello! I'm your FitPause assistant. How can I help you?",
     chat_placeholder: "Ask me a question...",
     send: "Send",
-    
-    // Footer
-    footer_description: "AI-powered nutrition and meal planning platform",
-    footer_product: "Product",
-    footer_legal: "Legal",
-    footer_support: "Support", 
-    impressum: "Imprint",
-    privacy: "Privacy",
-    terms: "Terms",
-    faq: "FAQ",
-    help: "Help",
-    footer_rights: "All rights reserved.",
     
     // Cookie Consent
     cookie_text: "We use cookies for the best user experience. Data & tracking only after consent!",
@@ -313,65 +254,6 @@ const translations = {
     trust_rating: "4.9/5 estrellas",
     trust_users: "10,000+ usuarios",
     trust_secure: "Conforme RGPD",
-    
-    // Onboarding
-    onboarding_title: "Comienza tu registro",
-    step: "Paso",
-    of: "de",
-    step1_title: "¿Cuál es tu objetivo principal?",
-    goal_lose_weight: "Perder peso", 
-    goal_build_muscle: "Ganar músculo",
-    goal_stay_fit: "Mantenerse en forma",
-    goal_eat_healthy: "Comer más sano",
-    step2_title: "¿Cómo te alimentas?",
-    diet_omnivore: "Todo",
-    diet_vegetarian: "Vegetariano",
-    diet_vegan: "Vegano", 
-    diet_keto: "Keto",
-    step3_title: "¿Tienes alergias o intolerancias?",
-    allergy_common: "Alergias comunes:",
-    allergy_gluten: "Gluten",
-    allergy_lactose: "Lactosa",
-    allergy_nuts: "Frutos secos",
-    allergy_shellfish: "Mariscos",
-    allergy_eggs: "Huevos",
-    allergy_soy: "Soja",
-    allergy_fish: "Pescado",
-    allergy_sesame: "Sésamo",
-    allergy_custom: "Otras alergias:",
-    allergy_placeholder: "ej. tomates, cebollas...",
-    add: "Añadir",
-    allergy_selected: "Seleccionado:",
-    step4_title: "Más detalles",
-    people_count: "Número de personas:",
-    cooking_time: "Tiempo de cocción por comida:",
-    budget: "Presupuesto por persona/día:",
-    step5_title: "¡Casi listo!",
-    step5_subtitle: "Te enviaremos tu plan personalizado por email.",
-    email_placeholder: "tu@email.com",
-    privacy_consent: "Acepto la política de privacidad",
-    newsletter_consent: "Quiero recibir el boletín (opcional)", 
-    prev: "Atrás",
-    next: "Siguiente",
-    create_plan: "Crear plan",
-    
-    // Menu Plan
-    menu_title: "Tu Plan de Menú de 7 Días",
-    menu_subtitle: "Nuevos platos saludables y deliciosos cada día",
-    menu_monday: "Lunes: Verduras Salteadas",
-    menu_monday_desc: "Muchas verduras, salteadas.",
-    menu_tuesday: "Martes: Bowl de Pollo",
-    menu_tuesday_desc: "Alto en proteínas y bajo en carbohidratos.",
-    menu_wednesday: "Miércoles: Chili Vegano",
-    menu_wednesday_desc: "Rico y lleno de fibra.",
-    menu_thursday: "Jueves: Salmón y Arroz",
-    menu_thursday_desc: "¡Impulso de Omega-3!",
-    menu_friday: "Viernes: Wraps de Desayuno", 
-    menu_friday_desc: "Deliciosa forma de empezar el día.",
-    menu_saturday: "Sábado: Pasta de Calabacín LowCarb",
-    menu_saturday_desc: "Ligero y saciante.",
-    menu_sunday: "Domingo: Plato de Parrilla Deluxe",
-    menu_sunday_desc: "¡Carne o vegano, tú eliges!",
     
     // Chat
     chat_tooltip: "¡Pregúntame lo que sea!",
@@ -401,47 +283,6 @@ const translations = {
     trust_users: "10,000+ utilisateurs",
     trust_secure: "Conforme RGPD",
     
-    // Onboarding
-    onboarding_title: "Commencez votre inscription",
-    step: "Étape",
-    of: "de",
-    step1_title: "Quel est votre objectif principal?",
-    goal_lose_weight: "Perdre du poids",
-    goal_build_muscle: "Gagner du muscle",
-    goal_stay_fit: "Rester en forme",
-    goal_eat_healthy: "Manger plus sainement",
-    step2_title: "Comment vous nourrissez-vous?",
-    diet_omnivore: "Tout",
-    diet_vegetarian: "Végétarien",
-    diet_vegan: "Végan", 
-    diet_keto: "Kéto",
-    step3_title: "Avez-vous des allergies ou intolérances?",
-    allergy_common: "Allergies courantes:",
-    allergy_gluten: "Gluten",
-    allergy_lactose: "Lactose",
-    allergy_nuts: "Noix",
-    allergy_shellfish: "Fruits de mer",
-    allergy_eggs: "Œufs",
-    allergy_soy: "Soja",
-    allergy_fish: "Poisson",
-    allergy_sesame: "Sésame",
-    allergy_custom: "Autres allergies:",
-    allergy_placeholder: "ex. tomates, oignons...",
-    add: "Ajouter",
-    allergy_selected: "Sélectionné:",
-    step4_title: "Plus de détails",
-    people_count: "Nombre de personnes:",
-    cooking_time: "Temps de cuisson par repas:",
-    budget: "Budget par personne/jour:",
-    step5_title: "Presque fini!",
-    step5_subtitle: "Nous vous enverrons votre plan personnalisé par email.",
-    email_placeholder: "votre@email.com",
-    privacy_consent: "J'accepte la politique de confidentialité",
-    newsletter_consent: "Je veux recevoir la newsletter (optionnel)",
-    prev: "Retour",
-    next: "Suivant",
-    create_plan: "Créer le plan",
-    
     // Chat
     chat_tooltip: "Demandez-moi tout!",
     chat_title: "🤖 Assistant FitPause", 
@@ -469,12 +310,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize admin bypass
   checkAdminBypass();
-  
-  // Add smooth scrolling
-  initializeSmoothScrolling();
-  
-  // Initialize rotating messages (if any)
-  initializeRotatingMessages();
 });
 
 // ===== LANGUAGE FUNCTIONS =====
@@ -547,23 +382,8 @@ function initializeUI() {
   updateProgressBar();
   updateStepUI();
   
-  // Initialize mobile menu
-  initializeMobileMenu();
-  
   // Initialize parallax effect
   initializeParallax();
-}
-
-function initializeMobileMenu() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-      navToggle.classList.toggle('active');
-    });
-  }
 }
 
 function initializeParallax() {
@@ -575,34 +395,6 @@ function initializeParallax() {
       const rate = scrolled * -0.3;
       heroImage.style.transform = `translateY(${rate}px)`;
     });
-  }
-}
-
-function initializeSmoothScrolling() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-}
-
-function initializeRotatingMessages() {
-  const messages = document.querySelectorAll('.rotating-message');
-  if (messages.length > 0) {
-    let currentMessage = 0;
-    
-    setInterval(() => {
-      messages[currentMessage].classList.remove('active');
-      currentMessage = (currentMessage + 1) % messages.length;
-      messages[currentMessage].classList.add('active');
-    }, 3000);
   }
 }
 
@@ -758,7 +550,6 @@ function validateEmail() {
 }
 
 function showValidationError() {
-  const texts = translations[currentLanguage];
   let message = 'Bitte füllen Sie alle erforderlichen Felder aus.';
   
   if (currentLanguage === 'en') {
@@ -856,14 +647,6 @@ function removeAllergy(allergy) {
   updateAllergyTags();
 }
 
-function clearAllergies() {
-  selectedAllergies = [];
-  document.querySelectorAll('.allergy-btn').forEach(btn => {
-    btn.classList.remove('selected');
-  });
-  updateAllergyTags();
-}
-
 // ===== FORM SUBMISSION =====
 function submitOnboarding() {
   if (!validateCurrentStep()) {
@@ -898,7 +681,6 @@ function simulateApiCall(data) {
   if (!submitBtn) return;
   
   const originalText = submitBtn.textContent;
-  const texts = translations[currentLanguage];
   
   let loadingText = 'Erstelle Plan...';
   if (currentLanguage === 'en') loadingText = 'Creating plan...';
@@ -910,11 +692,8 @@ function simulateApiCall(data) {
   
   // Simulate network delay
   setTimeout(() => {
-    // Generate personalized plan
-    const plan = generatePersonalizedPlan(data);
-    
     // Show success message
-    showSuccessMessage(plan);
+    showSuccessMessage();
     
     // Reset button
     submitBtn.textContent = originalText;
@@ -925,77 +704,7 @@ function simulateApiCall(data) {
   }, 2000);
 }
 
-function generatePersonalizedPlan(userData) {
-  // This is a simplified plan generator
-  // In production, this would call your AI API
-  
-  const basePlans = {
-    'lose-weight': [
-      { day: 'Montag', meal: 'Grüner Smoothie Bowl', calories: 280 },
-      { day: 'Dienstag', meal: 'Zucchini-Nudeln mit Tofu', calories: 320 },
-      { day: 'Mittwoch', meal: 'Quinoa-Gemüse-Pfanne', calories: 350 }
-    ],
-    'build-muscle': [
-      { day: 'Montag', meal: 'Protein-Pancakes', calories: 450 },
-      { day: 'Dienstag', meal: 'Hähnchen mit Süßkartoffeln', calories: 520 },
-      { day: 'Mittwoch', meal: 'Lachs mit Avocado', calories: 480 }
-    ],
-    'stay-fit': [
-      { day: 'Montag', meal: 'Mediterrane Bowl', calories: 380 },
-      { day: 'Dienstag', meal: 'Vollkorn-Pasta mit Gemüse', calories: 420 },
-      { day: 'Mittwoch', meal: 'Bunter Salat mit Nüssen', calories: 350 }
-    ],
-    'eat-healthy': [
-      { day: 'Montag', meal: 'Regenbogen-Salat', calories: 300 },
-      { day: 'Dienstag', meal: 'Gemüse-Curry', calories: 380 },
-      { day: 'Mittwoch', meal: 'Vollkorn-Wrap', calories: 360 }
-    ]
-  };
-  
-  const selectedPlan = basePlans[userData.goal] || basePlans['eat-healthy'];
-  
-  return {
-    plan: selectedPlan,
-    preferences: userData,
-    shoppingList: generateShoppingList(selectedPlan),
-    tips: generatePersonalizedTips(userData)
-  };
-}
-
-function generateShoppingList(plan) {
-  return [
-    'Gemüse: Spinat, Tomaten, Paprika',
-    'Proteine: Tofu, Hähnchen, Lachs',
-    'Kohlenhydrate: Quinoa, Süßkartoffeln',
-    'Extras: Olivenöl, Gewürze, Nüsse'
-  ];
-}
-
-function generatePersonalizedTips(userData) {
-  const tips = [];
-  
-  if (userData.goal === 'lose-weight') {
-    tips.push('Trinken Sie vor jeder Mahlzeit ein Glas Wasser');
-    tips.push('Essen Sie langsam und achten Sie auf Ihr Sättigungsgefühl');
-  }
-  
-  if (userData.goal === 'build-muscle') {
-    tips.push('Essen Sie innerhalb von 30 Minuten nach dem Training');
-    tips.push('Achten Sie auf ausreichend Protein in jeder Mahlzeit');
-  }
-  
-  if (userData.allergies.includes('gluten')) {
-    tips.push('Nutzen Sie glutenfreie Alternativen wie Quinoa oder Reis');
-  }
-  
-  if (userData.allergies.includes('lactose')) {
-    tips.push('Probieren Sie pflanzliche Milchalternativen');
-  }
-  
-  return tips;
-}
-
-function showSuccessMessage(plan) {
+function showSuccessMessage() {
   let message = `🎉 Ihr personalisierter Plan wurde erstellt!
 
 📧 Sie erhalten in Kürze eine E-Mail mit:
@@ -1035,9 +744,6 @@ Merci de faire confiance à FitPause!`;
   }
   
   alert(message);
-  
-  // In production, redirect to success page
-  // window.location.href = '/success.html';
 }
 
 // ===== CHAT FUNCTIONS =====
@@ -1210,9 +916,6 @@ function upgradeToPro() {
     return;
   }
   
-  // In production, integrate with Digistore24
-  const digistore24Url = 'https://www.digistore24.com/product/fitpause-pro';
-  
   // For demo, show info
   let message = `🚀 Upgrade zu FitPause Pro
 
@@ -1224,7 +927,7 @@ function upgradeToPro() {
 Preis: 9,90€/Monat
 Jederzeit kündbar
 
-Weiterleitung zu Digistore24...`;
+Demo-Modus aktiv.`;
 
   if (currentLanguage === 'en') {
     message = `🚀 Upgrade to FitPause Pro
@@ -1237,13 +940,10 @@ Weiterleitung zu Digistore24...`;
 Price: €9.90/month
 Cancel anytime
 
-Redirecting to Digistore24...`;
+Demo mode active.`;
   }
   
-  if (confirm(message)) {
-    // window.open(digistore24Url, '_blank');
-    alert('Demo-Modus: In der Produktionsversion würden Sie zu Digistore24 weitergeleitet.');
-  }
+  alert(message);
 }
 
 // ===== ADMIN FUNCTIONS =====
@@ -1258,22 +958,6 @@ function checkAdminBypass() {
   }
   
   return localStorage.getItem('fitpause-admin') === 'true';
-}
-
-function showAdminDashboard() {
-  if (checkAdminBypass()) {
-    const userData = localStorage.getItem('fitpause-userdata');
-    const adminInfo = `🔧 FitPause Admin Dashboard
-
-Status: Admin-Modus aktiv
-Benutzer: ${userData ? 'Daten vorhanden' : 'Keine Daten'}
-Sprache: ${currentLanguage}
-Timestamp: ${new Date().toLocaleString()}
-
-Alle Pro-Features sind freigeschaltet.`;
-    
-    alert(adminInfo);
-  }
 }
 
 // ===== COOKIE FUNCTIONS =====
@@ -1294,9 +978,6 @@ function acceptCookies() {
   if (consentDiv) {
     consentDiv.classList.remove('show');
   }
-  
-  // Initialize tracking (in production)
-  // initializeAnalytics();
 }
 
 function declineCookies() {
@@ -1304,39 +985,6 @@ function declineCookies() {
   const consentDiv = document.getElementById('cookie-consent');
   if (consentDiv) {
     consentDiv.classList.remove('show');
-  }
-}
-
-// ===== PERFORMANCE & SEO =====
-function initializeAnalytics() {
-  // Only initialize if cookies are accepted
-  const cookieConsent = localStorage.getItem('fitpause-cookies');
-  
-  if (cookieConsent === 'accepted') {
-    // Initialize Google Analytics, Facebook Pixel, etc.
-    // gtag('config', 'GA_MEASUREMENT_ID');
-  }
-}
-
-// Lazy loading for images
-function initializeLazyLoading() {
-  if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          if (img.dataset.src) {
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
-            imageObserver.unobserve(img);
-          }
-        }
-      });
-    });
-
-    document.querySelectorAll('img[data-src]').forEach(img => {
-      imageObserver.observe(img);
-    });
   }
 }
 
@@ -1362,48 +1010,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Handle form submission errors
-window.addEventListener('error', function(event) {
-  console.error('FitPause Error:', event.error);
-  
-  // In production, log to error tracking service
-  // Sentry.captureException(event.error);
-});
-
-// Handle unhandled promise rejections
-window.addEventListener('unhandledrejection', function(event) {
-  console.error('Unhandled promise rejection:', event.reason);
-  
-  // In production, log to error tracking service
-  // Sentry.captureException(event.reason);
-});
-
-// ===== UTILITIES =====
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-function throttle(func, limit) {
-  let inThrottle;
-  return function() {
-    const args = arguments;
-    const context = this;
-    if (!inThrottle) {
-      func.apply(context, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  };
-}
-
 // ===== EXPORT FOR GLOBAL ACCESS =====
 window.FitPause = {
   switchLanguage,
@@ -1415,7 +1021,6 @@ window.FitPause = {
   toggleAllergy,
   addCustomAllergy,
   removeAllergy,
-  clearAllergies,
   submitOnboarding,
   toggleChat,
   sendChatMessage,
@@ -1424,13 +1029,12 @@ window.FitPause = {
   acceptCookies,
   declineCookies,
   checkAdminBypass,
-  showAdminDashboard,
   toggleMobileMenu
 };
 
 // ===== INITIALIZATION LOG =====
 console.log('🍽️ FitPause initialized successfully!');
-console.log('🌍 Language:', currentLanguage);
+console.log('🌍 Language detection active');
 console.log('📱 Mobile support: Ready');
 console.log('🤖 Chat assistant: Ready');
 console.log('🎯 Onboarding system: Ready');
