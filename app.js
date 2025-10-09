@@ -1,3 +1,14 @@
+// Onboarding-Formular-Ergebnis
+if (document.getElementById('onboarding-form')) {
+  document.getElementById('onboarding-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const ziel = this.ziel.value;
+    const unvertr = this.unvertr.value;
+    document.getElementById('onboarding-ergebnis').innerText =
+      `Dein Ziel: ${ziel.toUpperCase()}\nDeine Unverträglichkeiten: ${unvertr}`;
+  });
+}
+
 // Global Application State
 const app = {
     currentLanguage: 'de',
