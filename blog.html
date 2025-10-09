@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitPause Blog - Gesunde Ernährung & Meal-Prep Tipps</title>
+    <meta name="description" content="Entdecken Sie unsere besten Tipps für gesunde Ernährung, Meal-Prep und KI-gestützte Ernährungspläne im FitPause Blog.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🍽️</span>
+                    <span class="logo-text">FitPause</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="/funktionen" class="nav-link">Funktionen</a>
+                <a href="/preise" class="nav-link">Preise</a>
+                <a href="/blog" class="nav-link active">Blog</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('de')" data-lang="de">
+                    <span class="flag">🇩🇪</span> DE
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">
+                    <span class="flag">🇬🇧</span> EN
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('es')" data-lang="es">
+                    <span class="flag">🇪🇸</span> ES
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('fr')" data-lang="fr">
+                    <span class="flag">🇫🇷</span> FR
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>FitPause Blog</h1>
+            <p>Entdecken Sie die neuesten Trends in gesunder Ernährung, Meal-Prep und KI-gestützter Ernährungsplanung</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-main">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card featured">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop&q=80&auto=format" alt="Protein für Fitness" loading="lazy">
+                    <div class="blog-content">
+                        <div class="blog-category">Ernährung</div>
+                        <h2>Warum Protein für Fitness-Erfolg entscheidend ist</h2>
+                        <p>Protein ist einer der wichtigsten Makronährstoffe für alle, die ihre Fitness verbessern möchten. Es unterstützt nicht nur den Muskelaufbau, sondern hilft auch beim Abnehmen durch erhöhte Sättigung. Erfahren Sie, wie viel Protein Sie täglich benötigen...</p>
+                        <div class="blog-meta">
+                            <span class="read-time">5 Min Lesezeit</span>
+                            <span class="blog-lang">🇩🇪 DE</span>
+                            <span class="blog-date">9. Oktober 2025</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Weiterlesen</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&h=400&fit=crop&q=80&auto=format" alt="Meal Prep" loading="lazy">
+                    <div class="blog-content">
+                        <div class="blog-category">Meal Prep</div>
+                        <h2>Mealprep für Anfänger: 10 einfache Tipps</h2>
+                        <p>Meal Prep kann Ihnen Zeit und Geld sparen und gleichzeitig dabei helfen, gesünder zu essen. Hier sind unsere bewährtesten Strategien für erfolgreiches Meal Prepping, auch wenn Sie Anfänger sind...</p>
+                        <div class="blog-meta">
+                            <span class="read-time">8 Min Lesezeit</span>
+                            <span class="blog-lang">🇩🇪 DE</span>
+                            <span class="blog-date">7. Oktober 2025</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Weiterlesen</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=400&fit=crop&q=80&auto=format" alt="Gesunde Ernährung" loading="lazy">
+                    <div class="blog-content">
+                        <div class="blog-category">Lifestyle</div>
+                        <h2>5 Tipps für gesunde Ernährung im Alltag</h2>
+                        <p>Gesunde Ernährung muss nicht kompliziert sein. Mit diesen fünf einfachen Tipps können Sie Ihre Ernährung schrittweise verbessern, ohne Ihren Alltag komplett umzukrempeln...</p>
+                        <div class="blog-meta">
+                            <span class="read-time">6 Min Lesezeit</span>
+                            <span class="blog-lang">🇩🇪 DE</span>
+                            <span class="blog-date">5. Oktober 2025</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Weiterlesen</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1556909114-5b83381a605c?w=600&h=400&fit=crop&q=80&auto=format" alt="KI Ernährung" loading="lazy">
+                    <div class="blog-content">
+                        <div class="blog-category">Technologie</div>
+                        <h2>Wie KI Ihre Ernährung revolutioniert</h2>
+                        <p>Künstliche Intelligenz verändert die Art, wie wir essen und Ernährungspläne erstellen. Erfahren Sie, wie KI-gestützte Tools wie FitPause personalisierte Empfehlungen geben können...</p>
+                        <div class="blog-meta">
+                            <span class="read-time">7 Min Lesezeit</span>
+                            <span class="blog-lang">🇩🇪 DE</span>
+                            <span class="blog-date">3. Oktober 2025</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Weiterlesen</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=400&fit=crop&q=80&auto=format" alt="Allergien" loading="lazy">
+                    <div class="blog-content">
+                        <div class="blog-category">Gesundheit</div>
+                        <h2>Leben mit Nahrungsmittelallergien: Ein Leitfaden</h2>
+                        <p>Nahrungsmittelallergien betreffen Millionen von Menschen. Hier erfahren Sie, wie Sie trotz Allergien eine ausgewogene und schmackhafte Ernährung beibehalten können...</p>
+                        <div class="blog-meta">
+                            <span class="read-time">10 Min Lesezeit</span>
+                            <span class="blog-lang">🇩🇪 DE</span>
+                            <span class="blog-date">1. Oktober 2025</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Weiterlesen</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop&q=80&auto=format" alt="Vegetarische Ernährung" loading="lazy">
+                    <div class="blog-content">
+                        <div class="blog-category">Ernährung</div>
+                        <h2>Vegetarisch leben: Mehr als nur ein Trend</h2>
+                        <p>Die vegetarische Ernährung gewinnt immer mehr an Popularität. Entdecken Sie die gesundheitlichen Vorteile und erhalten Sie praktische Tipps für den Einstieg...</p>
+                        <div class="blog-meta">
+                            <span class="read-time">9 Min Lesezeit</span>
+                            <span class="blog-lang">🇩🇪 DE</span>
+                            <span class="blog-date">28. September 2025</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Weiterlesen</a>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Load More -->
+            <div class="blog-load-more">
+                <button class="btn btn-primary">Weitere Artikel laden</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-cta">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Bleiben Sie auf dem Laufenden</h2>
+                <p>Erhalten Sie wöchentlich neue Rezepte, Ernährungstipps und exklusive Inhalte direkt in Ihr Postfach.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Ihre E-Mail-Adresse">
+                    <button class="btn btn-primary">Newsletter abonnieren</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🍽️</span>
+                        <span class="logo-text">FitPause</span>
+                    </div>
+                    <p>KI-gestützte Ernährungs- und Meal-Planning-Plattform</p>
+                    
+                    <div class="footer-contact">
+                        <p>📧 info@fitpause.de</p>
+                        <p>📞 +49 123 4567890</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Produkt</h4>
+                        <a href="/funktionen">Funktionen</a>
+                        <a href="/preise">Preise</a>
+                        <a href="/blog">Blog</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Rechtliches</h4>
+                        <a href="/impressum">Impressum</a>
+                        <a href="/datenschutz">Datenschutz</a>
+                        <a href="/agb">AGB</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="#">FAQ</a>
+                        <a href="/kontakt">Kontakt</a>
+                        <a href="#">Hilfe</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitPause. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+    
+    <style>
+    /* Blog-specific styles */
+    .blog-hero {
+        padding: 8rem 0 4rem 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        text-align: center;
+    }
+    
+    .blog-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .blog-hero p {
+        font-size: 1.2rem;
+        color: rgba(255,255,255,0.9);
+    }
+    
+    .blog-main {
+        padding: 5rem 0;
+    }
+    
+    .blog-card.featured {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .blog-card.featured img {
+        height: 300px;
+    }
+    
+    .blog-category {
+        display: inline-block;
+        background: var(--primary);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .blog-load-more {
+        text-align: center;
+        margin-top: 3rem;
+    }
+    
+    .newsletter-cta {
+        padding: 5rem 0;
+        background: var(--bg-light);
+    }
+    
+    .newsletter-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .newsletter-form input {
+        flex: 1;
+        padding: 12px 20px;
+        border: 2px solid var(--bg-light);
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+    
+    .nav-link.active {
+        color: var(--primary);
+        font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+        .blog-card.featured {
+            grid-column: auto;
+            display: block;
+        }
+        
+        .newsletter-form {
+            flex-direction: column;
+        }
+        
+        .blog-hero h1 {
+            font-size: 2rem;
+        }
+    }
+    </style>
+</body>
+</html>
