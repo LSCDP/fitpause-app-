@@ -116,6 +116,7 @@ p {
   border-radius: 50px;
   background: linear-gradient(135deg, var(--secondary), #FF8A65);
   box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+  color: var(--white);
 }
 
 .btn-hero:hover {
@@ -513,16 +514,6 @@ p {
   max-height: 400px;
   overflow-y: auto;
   padding-right: 10px;
-}
-
-.allergy-category {
-  margin-bottom: 2rem;
-}
-
-.allergy-category h4 {
-  margin-bottom: 1rem;
-  color: var(--text);
-  font-size: 1.1rem;
 }
 
 .allergy-grid {
@@ -932,6 +923,7 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .blog-card {
@@ -980,6 +972,11 @@ p {
   background: var(--bg-light);
   padding: 2px 8px;
   border-radius: 12px;
+}
+
+.blog-cta {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 /* ===== CHAT ASSISTANT ===== */
