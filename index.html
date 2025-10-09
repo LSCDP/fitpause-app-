@@ -11,14 +11,12 @@
     <meta property="og:description" content="Erhalte personalisierte Wochenpläne, Rezepte und Einkaufslisten - angetrieben von KI">
     <meta property="og:image" content="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&h=630&fit=crop">
     <meta property="og:url" content="https://fitpause.de">
-    <meta property="og:type" content="website">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- CSS -->
@@ -27,16 +25,18 @@
 <body>
     <!-- Cookie Consent -->
     <div id="cookie-consent" class="cookie-consent">
-        <div class="cookie-content">
-            <p data-i18n="cookie_text">Wir nutzen Cookies für bestes Nutzererlebnis. Daten & Tracking erst nach Einwilligung!</p>
-            <div class="cookie-buttons">
-                <button onclick="acceptCookies()" class="btn btn-primary" data-i18n="accept">Akzeptieren</button>
-                <button onclick="declineCookies()" class="btn btn-secondary" data-i18n="decline">Ablehnen</button>
+        <div class="container">
+            <div class="cookie-content">
+                <p data-i18n="cookie_text">Wir nutzen Cookies für bestes Nutzererlebnis. Daten & Tracking erst nach Einwilligung!</p>
+                <div class="cookie-buttons">
+                    <button onclick="acceptCookies()" class="btn btn-primary" data-i18n="accept">Akzeptieren</button>
+                    <button onclick="declineCookies()" class="btn btn-secondary" data-i18n="decline">Ablehnen</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav-brand">
@@ -184,34 +184,31 @@
             <div class="onboarding-step" id="step-3">
                 <h3 data-i18n="step3_title">Hast du Allergien oder Unverträglichkeiten?</h3>
                 <div class="allergies-section">
-                    <div class="allergy-category">
-                        <h4 data-i18n="allergy_common">Häufige Allergien:</h4>
-                        <div class="allergy-grid">
-                            <button class="allergy-btn" data-allergy="gluten" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_gluten">Gluten</span>
-                            </button>
-                            <button class="allergy-btn" data-allergy="lactose" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_lactose">Laktose</span>
-                            </button>
-                            <button class="allergy-btn" data-allergy="nuts" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_nuts">Nüsse</span>
-                            </button>
-                            <button class="allergy-btn" data-allergy="shellfish" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_shellfish">Meeresfrüchte</span>
-                            </button>
-                            <button class="allergy-btn" data-allergy="eggs" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_eggs">Eier</span>
-                            </button>
-                            <button class="allergy-btn" data-allergy="soy" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_soy">Soja</span>
-                            </button>
-                            <button class="allergy-btn" data-allergy="fish" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_fish">Fisch</span>
-                            </button>
-                            <button class="allergy-btn" data-allergy="sesame" onclick="toggleAllergy(this)">
-                                <span data-i18n="allergy_sesame">Sesam</span>
-                            </button>
-                        </div>
+                    <div class="allergy-grid">
+                        <button class="allergy-btn" data-allergy="gluten" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_gluten">Gluten</span>
+                        </button>
+                        <button class="allergy-btn" data-allergy="lactose" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_lactose">Laktose</span>
+                        </button>
+                        <button class="allergy-btn" data-allergy="nuts" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_nuts">Nüsse</span>
+                        </button>
+                        <button class="allergy-btn" data-allergy="shellfish" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_shellfish">Meeresfrüchte</span>
+                        </button>
+                        <button class="allergy-btn" data-allergy="eggs" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_eggs">Eier</span>
+                        </button>
+                        <button class="allergy-btn" data-allergy="soy" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_soy">Soja</span>
+                        </button>
+                        <button class="allergy-btn" data-allergy="fish" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_fish">Fisch</span>
+                        </button>
+                        <button class="allergy-btn" data-allergy="sesame" onclick="toggleAllergy(this)">
+                            <span data-i18n="allergy_sesame">Sesam</span>
+                        </button>
                     </div>
                     
                     <div class="custom-allergy">
@@ -305,8 +302,8 @@
                 <div class="menu-card">
                     <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&q=80&auto=format" alt="Veggie Skillet" loading="lazy">
                     <div class="menu-content">
-                        <h3 data-i18n="menu_monday">Monday: Veggie Skillet</h3>
-                        <p data-i18n="menu_monday_desc">Lots of veggies, pan-seared.</p>
+                        <h3 data-i18n="menu_monday">Montag: Veggie Skillet</h3>
+                        <p data-i18n="menu_monday_desc">Viele Gemüse, angebraten.</p>
                         <div class="menu-stats">
                             <span>🕒 25 Min</span>
                             <span>🔥 320 kcal</span>
@@ -317,8 +314,8 @@
                 <div class="menu-card">
                     <img src="https://images.unsplash.com/photo-1546554137-f86b9593a222?w=400&h=300&fit=crop&q=80&auto=format" alt="Chicken Bowl" loading="lazy">
                     <div class="menu-content">
-                        <h3 data-i18n="menu_tuesday">Tuesday: Chicken Bowl</h3>
-                        <p data-i18n="menu_tuesday_desc">High-protein & low carb.</p>
+                        <h3 data-i18n="menu_tuesday">Dienstag: Chicken Bowl</h3>
+                        <p data-i18n="menu_tuesday_desc">Proteinreich & kohlenhydratarm.</p>
                         <div class="menu-stats">
                             <span>🕒 20 Min</span>
                             <span>🔥 420 kcal</span>
@@ -329,8 +326,8 @@
                 <div class="menu-card">
                     <img src="https://images.unsplash.com/photo-1571197119270-3b82b8ae4c6b?w=400&h=300&fit=crop&q=80&auto=format" alt="Vegan Chili" loading="lazy">
                     <div class="menu-content">
-                        <h3 data-i18n="menu_wednesday">Wednesday: Vegan Chili</h3>
-                        <p data-i18n="menu_wednesday_desc">Rich & full of fiber.</p>
+                        <h3 data-i18n="menu_wednesday">Mittwoch: Vegan Chili</h3>
+                        <p data-i18n="menu_wednesday_desc">Reich & voller Ballaststoffe.</p>
                         <div class="menu-stats">
                             <span>🕒 35 Min</span>
                             <span>🔥 380 kcal</span>
@@ -341,8 +338,8 @@
                 <div class="menu-card">
                     <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop&q=80&auto=format" alt="Salmon & Rice" loading="lazy">
                     <div class="menu-content">
-                        <h3 data-i18n="menu_thursday">Thursday: Salmon & Rice</h3>
-                        <p data-i18n="menu_thursday_desc">Omega-3 boost!</p>
+                        <h3 data-i18n="menu_thursday">Donnerstag: Salmon & Rice</h3>
+                        <p data-i18n="menu_thursday_desc">Omega-3 Boost!</p>
                         <div class="menu-stats">
                             <span>🕒 30 Min</span>
                             <span>🔥 450 kcal</span>
@@ -353,8 +350,8 @@
                 <div class="menu-card">
                     <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300&fit=crop&q=80&auto=format" alt="Breakfast Wraps" loading="lazy">
                     <div class="menu-content">
-                        <h3 data-i18n="menu_friday">Friday: Breakfast Wraps</h3>
-                        <p data-i18n="menu_friday_desc">Delicious way to start the day.</p>
+                        <h3 data-i18n="menu_friday">Freitag: Breakfast Wraps</h3>
+                        <p data-i18n="menu_friday_desc">Leckerer Start in den Tag.</p>
                         <div class="menu-stats">
                             <span>🕒 15 Min</span>
                             <span>🔥 280 kcal</span>
@@ -365,8 +362,8 @@
                 <div class="menu-card">
                     <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?w=400&h=300&fit=crop&q=80&auto=format" alt="LowCarb Zucchini Pasta" loading="lazy">
                     <div class="menu-content">
-                        <h3 data-i18n="menu_saturday">Saturday: LowCarb Zucchini Pasta</h3>
-                        <p data-i18n="menu_saturday_desc">Light & filling.</p>
+                        <h3 data-i18n="menu_saturday">Samstag: LowCarb Zucchini Pasta</h3>
+                        <p data-i18n="menu_saturday_desc">Leicht & sättigend.</p>
                         <div class="menu-stats">
                             <span>🕒 20 Min</span>
                             <span>🔥 250 kcal</span>
@@ -377,8 +374,8 @@
                 <div class="menu-card">
                     <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop&q=80&auto=format" alt="Grill Plate Deluxe" loading="lazy">
                     <div class="menu-content">
-                        <h3 data-i18n="menu_sunday">Sunday: Grill Plate Deluxe</h3>
-                        <p data-i18n="menu_sunday_desc">Meat or vegan—your choice!</p>
+                        <h3 data-i18n="menu_sunday">Sonntag: Grill Plate Deluxe</h3>
+                        <p data-i18n="menu_sunday_desc">Fleisch oder vegan—deine Wahl!</p>
                         <div class="menu-stats">
                             <span>🕒 40 Min</span>
                             <span>🔥 520 kcal</span>
@@ -396,7 +393,7 @@
             
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3 data-i18n="plan_free">Free</h3>
+                    <h3 data-i18n="plan_free">Kostenlos</h3>
                     <div class="price">
                         <span class="price-amount">0€</span>
                         <span class="price-period" data-i18n="per_month">/Monat</span>
@@ -407,7 +404,7 @@
                         <li>❌ <span data-i18n="free_feature_3">Keine Einkaufslisten</span></li>
                         <li>❌ <span data-i18n="free_feature_4">Begrenzte Rezepte</span></li>
                     </ul>
-                    <button class="btn btn-secondary" data-i18n="start_free">Kostenlos starten</button>
+                    <button class="btn btn-secondary" onclick="startOnboarding()" data-i18n="start_free">Kostenlos starten</button>
                 </div>
                 
                 <div class="pricing-card featured">
@@ -492,11 +489,11 @@
                 <article class="blog-card">
                     <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&q=80&auto=format" alt="Protein für Fitness" loading="lazy">
                     <div class="blog-content">
-                        <h3 data-i18n="blog_post_1_title">Why Protein is Crucial for Fitness Success</h3>
-                        <p data-i18n="blog_post_1_excerpt">Protein keeps you full & helps muscle grow. Here's why…</p>
+                        <h3 data-i18n="blog_post_1_title">Warum Protein für Fitness-Erfolg entscheidend ist</h3>
+                        <p data-i18n="blog_post_1_excerpt">Protein hält satt & hilft beim Muskelaufbau. Darum ist es so wichtig...</p>
                         <div class="blog-meta">
                             <span data-i18n="read_time">5 Min Lesezeit</span>
-                            <span class="blog-lang">🇬🇧 EN</span>
+                            <span class="blog-lang">🇩🇪 DE</span>
                         </div>
                     </div>
                 </article>
@@ -504,8 +501,8 @@
                 <article class="blog-card">
                     <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=250&fit=crop&q=80&auto=format" alt="Meal Prep" loading="lazy">
                     <div class="blog-content">
-                        <h3 data-i18n="blog_post_2_title">Mealprep for Beginners</h3>
-                        <p data-i18n="blog_post_2_excerpt">How to save time & money with mealprep…</p>
+                        <h3 data-i18n="blog_post_2_title">Mealprep für Anfänger</h3>
+                        <p data-i18n="blog_post_2_excerpt">So sparen Sie Zeit & Geld mit Mealprep...</p>
                         <div class="blog-meta">
                             <span data-i18n="read_time">8 Min Lesezeit</span>
                             <span class="blog-lang">🇩🇪 DE</span>
@@ -517,13 +514,17 @@
                     <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=250&fit=crop&q=80&auto=format" alt="Gesunde Ernährung" loading="lazy">
                     <div class="blog-content">
                         <h3 data-i18n="blog_post_3_title">5 Tipps für gesunde Ernährung</h3>
-                        <p data-i18n="blog_post_3_excerpt">Einfache Schritte zu einem gesünderen Lebensstil…</p>
+                        <p data-i18n="blog_post_3_excerpt">Einfache Schritte zu einem gesünderen Lebensstil...</p>
                         <div class="blog-meta">
                             <span data-i18n="read_time">6 Min Lesezeit</span>
                             <span class="blog-lang">🇩🇪 DE</span>
                         </div>
                     </div>
                 </article>
+            </div>
+            
+            <div class="blog-cta">
+                <a href="/blog" class="btn btn-primary" data-i18n="view_all_posts">Alle Beiträge ansehen</a>
             </div>
         </div>
     </section>
