@@ -1,396 +1,569 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Smarte, personalisierte Wochenpläne und Rezepte per KI, mit individueller Sprachauswahl, Allergiefilter und Mobil-Optimierung.">
-  <meta property="og:title" content="FitPause – KI Ernährungsplaner" />
-  <meta property="og:description" content="Smarte, personalisierte Wochenpläne per KI – mobil, mehrsprachig, datenschutzkonform." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800" />
-  <title>FitPause – Preise</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;800&display=swap">
-  <style>
-    body { margin:0; font-family:Inter,sans-serif; background:#fff; color:#232323; }
-    header, .footer { display:flex; justify-content:space-between; align-items:center; padding:20px 5vw; }
-    nav ul { display:flex; gap:16px; padding:0; list-style:none; }
-    nav ul li { display:block; }
-    .lang-switch { display:flex; gap:8px; }
-    .lang-btn { background:none; border:none; font-size:1.2em; cursor:pointer; min-width:44px; min-height:44px; }
-    .burger { display:none; min-width:44px; min-height:44px; }
-    @media (max-width:768px) {
-      nav ul { display:none; }
-      .burger { display:block; }
-    }
-    .hero {
-      height:480px;
-      background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200') center/cover fixed;
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-    }
-    .hero::before {
-      content:'';
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-      background:rgba(20,184,166,0.32);
-      z-index:1;
-    }
-    .hero-content { position:relative; z-index:2; }
-    .cta { background:#14b8a6; color:#fff; border:none; border-radius:5px; padding:12px 32px; font-size:1.15em; min-width:44px; min-height:44px; cursor:pointer; margin-top:20px; }
-    .cta:active { background:#0e786b; }
-    .section { padding:40px 5vw; }
-    /* Multi-Step Form */
-    .stepper { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
-    .step-dot { width:18px; height:18px; border-radius:50%; background:#cdb4fa; display:inline-block; text-align:center; }
-    .step-dot.active { background:#14b8a6; color:#fff; }
-    .form-step { display:none; }
-    .form-step.active { display:block; }
-    input, select, textarea { min-width:44px; min-height:44px; padding:8px; margin:6px 0; font-size:1em; }
-    /* Dummy Mealplan */
-    .mealplan-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; }
-    .meal-card { background:#f1feff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px #0001; }
-    .meal-card img { width:100%; height:140px; object-fit:cover; display:block; }
-    .meal-card h4 { margin:0.5em; }
-    .chat-btn { position:fixed; bottom:32px; right:32px; background:#14b8a6; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2em; cursor:pointer; z-index:10;}
-    .chat-box {
-      display:none; position:fixed; bottom:110px; right:36px; width:350px; height:280px;
-      background:#fafafa; border:1px solid #14b8a6; border-radius:10px; box-shadow:0 2px 8px #0003; flex-direction:column; z-index:20;
-    }
-    .chat-box.active { display:flex;}
-    .chat-messages { flex:1; padding:10px; overflow:auto;}
-    .chat-input { padding:8px; border-top:1px solid #eee; background:#fff;}
-    .admin-panel { display:none; margin-bottom:20px; background:#fff6dc;padding:16px 32px;border-radius:6px;border:2px dashed #fdba08;}
-    .admin-panel.active { display:block; }
-    /* Pricing */
-    .pricing-table { display:flex; gap:32px; flex-wrap:wrap; }
-    .pricing-box { flex:1; background:#fff; border:1px solid #dedede; border-radius:6px; text-align:center; box-shadow:0 2px 8px #e0e0e0; min-width:220px; }
-    .pricing-box h3 { margin:16px 0 8px; }
-    .pricing-vorteile { text-align:left; margin: 0 16px 16px;}
-    .upgrade-btn { background:#ffd600; color:#232323; font-weight:700; border:none; border-radius:3px; padding:12px 24px; font-size:1em; min-width:44px;}
-    .faq { margin:24px 0; }
-    .blog-list { display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-    .blog-tile { background:#eff; padding:20px; border-radius:5px;}
-    .footer { background:#222; color:#fafafa; font-size:0.98em; flex-wrap:wrap; }
-    .footer-links { display:flex; gap:18px;}
-    .cookie-banner { display:none; position:fixed; left:0; bottom:0; width:100%; background:#fff6ec; border-top:1px solid #d3d3d3; z-index:200; padding:16px 5vw; justify-content:space-between; align-items:center;}
-    .cookie-banner.active { display:flex;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preise & Abonnements | FitPause</title>
+    <meta name="description" content="FitPause Preise - Kostenlos starten oder Pro werden. KI-gestützte Ernährungspläne ab 9,90€/Monat">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="main-nav">
-  <a href="index.html">Start</a>
-  <a href="onboarding.html">Onboarding</a>
-  <a href="funktionen.html">Funktionen</a>
-  <a href="preise.html">Preise</a>
-  <a href="kontakt.html">Kontakt</a>
-</nav>
-  <!-- Admin-Bypass DEV ONLY -->
-  <div id="adminPanel" class="admin-panel"><b>ADMIN MODUS aktiv!</b> (Bypass via "?admin=wizard" im Querystring aktiviert)</div>
-  <!-- Header / Navigation / Language Switcher -->
-  <header>
-    <div><b>FitPause</b></div>
-    <nav>
-      <button class="burger" onclick="toggleNav()">☰</button>
-      <ul id="navLinks">
-        <li><a href="#mealplan" tabindex="1">Mealplan</a></li>
-        <li><a href="#pricing" tabindex="2">Pricing</a></li>
-        <li><a href="#blog" tabindex="3">Blog</a></li>
-        <li><a href="#kontakt" tabindex="4">Kontakt</a></li>
-      </ul>
-    </nav>
-    <div class="lang-switch">
-      <button class="lang-btn" onclick="setLang('de')">🇩🇪</button>
-      <button class="lang-btn" onclick="setLang('en')">🇬🇧</button>
-      <button class="lang-btn" onclick="setLang('es')">🇪🇸</button>
-      <button class="lang-btn" onclick="setLang('fr')">🇫🇷</button>
-    </div>
-  </header>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🍽️</span>
+                    <span class="logo-text">FitPause</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="/funktionen" class="nav-link">Funktionen</a>
+                <a href="/preise" class="nav-link active">Preise</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('de')" data-lang="de">
+                    <span class="flag">🇩🇪</span> DE
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">
+                    <span class="flag">🇬🇧</span> EN
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('es')" data-lang="es">
+                    <span class="flag">🇪🇸</span> ES
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('fr')" data-lang="fr">
+                    <span class="flag">🇫🇷</span> FR
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Hero Section mit Parallax -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 id="heroTitle">Dein smarter Ernährungsplan per KI</h1>
-      <p id="heroDesc">Erhalte individuelle Wochenpläne, Rezepte und Einkaufsliste auf Basis deiner Präferenzen!</p>
-      <button class="cta" onclick="scrollToForm()">Jetzt starten</button>
-    </div>
-  </section>
-
-  <!-- Multi-Step Fragebogen -->
-  <section class="section" id="onboarding">
-    <form id="multiStepForm" autocomplete="off">
-      <div class="stepper">
-        <span id="stepDots"></span>
-        <span id="stepLabel"></span>
-      </div>
-      <!-- Steps werden via JS aus translations[] gebaut -->
-      <div id="formSteps"></div>
-      <div>
-        <button type="button" class="cta" id="prevBtn" onclick="nextStep(-1)">⟸</button>
-        <button type="button" class="cta" id="nextBtn" onclick="nextStep(1)">⟹</button>
-        <button type="submit" class="cta" id="submitBtn" style="display:none">Abschließen</button>
-      </div>
-    </form>
-    <div id="formSuccess" style="display:none;color:#16a34a;font-weight:600">Danke, du erhältst deinen Plan per E-Mail!</div>
-  </section>
-
-  <!-- Dummy Mealplan (Wochenplan) -->
-  <section class="section" id="mealplan">
-    <h2>Dein 7-Tage Menüplan</h2>
-    <div class="mealplan-grid" id="mealGrid"></div>
-  </section>
-
-  <!-- Pricing / Abo -->
-  <section class="section" id="pricing">
-    <h2>Preise & Abos</h2>
-    <div class="pricing-table">
-      <div class="pricing-box">
-        <h3>Free</h3>
-        <div class="pricing-vorteile">
-          <div>– 3 Rezepte/Woche</div>
-          <div>– Grundfunktionen &amp; Tagesplan</div>
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>💰 Preise & Abonnements</h1>
+            <p class="pricing-subtitle">Wählen Sie den Plan, der zu Ihnen passt. Jederzeit kündbar, keine versteckten Kosten.</p>
+            
+            <div class="pricing-highlights">
+                <div class="highlight-item">
+                    <span class="highlight-icon">✅</span>
+                    <span>14 Tage Geld-zurück-Garantie</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🔄</span>
+                    <span>Monatlich kündbar</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🎯</span>
+                    <span>Keine Mindestlaufzeit</span>
+                </div>
+            </div>
         </div>
-        <p style="font-size:2em"><b>0€</b></p>
-      </div>
-      <div class="pricing-box" style="border:2px solid #ffd600">
-        <h3>Pro</h3>
-        <div class="pricing-vorteile">
-          <div>– 7-Tage-Plan + Allergie-Filter</div>
-          <div>– Abo monatlich kündbar</div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing-plans">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 data-i18n="plan_free">Kostenlos</h3>
+                        <div class="price">
+                            <span class="price-amount">0€</span>
+                            <span class="price-period" data-i18n="per_month">/Monat</span>
+                        </div>
+                        <p class="plan-description">Perfekt zum Ausprobieren</p>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span data-i18n="free_feature_1">3 Rezepte pro Woche</span>
+                        </li>
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span data-i18n="free_feature_2">Grundfunktionen & Tagesplan</span>
+                        </li>
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span>Basis-Allergiefilter</span>
+                        </li>
+                        <li class="feature-not-included">
+                            <span class="feature-icon">❌</span>
+                            <span data-i18n="free_feature_3">Keine Einkaufslisten</span>
+                        </li>
+                        <li class="feature-not-included">
+                            <span class="feature-icon">❌</span>
+                            <span data-i18n="free_feature_4">Kein KI-Chat</span>
+                        </li>
+                        <li class="feature-not-included">
+                            <span class="feature-icon">❌</span>
+                            <span>Keine Nährwertangaben</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-secondary plan-button" onclick="startOnboarding()" data-i18n="start_free">
+                        Kostenlos starten
+                    </button>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge" data-i18n="most_popular">🔥 Beliebteste</div>
+                    <div class="plan-header">
+                        <h3 data-i18n="plan_pro">Pro</h3>
+                        <div class="price">
+                            <span class="price-amount">9,90€</span>
+                            <span class="price-period" data-i18n="per_month">/Monat</span>
+                        </div>
+                        <p class="plan-description">Für ambitionierte Nutzer</p>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span data-i18n="pro_feature_1">7-Tage-Plan + erweiterte Allergie-Filter</span>
+                        </li>
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span data-i18n="pro_feature_2">Unbegrenzte Rezepte</span>
+                        </li>
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span data-i18n="pro_feature_3">Automatische Einkaufslisten</span>
+                        </li>
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span data-i18n="pro_feature_4">KI-Chat-Assistent</span>
+                        </li>
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span data-i18n="pro_feature_5">Detaillierte Nährwertangaben</span>
+                        </li>
+                        <li class="feature-included">
+                            <span class="feature-icon">✅</span>
+                            <span>Prioritäts-Support</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-primary plan-button" onclick="upgradeToPro()" data-i18n="upgrade_pro">
+                        Pro werden
+                    </button>
+                </div>
+            </div>
         </div>
-        <p style="font-size:2em"><b>9,90€</b></p>
-        <a href="https://www.digistore24.com/product/dummy" target="_blank"><button class="upgrade-btn">Jetzt upgraden</button></a>
-      </div>
-    </div>
-    <div class="faq">
-      <details><summary>FAQ: Testphase und Storno</summary>Du kannst jederzeit kündigen, Testphase: 14 Tage gratis.</details>
-      <details><summary>FAQ: Wie funktioniert der Plan?</summary>Du erhältst wöchentlich neue Rezepte/Kochpläne nach deinen Angaben.</details>
-    </div>
-  </section>
+    </section>
 
-  <!-- Blog (Mehrsprachig, Dummy-Artikel) -->
-  <section class="section" id="blog">
-    <h2>Blog</h2>
-    <div>
-      <select onchange="setBlogLang(this.value)">
-        <option value="de">Deutsch</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-        <option value="fr">Français</option>
-      </select>
-    </div>
-    <div class="blog-list" id="blogTiles"></div>
-  </section>
+    <!-- Feature Comparison -->
+    <section class="feature-comparison">
+        <div class="container">
+            <h2>📊 Detaillierter Vergleich</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Kostenlos</th>
+                            <th>Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rezepte pro Woche</td>
+                            <td>3</td>
+                            <td>Unbegrenzt</td>
+                        </tr>
+                        <tr>
+                            <td>Menüplan-Länge</td>
+                            <td>3 Tage</td>
+                            <td>7 Tage</td>
+                        </tr>
+                        <tr>
+                            <td>Einkaufslisten</td>
+                            <td>❌</td>
+                            <td>✅ Automatisch</td>
+                        </tr>
+                        <tr>
+                            <td>KI-Chat-Assistent</td>
+                            <td>❌</td>
+                            <td>✅ 24/7</td>
+                        </tr>
+                        <tr>
+                            <td>Nährwertangaben</td>
+                            <td>Basis</td>
+                            <td>✅ Detailliert</td>
+                        </tr>
+                        <tr>
+                            <td>Allergiefilter</td>
+                            <td>Grundlegend</td>
+                            <td>✅ Erweitert</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Standard</td>
+                            <td>✅ Priorität</td>
+                        </tr>
+                        <tr>
+                            <td>Exportfunktionen</td>
+                            <td>❌</td>
+                            <td>✅ PDF, Excel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer / Compliance / Cookie -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="#impressum" style="color:#fafafa">Impressum</a>
-      <a href="#datenschutz" style="color:#fafafa">Datenschutz</a>
-      <a href="#kontakt" style="color:#fafafa">Kontakt</a>
-      <a href="#agb" style="color:#fafafa">AGB</a>
-    </div>
-    <div>© 2025 FitPause</div>
-  </footer>
-  <div class="cookie-banner" id="cookieBanner">
-    <span>Wir nutzen Cookies für bestes Nutzererlebnis. Daten & Tracking erst nach Einwilligung!</span>
-    <button onclick="allowCookies()" class="cta" style="background:#006e3c">Zustimmen</button>
-  </div>
+    <!-- FAQ Section -->
+    <section class="pricing-faq">
+        <div class="container">
+            <h2>🤔 Häufige Fragen</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Kann ich jederzeit kündigen?</h3>
+                    <p>Ja, Sie können Ihr Pro-Abonnement jederzeit zum Ende des aktuellen Abrechnungszeitraums kündigen. Keine Mindestlaufzeit, keine Kündigungsgebühren.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Gibt es eine kostenlose Testphase?</h3>
+                    <p>Die kostenlose Version ist dauerhaft verfügbar. Zusätzlich bieten wir 14 Tage Geld-zurück-Garantie für das Pro-Abonnement.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Welche Zahlungsmethoden werden akzeptiert?</h3>
+                    <p>Wir akzeptieren alle gängigen Kreditkarten, PayPal, SEPA-Lastschrift und Sofortüberweisung über unseren Partner Digistore24.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Ist mein Abonnement automatisch verlängerbar?</h3>
+                    <p>Ja, Ihr Pro-Abonnement verlängert sich automatisch jeden Monat, bis Sie es kündigen. Sie können jederzeit in Ihren Kontoeinstellungen kündigen.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Was passiert nach der Kündigung?</h3>
+                    <p>Nach der Kündigung können Sie weiterhin die kostenlosen Features nutzen. Ihre gespeicherten Daten bleiben erhalten.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Gibt es Rabatte für längere Laufzeiten?</h3>
+                    <p>Aktuell bieten wir nur monatliche Abonnements an. Jahresabonnements mit Rabatten sind in Planung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Floating Chat-Button & Dialog -->
-  <button class="chat-btn" onclick="toggleChat()">💬</button>
-  <div class="chat-box" id="chatBox">
-    <div class="chat-messages" id="chatMessages">
-      <div>👋 <b>Hi!</b> Frage mich alles zu gesunder Ernährung, Kochen und Wochenplänen…</div>
-    </div>
-    <form class="chat-input" onsubmit="chatSend(event)">
-      <input id="chatInput" placeholder="Deine Frage…" autocomplete="off" style="width:80%;"><button type="submit" class="cta">→</button>
-    </form>
-  </div>
-  <!-- Minimal JS: Multi-Language, Multi-Step, Parallax, Mealplan, Chat, AdminBypass, Cookie -->
-  <script>
-    // --- Sprachsystem, Übersetzungsobjekt Beispiel ---
-    const translations = {
-      de: {
-        heroTitle:"Dein smarter Ernährungsplan per KI",
-        heroDesc:"Erhalte individuelle Wochenpläne, Rezepte und Einkaufsliste auf Basis deiner Präferenzen!",
-        steps: [
-          { label:"Ziele auswählen", input:`<select name="ziel" required><option>Muskelaufbau</option><option>Abnehmen</option><option>Gesundheit</option></select>` },
-          { label:"Ernährungsweise", input:`<select name="ernährung" required><option>Allesesser</option><option>Vegetarisch</option><option>Vegan</option></select>` },
-          { label:"Allergien & Unverträglichkeiten", input:`<label><input type="checkbox" name="allergie" value="Gluten"> Gluten</label> <label><input type="checkbox" name="allergie" value="Laktose"> Laktose</label> <label><input type="checkbox" name="allergie" value="Nüsse"> Nüsse</label> <input type="text" name="allergietxt" placeholder="weitere...">` },
-          { label:"Persönliche Details", input:`<input name="personen" type="number" min="1" max="20" placeholder="Personen" required> <select name="zeit" required><option>15min</option><option>30min</option><option>60min</option></select> <input type="text" name="budget" placeholder="Budget">` },
-          { label:"E-Mail & Einwilligung", input:`<input type="email" name="mail" pattern="[^ @]+@[^ @]+\\.[^ @]+" required> <label><input type="checkbox" required> DSGVO akzeptieren</label>` },
-        ],
-        submit:"Abschließen",
-        meal: [
-          { tag:"Montag", bild:"https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400", titel:"Mediterrane Gemüsepfanne", desc:"Viel Gemüse, aromatisch gebraten."},
-          { tag:"Dienstag", bild:"https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400", titel:"Hähnchen Bowl", desc:"Proteinreich & Low Carb."},
-          { tag:"Mittwoch", bild:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400", titel:"Veganer Chili", desc:"Herzhaft & ballaststoffreich."},
-          { tag:"Donnerstag", bild:"https://images.unsplash.com/photo-1514512364185-4c2b67808488?w=400", titel:"Lachsfilet mit Reis", desc:"Omega-3 Boost für deinen Kopf!"},
-          { tag:"Freitag", bild:"https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400", titel:"Frühstück Wraps", desc:"Perfekt für den Wochenstart."},
-          { tag:"Samstag", bild:"https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=400", titel:"LowCarb Zucchini-Pasta", desc:"Leicht & sättigend."},
-          { tag:"Sonntag", bild:"https://images.unsplash.com/photo-1523987355523-c7b5b0723c36?w=400", titel:"Grillteller deluxe", desc:"Fleisch oder vegan – wie du willst!"}
-        ],
-        blog: [
-          { sprache:"de", head:"Warum Protein so wichtig für den Erfolg ist", body:"Protein sorgt für Sättigung & Muskelaufbau. Wir erklären warum…" },
-          { sprache:"de", head:"Mealprep für Anfänger", body:"Mealprep spart Geld & Zeit! So startest du richtig…" }
-        ]
-      },
-      en: {
-        heroTitle:"Your Smart Nutrition Plan by AI",
-        heroDesc:"Get weekly plans & recipes tailored to your goals.",
-        steps: [
-          { label:"Select your goal", input:`<select name="ziel" required><option>Build muscle</option><option>Lose weight</option><option>Eat healthier</option></select>` },
-          { label:"Nutrition type", input:`<select name="ernährung" required><option>Omnivore</option><option>Vegetarian</option><option>Vegan</option></select>` },
-          { label:"Allergies & Intolerances", input:`<label><input type="checkbox" name="allergy" value="Gluten"> Gluten</label> <label><input type="checkbox" name="allergy" value="Lactose"> Lactose</label> <label><input type="checkbox" name="allergy" value="Nuts"> Nuts</label> <input type="text" name="allergytxt" placeholder="other…">` },
-          { label:"Personal details", input:`<input name="people" type="number" min="1" max="20" placeholder="People" required> <select name="time" required><option>15min</option><option>30min</option><option>60min</option></select> <input type="text" name="budget" placeholder="Budget">` },
-          { label:"E-mail & consent", input:`<input type="email" name="mail" pattern="[^ @]+@[^ @]+\\.[^ @]+" required> <label><input type="checkbox" required> Accept GDPR</label>` },
-        ],
-        submit:"Submit",
-        meal: [
-          { tag:"Monday", bild:"https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400", titel:"Veggie Skillet", desc:"Lots of veggies, pan-seared."},
-          { tag:"Tuesday", bild:"https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400", titel:"Chicken Bowl", desc:"High-protein & low carb."},
-          { tag:"Wednesday", bild:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400", titel:"Vegan Chili", desc:"Rich & full of fiber."},
-          { tag:"Thursday", bild:"https://images.unsplash.com/photo-1514512364185-4c2b67808488?w=400", titel:"Salmon & Rice", desc:"Omega-3 boost!"},
-          { tag:"Friday", bild:"https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400", titel:"Breakfast Wraps", desc:"Delicious way to start the day."},
-          { tag:"Saturday", bild:"https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=400", titel:"LowCarb Zucchini Pasta", desc:"Light & filling."},
-          { tag:"Sunday", bild:"https://images.unsplash.com/photo-1523987355523-c7b5b0723c36?w=400", titel:"Grill Plate Deluxe", desc:"Meat or vegan—your choice!"}
-        ],
-        blog: [
-          { sprache:"en", head:"Why Protein is Crucial for Fitness Success", body:"Protein keeps you full & helps muscle grow. Here’s why…" },
-          { sprache:"en", head:"Mealprep for Beginners", body:"How to save time & money with mealprep…" }
-        ]
-      },
-      // ... Weitere Sprachen wie oben ...
-      es:{/* Dummy-Content ähnlich… */},
-      fr:{/* Dummy-Content ähnlich… */}
-    };
-    // User-Sprache ermitteln & in localStorage merken
-    function getLang(){
-      return localStorage.getItem('fitpauseLang')
-        || (navigator.language||'de').slice(0,2)
-        || 'de';
+    <!-- CTA Section -->
+    <section class="pricing-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>🚀 Bereit für gesunde Ernährung?</h2>
+                <p>Starten Sie noch heute mit Ihrem personalisierten Ernährungsplan!</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-hero" onclick="startOnboarding()">
+                        Kostenlos testen
+                    </button>
+                    <button class="btn btn-primary" onclick="upgradeToPro()">
+                        Direkt Pro werden
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🍽️</span>
+                        <span class="logo-text">FitPause</span>
+                    </div>
+                    <p>KI-gestützte Ernährungs- und Meal-Planning-Plattform</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Rechtliches</h4>
+                        <a href="/impressum">Impressum</a>
+                        <a href="/datenschutz">Datenschutz</a>
+                        <a href="/agb">AGB</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitPause. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+    
+    <style>
+    /* Pricing page specific styles */
+    .pricing-hero {
+        padding: 6rem 0 4rem 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        text-align: center;
     }
-    function setLang(l){
-      localStorage.setItem('fitpauseLang',l);
-      renderLang();
+    
+    .pricing-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: white;
     }
-    function renderLang(){
-      var l=getLang();
-      let t=translations[l]||translations['de'];
-      document.getElementById('heroTitle').innerText=t.heroTitle;
-      document.getElementById('heroDesc').innerText=t.heroDesc;
-      // Formular-Steps dynamisch erzeugen
-      var fs=document.getElementById('formSteps');
-      fs.innerHTML='';
-      t.steps.forEach((step,i)=>{
-        var div=document.createElement('div');
-        div.className='form-step'+(i===0?' active':'');
-        div.innerHTML='<label>'+step.label+'</label><br>'+step.input;
-        fs.appendChild(div);
-      });
-      document.getElementById('stepDots').innerHTML = t.steps.map((s,i)=>`<span class="step-dot${i===0?' active':''}"></span>`).join('');
-      document.getElementById('stepLabel').innerText=t.steps[0].label;
-      document.getElementById('submitBtn').innerText=t.submit;
-      // Dummy-Mealplan
-      let m=document.getElementById('mealGrid');
-      m.innerHTML = t.meal.map(meal=>`<div class="meal-card"><img src="${meal.bild}" loading="lazy" alt="${meal.titel}"><h4>${meal.tag}: ${meal.titel}</h4><div>${meal.desc}</div></div>`).join('');
-      renderBlog(l);
+    
+    .pricing-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
-    // --- Multi-Step Formular ---
-    var formStep = 0;
-    function nextStep(n){
-      let steps = document.querySelectorAll('.form-step');
-      if (n===1 && !validateStep()) return;
-      steps[formStep].classList.remove('active');
-      formStep += n;
-      if(formStep<0) formStep=0;
-      if(formStep>=steps.length){ 
-        document.getElementById('multiStepForm').style.display='none';
-        document.getElementById('formSuccess').style.display='block';
-        return false;
-      }
-      steps[formStep].classList.add('active');
-      // Progressbar
-      let t=translations[getLang()]||translations['de'];
-      document.getElementById('stepLabel').innerText = t.steps[formStep].label;
-      document.querySelectorAll('.step-dot').forEach((el,i)=>el.className='step-dot'+(i===formStep?' active':''));
-      document.getElementById('prevBtn').style.display = formStep===0?'none':'inline-block';
-      document.getElementById('nextBtn').style.display = formStep===steps.length-1?'none':'inline-block';
-      document.getElementById('submitBtn').style.display = formStep===steps.length-1?'inline-block':'none';
+    
+    .pricing-highlights {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
     }
-    function validateStep(){
-      // Simple Pflichtfeldvalidierung
-      let step=document.querySelectorAll('.form-step')[formStep];
-      let required=step.querySelectorAll('[required]');
-      for(let i=0;i<required.length;i++){
-        if(!required[i].value || (required[i].type==="checkbox" && !required[i].checked)){
-          required[i].focus(); return false;
+    
+    .highlight-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-weight: 500;
+    }
+    
+    .highlight-icon {
+        font-size: 1.2rem;
+    }
+    
+    .pricing-plans {
+        padding: 5rem 0;
+        background: white;
+    }
+    
+    .plan-header {
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid var(--bg-light);
+        margin-bottom: 2rem;
+    }
+    
+    .plan-description {
+        color: var(--text-light);
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .features-list {
+        list-style: none;
+        margin-bottom: 2rem;
+    }
+    
+    .features-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--bg-light);
+    }
+    
+    .feature-icon {
+        font-size: 1.1rem;
+        width: 20px;
+    }
+    
+    .feature-included {
+        color: var(--text);
+    }
+    
+    .feature-not-included {
+        color: var(--text-light);
+        opacity: 0.7;
+    }
+    
+    .plan-button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .feature-comparison {
+        padding: 5rem 0;
+        background: var(--bg-light);
+    }
+    
+    .feature-comparison h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text);
+    }
+    
+    .comparison-table {
+        background: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+    
+    .comparison-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .comparison-table th {
+        background: var(--primary);
+        color: white;
+        padding: 1rem;
+        font-weight: 600;
+        text-align: left;
+    }
+    
+    .comparison-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--bg-light);
+    }
+    
+    .comparison-table tr:hover {
+        background: rgba(76, 175, 80, 0.05);
+    }
+    
+    .pricing-faq {
+        padding: 5rem 0;
+        background: white;
+    }
+    
+    .pricing-faq h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text);
+    }
+    
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+    
+    .faq-item {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        border-left: 4px solid var(--primary);
+    }
+    
+    .faq-item h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+    
+    .faq-item p {
+        color: var(--text-light);
+        line-height: 1.6;
+    }
+    
+    .pricing-cta {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, var(--text), var(--primary-dark));
+        color: white;
+        text-align: center;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+    
+    .cta-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .nav-link.active {
+        color: var(--primary);
+        font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+        .pricing-hero h1 {
+            font-size: 2rem;
         }
-      }
-      return true;
+        
+        .pricing-highlights {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .pricing-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .pricing-card.featured {
+            transform: none;
+        }
+        
+        .comparison-table {
+            overflow-x: auto;
+        }
+        
+        .faq-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+        }
+        
+        .cta-content h2 {
+            font-size: 2rem;
+        }
     }
-    document.getElementById('multiStepForm').onsubmit=function(e){
-      e.preventDefault();
-      if(!validateStep()) return false;
-      document.getElementById('multiStepForm').style.display='none';
-      document.getElementById('formSuccess').style.display='block';
-    }
-    // -- Responsive Nav Burger --
-    function toggleNav(){
-      let nav=document.getElementById('navLinks');
-      nav.style.display=nav.style.display==='flex'?'none':'flex';
-    }
-    // -- Blog Multi-Language --
-    function setBlogLang(lang){
-      localStorage.setItem('fitpauseBlogLang', lang);
-      renderBlog(lang);
-    }
-    function renderBlog(lang){
-      let l=lang||localStorage.getItem('fitpauseBlogLang')||getLang();
-      let t=translations[l]||translations['de'];
-      document.getElementById('blogTiles').innerHTML=t.blog?.map(b=>
-        `<div class="blog-tile"><b>${b.head}</b><div>${b.body}</div></div>`
-      ).join('')||'noch keine Blogartikel';
-    }
-    // -- Chat Komponenten --
-    function toggleChat(){ 
-      let c=document.getElementById('chatBox');
-      c.classList.toggle('active');
-      document.getElementById('chatInput').focus();
-    }
-    function chatSend(e){
-      e.preventDefault();
-      let val=document.getElementById('chatInput').value.trim();
-      if(!val) return;
-      let mdiv = document.getElementById('chatMessages');
-      mdiv.innerHTML+=`<div style='color:#14b8a6'><b>Du:</b> ${val}</div>`;
-      setTimeout(()=>{ 
-        mdiv.innerHTML+=`<div><b>FitPause Bot:</b> Danke für deine Frage! Demnächst erhältst du hier smarte Antworten.</div>`;
-        mdiv.scrollTop=9999;
-      },700);
-      document.getElementById('chatInput').value='';
-    }
-    // -- Cookie Banner --
-    function allowCookies(){ 
-      document.getElementById('cookieBanner').classList.remove('active');
-      localStorage.setItem('fitpauseCookieConsent','1'); 
-      // Optional: Scripts/Tracking erst hier erlauben!
-    }
-    if(!localStorage.getItem('fitpauseCookieConsent')) document.getElementById('cookieBanner').classList.add('active');
-    // -- Admin-Bypass (DEV ONLY) --
-    if(location.search.includes('admin=wizard')) document.getElementById('adminPanel').classList.add('active');
-    // Page Init
-    window.onload = ()=>{
-      renderLang();
-      renderBlog();
-      nextStep(0);
-      document.getElementById('prevBtn').style.display='none';
-    };
-    function scrollToForm() { document.getElementById('onboarding').scrollIntoView({behavior:"smooth"});}
-  </script>
+    </style>
 </body>
 </html>
