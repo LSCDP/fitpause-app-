@@ -389,54 +389,144 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
+        <!-- Email Plan Example -->
+    <section class="email-example" id="email-example">
         <div class="container">
-            <h2 class="section-title" data-i18n="pricing_title">Preise & Abos</h2>
+            <h2 class="section-title">📧 So sieht Ihr E-Mail-Plan aus</h2>
+            <p class="section-subtitle">Nach dem Onboarding erhalten Sie eine professionelle E-Mail mit allen Details</p>
             
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 data-i18n="plan_free">Kostenlos</h3>
-                    <div class="price">
-                        <span class="price-amount">0€</span>
-                        <span class="price-period" data-i18n="per_month">/Monat</span>
+            <div class="email-preview">
+                <div class="email-header">
+                    <div class="email-sender">
+                        <span class="sender-avatar">🍽️</span>
+                        <div class="sender-info">
+                            <strong>FitPause Team</strong>
+                            <span>noreply@fitpause.de</span>
+                        </div>
                     </div>
-                    <ul class="features-list">
-                        <li>✅ <span data-i18n="free_feature_1">3 Rezepte/Woche</span></li>
-                        <li>✅ <span data-i18n="free_feature_2">Grundfunktionen & Tagesplan</span></li>
-                        <li>❌ <span data-i18n="free_feature_3">Keine Einkaufslisten</span></li>
-                        <li>❌ <span data-i18n="free_feature_4">Begrenzte Rezepte</span></li>
-                    </ul>
-                    <button class="btn btn-secondary" onclick="startOnboarding()" data-i18n="start_free">Kostenlos starten</button>
+                    <div class="email-subject">
+                        <strong>🎉 Ihr personalisierter 7-Tage Ernährungsplan ist bereit!</strong>
+                    </div>
                 </div>
                 
-                <div class="pricing-card featured">
-                    <div class="popular-badge" data-i18n="most_popular">Beliebteste</div>
-                    <h3 data-i18n="plan_pro">Pro</h3>
-                    <div class="price">
-                        <span class="price-amount">9,90€</span>
-                        <span class="price-period" data-i18n="per_month">/Monat</span>
+                <div class="email-body">
+                    <h3>Hallo Max,</h3>
+                    <p>vielen Dank für Ihr Vertrauen in FitPause! Basierend auf Ihren Angaben haben wir Ihren individuellen Ernährungsplan erstellt:</p>
+                    
+                    <div class="plan-summary">
+                        <h4>📊 Ihr Profil:</h4>
+                        <ul>
+                            <li><strong>Ziel:</strong> Gesund abnehmen</li>
+                            <li><strong>Ernährung:</strong> Vegetarisch</li>
+                            <li><strong>Allergien:</strong> Laktose</li>
+                            <li><strong>Personen:</strong> 2</li>
+                            <li><strong>Budget:</strong> 10€/Tag</li>
+                        </ul>
                     </div>
-                    <ul class="features-list">
-                        <li>✅ <span data-i18n="pro_feature_1">7-Tage-Plan + Allergie-Filter</span></li>
-                        <li>✅ <span data-i18n="pro_feature_2">Unbegrenzte Rezepte</span></li>
-                        <li>✅ <span data-i18n="pro_feature_3">Automatische Einkaufslisten</span></li>
-                        <li>✅ <span data-i18n="pro_feature_4">KI-Chat-Assistent</span></li>
-                        <li>✅ <span data-i18n="pro_feature_5">Nährwertangaben</span></li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="upgradeToPro()" data-i18n="upgrade_pro">Pro werden</button>
+                    
+                    <div class="weekly-plan">
+                        <h4>🗓️ Ihre Woche (11. - 17. Oktober):</h4>
+                        <div class="plan-days">
+                            <div class="plan-day">
+                                <strong>Montag</strong>
+                                <span>Quinoa-Bowl mit Avocado</span>
+                                <small>320 kcal • 25 Min</small>
+                            </div>
+                            <div class="plan-day">
+                                <strong>Dienstag</strong>
+                                <span>Linsen-Curry mit Reis</span>
+                                <small>380 kcal • 30 Min</small>
+                            </div>
+                            <div class="plan-day">
+                                <strong>Mittwoch</strong>
+                                <span>Caprese-Salat mit Brot</span>
+                                <small>290 kcal • 15 Min</small>
+                            </div>
+                            <div class="plan-day">
+                                <strong>Donnerstag</strong>
+                                <span>Gemüse-Pasta</span>
+                                <small>350 kcal • 20 Min</small>
+                            </div>
+                            <div class="plan-day">
+                                <strong>Freitag</strong>
+                                <span>Buddha Bowl</span>
+                                <small>310 kcal • 25 Min</small>
+                            </div>
+                            <div class="plan-day">
+                                <strong>Samstag</strong>
+                                <span>Veggie-Burger</span>
+                                <small>420 kcal • 30 Min</small>
+                            </div>
+                            <div class="plan-day">
+                                <strong>Sonntag</strong>
+                                <span>Ratatouille</span>
+                                <small>280 kcal • 45 Min</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shopping-list">
+                        <h4>🛒 Einkaufsliste (für 2 Personen):</h4>
+                        <div class="shopping-categories">
+                            <div class="shopping-category">
+                                <h5>🥬 Gemüse & Obst</h5>
+                                <ul>
+                                    <li>2x Avocado</li>
+                                    <li>500g Quinoa</li>
+                                    <li>400g rote Linsen</li>
+                                    <li>2x Zucchini</li>
+                                    <li>500g Cherrytomaten</li>
+                                    <li>1x Gurke</li>
+                                    <li>2x Paprika (rot)</li>
+                                </ul>
+                            </div>
+                            <div class="shopping-category">
+                                <h5>🧀 Milchprodukte (laktosefrei)</h5>
+                                <ul>
+                                    <li>200g Mozzarella (laktosefrei)</li>
+                                    <li>250g Joghurt (laktosefrei)</li>
+                                </ul>
+                            </div>
+                            <div class="shopping-category">
+                                <h5>🌾 Getreide & Hülsenfrüchte</h5>
+                                <ul>
+                                    <li>500g Vollkorn-Pasta</li>
+                                    <li>400g Basmati-Reis</li>
+                                    <li>4x Burger-Brötchen</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="total-cost">
+                            <strong>💰 Geschätzte Kosten: 18,50€ (9,25€ pro Person)</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="email-cta">
+                        <p><strong>🎯 Nächste Schritte:</strong></p>
+                        <ol>
+                            <li>Laden Sie die Einkaufsliste herunter</li>
+                            <li>Gehen Sie einkaufen</li>
+                            <li>Folgen Sie den detaillierten Rezepten</li>
+                            <li>Geben Sie uns Feedback für nächste Woche</li>
+                        </ol>
+                        
+                        <div class="email-buttons">
+                            <button class="btn btn-primary">📥 Plan herunterladen</button>
+                            <button class="btn btn-secondary">🔄 Plan anpassen</button>
+                        </div>
+                    </div>
+                    
+                    <p>Viel Erfolg mit Ihrem Plan!<br>
+                    Ihr FitPause Team 🍽️</p>
                 </div>
             </div>
             
-            <div class="pricing-footer">
-                <p data-i18n="pricing_note">Abo monatlich kündbar • 14 Tage Geld-zurück-Garantie</p>
-                <div class="faq-links">
-                    <a href="#" data-i18n="faq_test">FAQ: Testphase und Storno</a>
-                    <a href="#" data-i18n="faq_plan">FAQ: Wie funktioniert der Plan?</a>
-                </div>
+            <div class="example-note">
+                <p><strong>💡 Hinweis:</strong> Dies ist ein Beispiel basierend auf einem vegetarischen Profil. Ihr echter Plan wird exakt auf Ihre Eingaben zugeschnitten.</p>
             </div>
         </div>
     </section>
+
 
     <!-- Features Section -->
     <section class="features-section">
