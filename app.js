@@ -1039,3 +1039,122 @@ console.log('📱 Mobile support: Ready');
 console.log('🤖 Chat assistant: Ready');
 console.log('🎯 Onboarding system: Ready');
 console.log('🔧 Admin bypass: Available via ?admin=wizard2025');
+
+// ===== FAQ MODAL FUNCTIONS =====
+function openFAQModal(type) {
+    const modal = document.getElementById('faq-modal') || createFAQModal();
+    const title = document.getElementById('faq-modal-title');
+    const body = document.getElementById('faq-modal-body');
+    
+    if (type === 'testphase') {
+        title.textContent = 'FAQ: Testphase und Storno';
+        body.innerHTML = `
+            <div class="faq-content">
+                <h3>Wie funktioniert die kostenlose Testphase?</h3>
+                <p>Die Basis-Version von FitPause ist dauerhaft kostenlos und bietet Ihnen 3 Rezepte pro Woche plus Grundfunktionen. Sie können jederzeit auf Pro upgraden.</p>
+                
+                <h3>Gibt es eine Geld-zurück-Garantie?</h3>
+                <p>Ja! Wenn Sie mit FitPause Pro nicht zufrieden sind, erhalten Sie in den ersten 14 Tagen Ihr Geld vollständig zurück - ohne Nachfragen.</p>
+                
+                <h3>Wie kann ich das Pro-Abo kündigen?</h3>
+                <p>Sie können Ihr Pro-Abonnement jederzeit über Ihr Benutzerkonto oder per E-Mail an info@fitpause.de kündigen. Die Kündigung wird zum Ende des aktuellen Abrechnungszeitraums wirksam.</p>
+                
+                <h3>Was passiert nach der Kündigung?</h3>
+                <p>Nach der Kündigung bleibt Ihr Account bestehen und Sie können die kostenlosen Features weiterhin nutzen. Alle Ihre gespeicherten Daten und Präferenzen bleiben erhalten.</p>
+                
+                <h3>Fallen versteckte Kosten an?</h3>
+                <p>Nein! Es gibt keine Einrichtungsgebühren, keine versteckten Kosten und keine Kündigungsgebühren. Sie zahlen nur den monatlichen Abo-Preis von 9,90€.</p>
+                
+                <h3>Kann ich zwischen den Plänen wechseln?</h3>
+                <p>Ja, Sie können jederzeit von der kostenlosen Version auf Pro upgraden oder von Pro zur kostenlosen Version downgraden.</p>
+                
+                <div style="background: #e8f5e8; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <h4>💡 Unser Tipp</h4>
+                    <p>Starten Sie mit der kostenlosen Version und testen Sie FitPause ausgiebig. Wenn Sie mehr Features brauchen, können Sie jederzeit upgraden!</p>
+                </div>
+            </div>
+        `;
+    } else if (type === 'plan') {
+        title.textContent = 'FAQ: Wie funktioniert der Plan?';
+        body.innerHTML = `
+            <div class="faq-content">
+                <h3>Wie wird mein Plan erstellt?</h3>
+                <p>Unsere KI analysiert Ihre Angaben aus dem 5-Schritte Onboarding (Ziele, Ernährungsweise, Allergien, etc.) und erstellt daraus einen personalisierten 7-Tage Ernährungsplan.</p>
+                
+                <h3>Was ist in meinem Plan enthalten?</h3>
+                <p>Ihr Plan enthält:</p>
+                <ul>
+                    <li>7 Tage detaillierte Mahlzeitenpläne</li>
+                    <li>Vollständige Rezepte mit Anleitung</li>
+                    <li>Nährwertangaben pro Gericht</li>
+                    <li>Automatische Einkaufsliste (Pro)</li>
+                    <li>Anpassungen bei Allergien/Unverträglichkeiten</li>
+                </ul>
+                
+                <h3>Wie erhalte ich meinen Plan?</h3>
+                <p>Nach dem Onboarding erhalten Sie Ihren Plan per E-Mail als übersichtliche PDF-Datei. Pro-Nutzer haben zusätzlich Zugriff auf die Web-App.</p>
+                
+                <h3>Kann ich den Plan anpassen?</h3>
+                <p>Ja! Pro-Nutzer können Rezepte austauschen, Portionen anpassen und neue Variationen generieren lassen. Kostenlose Nutzer erhalten jeden Montag einen neuen 3-Tage-Plan.</p>
+                
+                <h3>Berücksichtigt der Plan meine Allergien?</h3>
+                <p>Absolut! Unser intelligenter Allergiefilter sorgt dafür, dass nur Rezepte ausgewählt werden, die für Sie sicher sind. Sie können beliebig viele Allergien und Unverträglichkeiten angeben.</p>
+                
+                <h3>Wie oft bekomme ich neue Pläne?</h3>
+                <p>Kostenlose Nutzer erhalten jeden Montag automatisch einen neuen 3-Tage-Plan. Pro-Nutzer können jederzeit neue 7-Tage-Pläne generieren lassen.</p>
+                
+                <h3>Funktioniert es für mehrere Personen?</h3>
+                <p>Ja! Sie können im Onboarding angeben, für wie viele Personen (1-4+) der Plan erstellt werden soll. Die Einkaufsliste und Portionen werden automatisch angepasst.</p>
+                
+                <div style="background: #f0f7ff; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <h4>🎯 Beispiel-Woche</h4>
+                    <p>Ein typischer FitPause Plan könnte enthalten: Quinoa-Bowl (Mo), Linsen-Curry (Di), Buddha Bowl (Mi), Pasta Primavera (Do), Veggie-Burger (Fr), Ratatouille (Sa), Shakshuka (So) - alles angepasst an Ihre Wünsche!</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    modal.classList.remove('hidden');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function createFAQModal() {
+    const modal = document.createElement('div');
+    modal.id = 'faq-modal';
+    modal.className = 'modal hidden';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="faq-modal-title">FAQ</h2>
+                <button class="modal-close" onclick="closeFAQModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="faq-modal-body">
+                <!-- Content wird hier eingefügt -->
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    return modal;
+}
+
+function closeFAQModal() {
+    const modal = document.getElementById('faq-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('faq-modal');
+    if (modal && modal.classList.contains('show') && event.target === modal) {
+        closeFAQModal();
+    }
+});
+
+// Export functions for global access
+window.openFAQModal = openFAQModal;
+window.closeFAQModal = closeFAQModal;
