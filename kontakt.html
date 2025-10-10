@@ -1,53 +1,620 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Kontakt | FitPause</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | FitPause - Wir sind für Sie da</title>
+    <meta name="description" content="Kontaktieren Sie das FitPause Team. Schneller Support, Feedback und Fragen zu Ihrem Ernährungsplan.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="main-nav">
-    <a href="index.html">Start</a>
-    <a href="onboarding.html">Onboarding</a>
-    <a href="funktionen.html">Funktionen</a>
-    <a href="preise.html">Preise</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-  </nav>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🍽️</span>
+                    <span class="logo-text">FitPause</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="/funktionen" class="nav-link">Funktionen</a>
+                <a href="/preise" class="nav-link">Preise</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/kontakt" class="nav-link active">Kontakt</a>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('de')" data-lang="de">
+                    <span class="flag">🇩🇪</span> DE
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">
+                    <span class="flag">🇬🇧</span> EN
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('es')" data-lang="es">
+                    <span class="flag">🇪🇸</span> ES
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('fr')" data-lang="fr">
+                    <span class="flag">🇫🇷</span> FR
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-  <main>
-    <section class="contact-section">
-      <h1>Kontakt</h1>
-      <p>Haben Sie Fragen oder Anregungen? Wir freuen uns auf Ihre Nachricht!</p>
-      
-      <form class="contact-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="message">Nachricht:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        
-        <button type="submit" class="cta-btn">Nachricht senden</button>
-      </form>
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>📞 Kontakt & Support</h1>
+            <p>Haben Sie Fragen oder Anregungen? Wir freuen uns auf Ihre Nachricht und helfen Ihnen gerne weiter!</p>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <section class="trust">
-      <img src="assets/images/germany.svg" alt="Made in Germany" width="28">
-      <img src="assets/images/dsgvo.svg" alt="DSGVO-konform" width="28">
-      <span>★★★★★ 4,9/5 von 231 Bewertungen</span>
+    <!-- Contact Main -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>✉️ Nachricht senden</h2>
+                    <p>Füllen Sie das Formular aus und wir melden uns binnen 24 Stunden bei Ihnen.</p>
+                    
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Ihr Name *</label>
+                                <input type="text" id="contact-name" name="name" required placeholder="Max Mustermann">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">E-Mail-Adresse *</label>
+                                <input type="email" id="contact-email" name="email" required placeholder="max@beispiel.de">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-subject">Betreff</label>
+                            <select id="contact-subject" name="subject">
+                                <option value="">Bitte wählen...</option>
+                                <option value="support">🔧 Technischer Support</option>
+                                <option value="feedback">💬 Feedback & Verbesserungen</option>
+                                <option value="billing">💳 Abrechnung & Bezahlung</option>
+                                <option value="recipe">🍽️ Rezept-Fragen</option>
+                                <option value="partnership">🤝 Kooperationen</option>
+                                <option value="other">❓ Sonstiges</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message">Ihre Nachricht *</label>
+                            <textarea id="contact-message" name="message" required rows="6" placeholder="Beschreiben Sie Ihr Anliegen so detailliert wie möglich..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span class="checkmark"></span>
+                                <span>Ich stimme der <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu *</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter">
+                                <span class="checkmark"></span>
+                                <span>Ich möchte den Newsletter erhalten (optional)</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            📤 Nachricht senden
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info-section">
+                    <h2>📍 Kontaktinformationen</h2>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">📧</div>
+                            <div class="method-content">
+                                <h3>E-Mail</h3>
+                                <p><a href="mailto:info@fitpause.de">info@fitpause.de</a></p>
+                                <small>Antwortzeit: Binnen 24h</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">📞</div>
+                            <div class="method-content">
+                                <h3>Telefon</h3>
+                                <p><a href="tel:+491234567890">+49 123 456 7890</a></p>
+                                <small>Mo-Fr: 9:00 - 18:00 Uhr</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">📍</div>
+                            <div class="method-content">
+                                <h3>Adresse</h3>
+                                <p>LSCDP<br>Musterstraße 123<br>46045 Oberhausen<br>Deutschland</p>
+                                <small>Nur nach Terminvereinbarung</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">💬</div>
+                            <div class="method-content">
+                                <h3>Live-Chat</h3>
+                                <p>KI-Assistent verfügbar</p>
+                                <button class="btn btn-secondary" onclick="toggleChat()">Chat starten</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="support-hours">
+                        <h3>🕐 Support-Zeiten</h3>
+                        <div class="hours-grid">
+                            <div class="hours-item">
+                                <span>Montag - Freitag</span>
+                                <span>9:00 - 18:00 Uhr</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Samstag</span>
+                                <span>10:00 - 16:00 Uhr</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Sonntag</span>
+                                <span>Geschlossen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <nav>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </nav>
-  </footer>
 
-  <script src="app.js"></script>
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <div class="container">
+            <h2 class="section-title">❓ Häufige Fragen</h2>
+            <p class="section-subtitle">Vielleicht finden Sie hier bereits eine Antwort auf Ihre Frage</p>
+            
+            <div class="faq-grid">
+                <div class="faq-category">
+                    <h3>🔧 Technische Fragen</h3>
+                    <div class="faq-items">
+                        <div class="faq-item" onclick="toggleFAQ(this)">
+                            <div class="faq-question">
+                                <span>Warum funktioniert das Onboarding nicht?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Stellen Sie sicher, dass JavaScript aktiviert ist und Sie eine stabile Internetverbindung haben. Löschen Sie den Browser-Cache und versuchen Sie es erneut.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" onclick="toggleFAQ(this)">
+                            <div class="faq-question">
+                                <span>Kann ich FitPause auf dem Handy nutzen?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Ja! FitPause ist vollständig mobile-optimiert und funktioniert perfekt auf allen Smartphones und Tablets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>💳 Abrechnung & Bezahlung</h3>
+                    <div class="faq-items">
+                        <div class="faq-item" onclick="toggleFAQ(this)">
+                            <div class="faq-question">
+                                <span>Wie kann ich kündigen?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sie können jederzeit über Ihr Benutzerkonto oder per E-Mail an info@fitpause.de kündigen. Die Kündigung wird zum Ende des aktuellen Abrechnungszeitraums wirksam.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" onclick="toggleFAQ(this)">
+                            <div class="faq-question">
+                                <span>Welche Zahlungsmethoden gibt es?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Wir akzeptieren Kreditkarten, PayPal, SEPA-Lastschrift und Sofortüberweisung über unseren Partner Digistore24.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>🍽️ Ernährungspläne</h3>
+                    <div class="faq-items">
+                        <div class="faq-item" onclick="toggleFAQ(this)">
+                            <div class="faq-question">
+                                <span>Wie oft bekomme ich neue Rezepte?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Kostenlose Nutzer erhalten 3 neue Rezepte pro Woche. Pro-Nutzer haben Zugriff auf unbegrenzte Rezepte und können jederzeit neue generieren lassen.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" onclick="toggleFAQ(this)">
+                            <div class="faq-question">
+                                <span>Kann ich meine Allergien nachträglich ändern?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Ja, Sie können Ihre Allergien und Präferenzen jederzeit in den Einstellungen anpassen. Neue Pläne berücksichtigen automatisch die Änderungen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🍽️</span>
+                        <span class="logo-text">FitPause</span>
+                    </div>
+                    <p>KI-gestützte Ernährungs- und Meal-Planning-Plattform</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Rechtliches</h4>
+                        <a href="/impressum">Impressum</a>
+                        <a href="/datenschutz">Datenschutz</a>
+                        <a href="/agb">AGB</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitPause. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+    
+    <script>
+    // Contact Form Handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Show loading state
+        const submitBtn = document.querySelector('.btn-submit');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = '📤 Wird gesendet...';
+        submitBtn.disabled = true;
+        
+        // Simulate sending (replace with actual API call)
+        setTimeout(() => {
+            alert('✅ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns binnen 24 Stunden bei Ihnen.');
+            
+            // Reset form
+            this.reset();
+            
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+
+    // FAQ Toggle Function
+    function toggleFAQ(element) {
+        const answer = element.querySelector('.faq-answer');
+        const toggle = element.querySelector('.faq-toggle');
+        const isOpen = answer.style.display === 'block';
+        
+        // Close all other FAQs
+        document.querySelectorAll('.faq-answer').forEach(item => {
+            item.style.display = 'none';
+        });
+        document.querySelectorAll('.faq-toggle').forEach(item => {
+            item.textContent = '+';
+        });
+        
+        // Toggle current FAQ
+        if (!isOpen) {
+            answer.style.display = 'block';
+            toggle.textContent = '−';
+        }
+    }
+    </script>
+    
+    <style>
+    /* Contact page specific styles */
+    .contact-hero {
+        padding: 6rem 0 4rem 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        text-align: center;
+    }
+    
+    .contact-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+    
+    .contact-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .contact-main {
+        padding: 5rem 0;
+        background: white;
+    }
+    
+    .contact-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 4rem;
+    }
+    
+    .contact-form-section h2 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .contact-form-section p {
+        margin-bottom: 2rem;
+        color: var(--text-light);
+    }
+    
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 16px;
+        border: 2px solid var(--bg-light);
+        border-radius: var(--border-radius);
+        font-family: inherit;
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+    }
+    
+    .btn-submit {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .contact-info-section h2 {
+        color: var(--primary);
+        margin-bottom: 2rem;
+    }
+    
+    .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .contact-method {
+        display: flex;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: var(--bg-light);
+        border-radius: var(--border-radius);
+    }
+    
+    .method-icon {
+        font-size: 2rem;
+        width: 50px;
+        text-align: center;
+    }
+    
+    .method-content h3 {
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .method-content a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .method-content a:hover {
+        color: var(--primary);
+    }
+    
+    .method-content small {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    .support-hours {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+    }
+    
+    .support-hours h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .hours-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .hours-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .hours-item:last-child {
+        border-bottom: none;
+    }
+    
+    .contact-faq {
+        padding: 5rem 0;
+        background: var(--bg-light);
+    }
+    
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .faq-category {
+        background: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+    
+    .faq-category h3 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+    }
+    
+    .faq-items {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .faq-item {
+        border: 1px solid var(--bg-light);
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .faq-item:hover {
+        box-shadow: var(--shadow);
+    }
+    
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: var(--bg-light);
+        font-weight: 500;
+    }
+    
+    .faq-toggle {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary);
+    }
+    
+    .faq-answer {
+        padding: 1rem;
+        display: none;
+        background: white;
+        border-top: 1px solid var(--bg-light);
+    }
+    
+    .faq-answer p {
+        margin: 0;
+        color: var(--text-light);
+        line-height: 1.6;
+    }
+    
+    .nav-link.active {
+        color: var(--primary);
+        font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+        .contact-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .contact-layout {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+        
+        .faq-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
 </body>
 </html>
