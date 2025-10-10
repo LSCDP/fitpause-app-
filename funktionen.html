@@ -1,72 +1,521 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Funktionen | FitPause</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funktionen | FitPause - KI-gestützte Ernährungsplanung</title>
+    <meta name="description" content="Entdecken Sie alle Funktionen von FitPause: KI-Ernährungspläne, Allergiefilter, Chat-Assistent und mehr.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="main-nav">
-    <a href="index.html">Start</a>
-    <a href="onboarding.html">Onboarding</a>
-    <a href="funktionen.html">Funktionen</a>
-    <a href="preise.html">Preise</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-  </nav>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🍽️</span>
+                    <span class="logo-text">FitPause</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="/funktionen" class="nav-link active">Funktionen</a>
+                <a href="/preise" class="nav-link">Preise</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/kontakt" class="nav-link">Kontakt</a>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('de')" data-lang="de">
+                    <span class="flag">🇩🇪</span> DE
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">
+                    <span class="flag">🇬🇧</span> EN
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('es')" data-lang="es">
+                    <span class="flag">🇪🇸</span> ES
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('fr')" data-lang="fr">
+                    <span class="flag">🇫🇷</span> FR
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-  <main>
-    <section class="features-section">
-      <h1>Funktionen</h1>
-      <p>Entdecken Sie die intelligenten Funktionen von FitPause – Ihre persönliche Ernährungs-App.</p>
-      
-      <div class="feature-grid">
-        <article class="feature-item">
-          <h2>KI-gestützte Ernährungspläne</h2>
-          <p>Personalisierte Wochenpläne basierend auf Ihren Zielen, Vorlieben und Allergien.</p>
-        </article>
-        
-        <article class="feature-item">
-          <h2>Smarte Rezeptvorschläge</h2>
-          <p>Gesunde und leckere Rezepte, angepasst an Ihre individuellen Bedürfnisse.</p>
-        </article>
-        
-        <article class="feature-item">
-          <h2>Allergiefilter</h2>
-          <p>Automatische Filterung von Rezepten nach Ihren Allergien und Unverträglichkeiten.</p>
-        </article>
-        
-        <article class="feature-item">
-          <h2>Mehrsprachig</h2>
-          <p>Nutzen Sie die App in Ihrer bevorzugten Sprache für optimale Verständlichkeit.</p>
-        </article>
-        
-        <article class="feature-item">
-          <h2>Mobil-optimiert</h2>
-          <p>Perfekt optimiert für Smartphone und Tablet – überall und jederzeit nutzbar.</p>
-        </article>
-        
-        <article class="feature-item">
-          <h2>DSGVO-konform</h2>
-          <p>Höchste Datenschutzstandards nach deutschem und europäischem Recht.</p>
-        </article>
-      </div>
+    <!-- Features Hero -->
+    <section class="features-hero">
+        <div class="container">
+            <h1>⚡ Alle Funktionen im Überblick</h1>
+            <p>Entdecken Sie, wie FitPause Ihre Ernährung mit KI revolutioniert und Ihnen dabei hilft, Ihre Gesundheitsziele zu erreichen.</p>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <section class="trust">
-      <img src="assets/images/germany.svg" alt="Made in Germany" width="28">
-      <img src="assets/images/dsgvo.svg" alt="DSGVO-konform" width="28">
-      <span>★★★★★ 4,9/5 von 231 Bewertungen</span>
+    <!-- Main Features -->
+    <section class="features-main">
+        <div class="container">
+            <div class="features-grid-large">
+                <!-- KI Planning -->
+                <div class="feature-large">
+                    <div class="feature-large-icon">🤖</div>
+                    <div class="feature-large-content">
+                        <h2>KI-gestützte Ernährungspläne</h2>
+                        <p>Unsere fortschrittliche KI analysiert Ihre Ziele, Vorlieben und Einschränkungen, um personalisierte Wochenpläne zu erstellen, die perfekt zu Ihnen passen.</p>
+                        <div class="feature-benefits">
+                            <div class="benefit">✅ Individuelle Anpassung</div>
+                            <div class="benefit">✅ Wissenschaftlich fundiert</div>
+                            <div class="benefit">✅ Kontinuierliche Optimierung</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Recipes -->
+                <div class="feature-large">
+                    <div class="feature-large-icon">🥗</div>
+                    <div class="feature-large-content">
+                        <h2>Smarte Rezeptvorschläge</h2>
+                        <p>Über 10.000 gesunde und leckere Rezepte, automatisch angepasst an Ihre Bedürfnisse. Nie wieder Ideenlosigkeit beim Kochen!</p>
+                        <div class="feature-benefits">
+                            <div class="benefit">✅ 10.000+ Rezepte</div>
+                            <div class="benefit">✅ Automatische Anpassung</div>
+                            <div class="benefit">✅ Neue Rezepte täglich</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Allergy Filter -->
+                <div class="feature-large">
+                    <div class="feature-large-icon">🚫</div>
+                    <div class="feature-large-content">
+                        <h2>Intelligenter Allergiefilter</h2>
+                        <p>Automatische Filterung aller Rezepte nach Ihren Allergien und Unverträglichkeiten. 100% Sicherheit für Ihre Gesundheit.</p>
+                        <div class="feature-benefits">
+                            <div class="benefit">✅ Alle gängigen Allergien</div>
+                            <div class="benefit">✅ Automatische Überprüfung</div>
+                            <div class="benefit">✅ Sichere Alternativen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <nav>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </nav>
-  </footer>
 
-  <script src="app.js"></script>
+    <!-- Pro Features -->
+    <section class="pro-features">
+        <div class="container">
+            <h2 class="section-title">🌟 Pro-Funktionen</h2>
+            <p class="section-subtitle">Erweiterte Features für ambitionierte Nutzer</p>
+            
+            <div class="pro-grid">
+                <div class="pro-feature">
+                    <div class="pro-icon">🛒</div>
+                    <h3>Automatische Einkaufslisten</h3>
+                    <p>Intelligente Einkaufslisten basierend auf Ihrem Wochenplan. Nach Supermarkt-Bereichen sortiert und optimiert für 2-4 Personen.</p>
+                    <div class="pro-badge">Pro</div>
+                </div>
+
+                <div class="pro-feature">
+                    <div class="pro-icon">💬</div>
+                    <h3>KI-Chat-Assistent</h3>
+                    <p>24/7 verfügbarer Chat-Bot für Fragen zu Rezepten, Ernährung und Ihrem Plan. Lernt kontinuierlich dazu.</p>
+                    <div class="pro-badge">Pro</div>
+                </div>
+
+                <div class="pro-feature">
+                    <div class="pro-icon">📊</div>
+                    <h3>Detaillierte Nährwertangaben</h3>
+                    <p>Komplette Nährwertanalyse für jedes Rezept und Ihren gesamten Wochenplan. Kalorien, Makros, Vitamine und mehr.</p>
+                    <div class="pro-badge">Pro</div>
+                </div>
+
+                <div class="pro-feature">
+                    <div class="pro-icon">📱</div>
+                    <h3>Premium-App-Zugang</h3>
+                    <p>Vollzugriff auf unsere mobile App mit Offline-Modus, Einkaufslisten-Sync und erweiterten Funktionen.</p>
+                    <div class="pro-badge">Pro</div>
+                </div>
+
+                <div class="pro-feature">
+                    <div class="pro-icon">📄</div>
+                    <h3>Export-Funktionen</h3>
+                    <p>Exportieren Sie Ihre Pläne als PDF, Excel oder direkte Integration in Kalender-Apps.</p>
+                    <div class="pro-badge">Pro</div>
+                </div>
+
+                <div class="pro-feature">
+                    <div class="pro-icon">⚡</div>
+                    <h3>Prioritäts-Support</h3>
+                    <p>Bevorzugter Kundensupport mit garantierter Antwortzeit von unter 4 Stunden.</p>
+                    <div class="pro-badge">Pro</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Features -->
+    <section class="tech-features">
+        <div class="container">
+            <h2 class="section-title">🔧 Technische Features</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">🌍</div>
+                    <h3>Mehrsprachige Unterstützung</h3>
+                    <p>Verfügbar in Deutsch, Englisch, Spanisch und Französisch. Automatische Spracherkennung basierend auf Ihrem Browser.</p>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">📱</div>
+                    <h3>Mobile Optimierung</h3>
+                    <p>Perfekt optimiert für alle Geräte - Smartphone, Tablet und Desktop. Progressive Web App Technologie.</p>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">🔒</div>
+                    <h3>DSGVO-Konformität</h3>
+                    <p>Höchste Datenschutzstandards nach deutschem und europäischem Recht. Ihre Daten bleiben in Europa.</p>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">⚡</div>
+                    <h3>Blitzschnelle Performance</h3>
+                    <p>Optimierte Ladezeiten unter 2 Sekunden. CDN-basierte Auslieferung für weltweite Verfügbarkeit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Features -->
+    <section class="integration-features">
+        <div class="container">
+            <h2 class="section-title">🔗 Integrationen</h2>
+            <p class="section-subtitle">FitPause verbindet sich nahtlos mit Ihren Lieblings-Apps</p>
+            
+            <div class="integration-grid">
+                <div class="integration-item">
+                    <div class="integration-logo">📅</div>
+                    <h3>Kalender-Sync</h3>
+                    <p>Synchronisieren Sie Ihre Mahlzeiten mit Google Calendar, Outlook oder Apple Kalender.</p>
+                </div>
+
+                <div class="integration-item">
+                    <div class="integration-logo">🏃</div>
+                    <h3>Fitness-Tracker</h3>
+                    <p>Integration mit Fitbit, Apple Health und Google Fit für optimierte Ernährungspläne.</p>
+                </div>
+
+                <div class="integration-item">
+                    <div class="integration-logo">🛒</div>
+                    <h3>Online-Shopping</h3>
+                    <p>Direkte Bestellung bei Rewe, Edeka und anderen Supermärkten (in Entwicklung).</p>
+                </div>
+
+                <div class="integration-item">
+                    <div class="integration-logo">📊</div>
+                    <h3>Ernährungs-Apps</h3>
+                    <p>Export zu MyFitnessPal, Cronometer und anderen Tracking-Apps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="features-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>🚀 Bereit für intelligente Ernährung?</h2>
+                <p>Testen Sie alle Funktionen 14 Tage kostenlos und überzeugen Sie sich selbst!</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-hero" onclick="startOnboarding()">
+                        Kostenlos testen
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.location.href='/preise'">
+                        Preise ansehen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🍽️</span>
+                        <span class="logo-text">FitPause</span>
+                    </div>
+                    <p>KI-gestützte Ernährungs- und Meal-Planning-Plattform</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Rechtliches</h4>
+                        <a href="/impressum">Impressum</a>
+                        <a href="/datenschutz">Datenschutz</a>
+                        <a href="/agb">AGB</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitPause. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+    
+    <style>
+    /* Features page specific styles */
+    .features-hero {
+        padding: 6rem 0 4rem 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        text-align: center;
+    }
+    
+    .features-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+    
+    .features-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .features-main {
+        padding: 5rem 0;
+        background: white;
+    }
+    
+    .features-grid-large {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .feature-large {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        padding: 2rem;
+        background: var(--bg-light);
+        border-radius: 20px;
+        align-items: center;
+    }
+    
+    .feature-large-icon {
+        font-size: 4rem;
+        background: white;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow);
+    }
+    
+    .feature-large-content h2 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .feature-large-content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .feature-benefits {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .benefit {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .pro-features {
+        padding: 5rem 0;
+        background: var(--bg-light);
+    }
+    
+    .pro-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .pro-feature {
+        background: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        position: relative;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+    
+    .pro-feature:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+    
+    .pro-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .pro-feature h3 {
+        color: var(--text);
+        margin-bottom: 1rem;
+    }
+    
+    .pro-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--secondary);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .tech-features {
+        padding: 5rem 0;
+        background: white;
+    }
+    
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .tech-item {
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .tech-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tech-item h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .integration-features {
+        padding: 5rem 0;
+        background: var(--bg-light);
+    }
+    
+    .integration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .integration-item {
+        background: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        box-shadow: var(--shadow);
+    }
+    
+    .integration-logo {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .integration-item h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .features-cta {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, var(--text), var(--primary-dark));
+        color: white;
+        text-align: center;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+    
+    .cta-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    @media (max-width: 768px) {
+        .features-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .feature-large {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        
+        .feature-benefits {
+            justify-content: center;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+        }
+        
+        .cta-content h2 {
+            font-size: 2rem;
+        }
+    }
+    </style>
 </body>
 </html>
